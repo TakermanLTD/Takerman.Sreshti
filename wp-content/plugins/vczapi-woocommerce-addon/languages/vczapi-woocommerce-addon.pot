@@ -1,0 +1,663 @@
+# Copyright (C) 2021 VCZAPI WooCommerce AddOn
+# This file is distributed under the same license as the VCZAPI WooCommerce AddOn package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: VCZAPI WooCommerce AddOn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:"
+"1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2021-11-15 07:12+0000\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: includes/Admin/Settings.php:25
+msgid "24 hours before meeting"
+msgstr ""
+
+#: includes/Admin/Settings.php:26
+msgid "3 hours before meeting"
+msgstr ""
+
+#: includes/Admin/Activator.php:123 includes/Admin/Activator.php:150
+#: includes/Admin/Activator.php:205 includes/Admin/Activator.php:216
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:249
+msgid ""
+"and refresh this product, you can then select from meetings already created "
+"below."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:301
+msgid "April"
+msgstr ""
+
+#: includes/ProductVendors.php:206
+msgid "Assign Host ID"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:305
+msgid "August"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:171
+msgid "Billing Email"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:172
+msgid "Billing First Name"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:173
+msgid "Billing Last Name"
+msgstr ""
+
+#: includes/Cart.php:93
+msgid "Buy Now"
+msgstr ""
+
+#: includes/Cart.php:90
+msgid "Buy Now for"
+msgstr ""
+
+#: includes/Admin/Settings.php:139
+msgid ""
+"Check this box if you want to disable join via browser links in your email "
+"and checkout pages."
+msgstr ""
+
+#: includes/Admin/Settings.php:232
+msgid ""
+"Check this box to disable Meeting Reminder, by default the e-mail will be "
+"sent 24 hours before the meeting"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:241
+msgid "Check this box, to link to product to a Zoom Meeting"
+msgstr ""
+
+#: includes/Orders.php:248
+msgid "Conducted on"
+msgstr ""
+
+#: includes/Admin/Settings.php:325
+msgid "Configure"
+msgstr ""
+
+#: templates/frontend/meeting-list.php:59
+#: templates/frontend/recordings-list.php:8
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:309
+msgid "December"
+msgstr ""
+
+#: templates/shortcode/purchasable-products-list.php:37
+msgid "Details"
+msgstr ""
+
+#: includes/Admin/Settings.php:133
+msgid "Disable Browser Join Links"
+msgstr ""
+
+#: includes/Admin/Settings.php:226
+msgid "Disable Meeting Reminder"
+msgstr ""
+
+#: includes/Admin/Settings.php:111
+msgid "Documentation"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:574
+msgid "Edit Meeting Post"
+msgstr ""
+
+#: includes/ProductVendors.php:224 includes/Admin/Settings.php:117
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:122
+msgid "Enable Purchase ?"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:240
+msgid "Enable Zoom Connection"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:125
+msgid ""
+"Enabling this will create a new WooCommerce product linked with this post "
+"which will be purchasable by customers."
+msgstr ""
+
+#: includes/Admin/ProductType.php:81
+msgid "Enter Meeting Price."
+msgstr ""
+
+#: includes/Updater.php:321
+msgid "Error"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:299
+msgid "February"
+msgstr ""
+
+#: templates/frontend/recordings-list.php:1
+msgid "Fetch New Recordings"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:106
+msgid "File Size"
+msgstr ""
+
+#: includes/Admin/Settings.php:108
+msgid "General"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:330
+msgid "Get Recordings"
+msgstr ""
+
+#: templates/emails/html/meeting-invite-twentyfourhours.php:550
+#: templates/emails/html/meeting-invite-threehours.php:554
+msgid "Hi there,"
+msgstr ""
+
+#: templates/emails/html/host-invite-threehours.php:554
+#: templates/emails/html/host-invite-twentyfourhours.php:554
+msgid "Hi {name}"
+msgstr ""
+
+#: includes/Admin/Settings.php:159
+msgid "Hide Completed Meeting Links"
+msgstr ""
+
+#: includes/Admin/Settings.php:146
+msgid "Hide Purchased Recordings"
+msgstr ""
+
+#: includes/Cart.php:178 templates/shortcode/purchasable-products-list.php:19
+msgid "Host"
+msgstr ""
+
+#: includes/ProductVendors.php:226
+msgid "Host ID"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:248
+msgid "If you haven't created a Zoom Meeting - please do so first here"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:251
+msgid ""
+"If you link a meeting here. Your Zoom Meeting Post will automatically be "
+"enrolled as a Buyable Meeting."
+msgstr ""
+
+#: includes/CronHandlers.php:309
+msgid "Info: %s is going to start in a day."
+msgstr ""
+
+#: includes/CronHandlers.php:317
+msgid "Info: %s is going to start in three hours."
+msgstr ""
+
+#: includes/Admin/Activator.php:137
+msgid "Invalid license."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:298
+msgid "January"
+msgstr ""
+
+#: templates/frontend/meeting-list.php:67
+msgid "Join"
+msgstr ""
+
+#: includes/Orders.php:200 templates/frontend/meeting-list.php:165
+#: templates/frontend/meeting-list.php:171
+msgid "Join via App"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:304
+msgid "July"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:303
+msgid "June"
+msgstr ""
+
+#: includes/Admin/Settings.php:114
+msgid "Licensing"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:223
+msgid "Link to a Zoom Meeting or Sell Recording"
+msgstr ""
+
+#: includes/ProductVendors.php:113
+msgid "Link Zoom Account"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:300
+msgid "March"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:302
+msgid "May"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:227
+msgid "Meeting / Recording"
+msgstr ""
+
+#: includes/Orders.php:185 includes/Admin/WooCommerceZoomConnection.php:145
+#: includes/Admin/WooCommerceZoomConnection.php:262
+msgid "Meeting Details"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:523
+#: templates/frontend/meeting-list.php:148
+#: templates/frontend/meeting-list.php:149
+msgid "Meeting Ended"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:104
+#: templates/frontend/recordings-list.php:9
+#: templates/emails/html/host-invite-threehours.php:557
+#: templates/emails/html/host-invite-twentyfourhours.php:557
+#: templates/emails/html/meeting-invite-twentyfourhours.php:556
+#: templates/emails/html/meeting-invite-threehours.php:557
+msgid "Meeting ID"
+msgstr ""
+
+#: templates/frontend/meeting-list.php:69
+msgid "Meeting Link"
+msgstr ""
+
+#: includes/Admin/Settings.php:237
+msgid "Meeting Reminder Email Schedule"
+msgstr ""
+
+#: templates/shortcode/purchasable-products-list.php:18
+msgid "Meeting Title"
+msgstr ""
+
+#: includes/Orders.php:96
+msgid "Meetings"
+msgstr ""
+
+#: includes/ProductVendors.php:225
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:249
+msgid "New Meeting"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:560
+msgid "Next Occurrence"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:201
+msgid "No bookings for this meeting so far."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:521
+#: templates/frontend/meeting-list.php:145
+#: templates/frontend/meeting-list.php:146
+msgid "No fixed time Meeting"
+msgstr ""
+
+#: includes/ProductVendors.php:123 includes/ProductVendors.php:259
+msgid ""
+"No host ID found. Might be your API connection with Zoom is not correct ? "
+"Correct it from Zoom Meetings > Settings page."
+msgstr ""
+
+#: includes/Orders.php:132
+msgid "No meeting orders received yet."
+msgstr ""
+
+#: templates/shortcode/purchasable-products-box.php:49
+#: templates/shortcode/purchasable-products-list.php:45
+msgid "No upcoming meetings."
+msgstr ""
+
+#: includes/ProductVendors.php:117 includes/ProductVendors.php:253
+msgid "Not a Host"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:126
+msgid ""
+"NOTE: Avoid checking this option if you want to sell this meeting from your "
+"WooCommerce shop page."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:308
+msgid "November"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:307
+msgid "October"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:170 templates/frontend/meeting-list.php:53
+msgid "Order"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:174
+msgid "Order Date"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:78 includes/Admin/ZoomMetaBox.php:88
+msgid "Orders"
+msgstr ""
+
+#: includes/Admin/ProductType.php:85
+msgid ""
+"Please avoid creating any product with this product type because this will "
+"not create any zoom meetings."
+msgstr ""
+
+#: includes/Admin/ProductType.php:77
+msgid "Price"
+msgstr ""
+
+#: includes/Admin/ProductType.php:57
+msgid "Pricing"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:143
+msgid "Product Linked with"
+msgstr ""
+
+#: includes/Orders.php:244
+msgid "Recording Details"
+msgstr ""
+
+#: includes/Orders.php:98
+msgid "Recordings"
+msgstr ""
+
+#: templates/frontend/recordings-list.php:3
+msgid "Recordings for Purchased Meetings"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:560
+msgid "Recurring Meeting"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:135
+msgid "Regular Price"
+msgstr ""
+
+#: includes/Admin/Settings.php:170 includes/Admin/Settings.php:264
+msgid "Save"
+msgstr ""
+
+#: includes/ProductVendors.php:303
+msgid "Saved !"
+msgstr ""
+
+#. Description of the plugin
+msgid "Seamless integration into WooCommerce products if enabled."
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:287
+msgid "Select a Host"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:316
+msgid "Select a year and month"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:306
+msgid "September"
+msgstr ""
+
+#: templates/shortcode/purchasable-products-list.php:20
+msgid "Start Date"
+msgstr ""
+
+#: includes/Orders.php:189 includes/Admin/WooCommerceZoomConnection.php:105
+msgid "Start Time"
+msgstr ""
+
+#: includes/Updater.php:182
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+
+#: includes/Updater.php:180
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: includes/Admin/Activator.php:144
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: includes/ProductVendors.php:125
+msgid ""
+"This host is related to Zoom Account. So, any meetings created by this "
+"vendor will be linked to the assigned host in Zoom."
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:129
+msgid ""
+"This Meeting has been linked with product, to change pricing - please change "
+"product options. You can change time and host from this post though."
+msgstr ""
+
+#: includes/Admin/Settings.php:165
+msgid ""
+"This option hides Meeting Links from my accounts > meetings and orders, one "
+"day after the meeting has completed/was scheduled to be held."
+msgstr ""
+
+#: includes/Admin/Settings.php:152
+msgid ""
+"This option hides recordings list from my-account section in frontend. "
+"Recordings are show when a meeting is purchased and has recordings related "
+"to that meeting."
+msgstr ""
+
+#: includes/Bootstrap.php:57
+msgid ""
+"This Plugin requires Video Conferencing with zoom api plugin to work. Please "
+"install it first to use this."
+msgstr ""
+
+#: includes/Cart.php:96
+msgid "This product is not valid for purchase."
+msgstr ""
+
+#: includes/ProductVendors.php:216
+msgid ""
+"This section allows you to link your \"Zoom\" users to your Vendors. After "
+"you assign a Vendor with Zoom Account. Vendor won't have the option to "
+"select a host when creating a meeting."
+msgstr ""
+
+#: includes/Cart.php:178 includes/Admin/WooCommerceZoomConnection.php:574
+#: includes/Admin/WooCommerceZoomConnection.php:582
+#: templates/emails/html/host-invite-threehours.php:557
+#: templates/emails/html/host-invite-twentyfourhours.php:557
+#: templates/emails/html/meeting-invite-twentyfourhours.php:556
+#: templates/emails/html/meeting-invite-threehours.php:557
+msgid "Time"
+msgstr ""
+
+#: includes/Cart.php:178 includes/Orders.php:194 includes/Orders.php:253
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:560
+#: includes/Admin/WooCommerceZoomConnection.php:574
+#: includes/Admin/WooCommerceZoomConnection.php:582
+#: templates/shortcode/purchasable-products-list.php:21
+#: templates/emails/html/host-invite-threehours.php:557
+#: templates/emails/html/host-invite-twentyfourhours.php:557
+#: templates/emails/html/meeting-invite-twentyfourhours.php:556
+#: templates/emails/html/meeting-invite-threehours.php:557
+msgid "Timezone"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:560
+#: includes/Admin/WooCommerceZoomConnection.php:574
+#: includes/Admin/WooCommerceZoomConnection.php:582
+#: templates/frontend/meeting-list.php:56
+#: templates/frontend/recordings-list.php:7
+msgid "Title"
+msgstr ""
+
+#: includes/Orders.php:187 includes/Orders.php:246
+#: includes/Admin/WooCommerceZoomConnection.php:103
+#: templates/emails/html/host-invite-threehours.php:557
+#: templates/emails/html/host-invite-twentyfourhours.php:557
+#: templates/emails/html/meeting-invite-twentyfourhours.php:556
+#: templates/emails/html/meeting-invite-threehours.php:557
+msgid "Topic"
+msgstr ""
+
+#: templates/frontend/recordings-list.php:10
+msgid "Total Size"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:551
+#: includes/Admin/WooCommerceZoomConnection.php:560
+msgid "Type"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:657
+msgid "Valid zoom meeting required - Meeting time of %s has passed"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:634
+msgid "Valid zoom meeting required!"
+msgstr ""
+
+#: templates/frontend/recordings-list.php:11
+#: templates/shortcode/purchasable-products-list.php:22
+msgid "View"
+msgstr ""
+
+#: templates/frontend/meeting-list.php:179
+msgid "View Meeting Details"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:187
+msgid "View Order"
+msgstr ""
+
+#: includes/Orders.php:268
+msgid "View Recording"
+msgstr ""
+
+#: includes/Admin/Settings.php:274
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Admin/ZoomMetaBox.php:74
+msgid "WooCommerce Integration"
+msgstr ""
+
+#: includes/Updater.php:321
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: includes/Cart.php:118
+msgid "You have already added this meeting in your cart ! %s"
+msgstr ""
+
+#: templates/emails/html/meeting-invite-threehours.php:555
+msgid ""
+"Your booked meeting is going to start in 3 hours ! Please check below for "
+"more details:"
+msgstr ""
+
+#: templates/emails/html/meeting-invite-twentyfourhours.php:552
+msgid ""
+"Your booked meeting is going to start in a day ! Please check below for "
+"more\n"
+"                                                                    details:"
+msgstr ""
+
+#: includes/Admin/Activator.php:141
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: includes/Admin/Activator.php:130
+msgid ""
+"Your license key expired on %s. Please check your email for renew notice "
+"related to your existing license."
+msgstr ""
+
+#: includes/Admin/Activator.php:134
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: includes/Admin/Activator.php:147
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: includes/CronHandlers.php:240
+msgid "Your meeting %s is going to start in a day."
+msgstr ""
+
+#: includes/CronHandlers.php:248
+msgid "Your meeting %s is going to start in three hours."
+msgstr ""
+
+#: templates/emails/html/host-invite-twentyfourhours.php:555
+msgid ""
+"Your meeting is going to start in a day ! Please check below for more "
+"details:"
+msgstr ""
+
+#: templates/emails/html/host-invite-threehours.php:555
+msgid ""
+"Your meeting is going to start in three hours ! Please check below for more "
+"details:"
+msgstr ""
+
+#: includes/Admin/WooCommerceZoomConnection.php:189
+msgid "Zoom Connection"
+msgstr ""
+
+#: includes/ProductVendors.php:110
+msgid "Zoom Details"
+msgstr ""
+
+#. Name of the plugin
+msgid "Zoom Integration for WooCommerce"
+msgstr ""
+
+#: includes/Admin/ProductType.php:33
+msgid "Zoom Meeting"
+msgstr ""
+
+#: includes/Cart.php:142 includes/Admin/WooCommerceZoomConnection.php:609
+#: includes/Admin/WooCommerceZoomConnection.php:683
+msgid "Zoom Meeting product quantity cannot be greater than 1 !"
+msgstr ""
+
+#: includes/ProductVendors.php:192
+msgid "Zoom Vendors"
+msgstr ""

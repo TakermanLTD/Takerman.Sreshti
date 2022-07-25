@@ -1,0 +1,107 @@
+# Translation of Themes - Twenty Twenty-One in Bulgarian
+# This file is distributed under the same license as the Themes - Twenty Twenty-One package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-03-01 12:25:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: bg\n"
+"Project-Id-Version: Themes - Twenty Twenty-One\n"
+
+#: comments.php:85
+msgid "Leave a comment"
+msgstr "Оставете коментар"
+
+#. translators: %s: Author name.
+#: inc/template-tags.php:49 template-parts/post/author-bio.php:19
+msgid "By %s"
+msgstr "От %s"
+
+#: template-parts/content/content-none.php:61
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Страницата не съществува. Опитайте да я намерите с търсачката."
+
+#: searchform.php:26
+msgctxt "submit button"
+msgid "Search"
+msgstr "Търсене"
+
+#: functions.php:263
+msgid "White"
+msgstr "Бяла"
+
+#: functions.php:180
+msgid "Huge"
+msgstr "Огромен"
+
+#: functions.php:168
+msgid "Large"
+msgstr "Голям"
+
+#: functions.php:162
+msgid "Normal"
+msgstr "Нормален"
+
+#: functions.php:156
+msgid "Small"
+msgstr "Малък"
+
+#: comments.php:61 image.php:45 inc/template-tags.php:224
+#: template-parts/content/content-page.php:33
+#: template-parts/content/content-single.php:27
+#: template-parts/content/content.php:33
+msgid "Page"
+msgstr "Страница"
+
+#: functions.php:361
+msgid "Footer"
+msgstr "Долна част на сайта"
+
+#: image.php:83
+msgctxt "Used before full size attachment link."
+msgid "Full size"
+msgstr "Пълен размер"
+
+#: functions.php:363
+msgid "Add widgets here to appear in your footer."
+msgstr "Добавете джаджи тук, за да се появят в долната част на сайта."
+
+#: template-parts/content/content-none.php:56
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Няма резултати, отговарящи на вашето търсене. Опитайте отново с други ключови думи. "
+
+#: header.php:26
+msgid "Skip to content"
+msgstr "Напред към съдържанието"
+
+#: comments.php:78
+msgid "Comments are closed."
+msgstr "Коментарите са изключени."
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Тук няма нищо. Опитайте с търсене?"
+
+#. translators: Used between list items, there is a space after the comma.
+#: functions.php:654
+msgid ", "
+msgstr ", "
+
+#. translators: %s: WordPress.
+#: footer.php:67
+msgid "Proudly powered by %s."
+msgstr "Задвижван от %s."
+
+#. Author of the theme
+#, gp-priority: low
+msgid "the WordPress team"
+msgstr "Екипът на WordPress"
+
+#. Author URI of the theme
+#: footer.php:68
+#, gp-priority: low
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"

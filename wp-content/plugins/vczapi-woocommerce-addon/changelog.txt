@@ -1,0 +1,220 @@
+*** Zoom Integration for WooCommerce Change-logs ***
+
+2022.06.14 - version 2.6.11 - 2.6.13
+* Fixed: Responsive table design for recordings table view.
+* Added: Filter "vczapi_woocommerce_recording_downloadable" to disable downloads for recordings
+
+2022.06.06 - version 2.6.10
+* Added: Responsive script added for purchased recordings view.
+
+2022.05.24 - version 2.6.9
+* Minor Fix: Don't show chat links in order details
+
+2022.04.08 - version 2.6.8
+* Dev Enhancement : Added filter to change recording date display time vczapi_wc_recording_start_time
+
+2022.03.07 - version 2.6.7
+* Dev Fix: fix issue with recurring meetings when meetings need to be skipped if completed.
+
+2022.02.24 - version 2.6.6
+* Added filter "vczapi_woocommerce_neglect_crossed_start_date" to allow purchase of past zoom meetings.
+
+2022.02.04 - version 2.6.5
+* Enhancement: Refactored logic for unliking products
+
+2022.02.04 - version 2.6.4
+* Fixed: PHP 8.0 causes fatal error when SQL query get array instead of string for like
+
+2021.12.20 - version 2.6.3
+* Fixed: Zoom connection details still showin when "Enable Zoom Connection" option is unchecked at the time of product creation.
+
+2021.12.03 - version 2.6.2
+* Fix : Relation or for meta_query generates warning - problematic with sites where error log cannot be suppressed
+
+2021.11.19 - version 2.6.1
+* Fix : Updated order statuses to retrieve recordings
+ 
+2021.11.15 - version 2.6.0
+* Major Feature : Added ability to sell recordings independently of meetings.
+
+2021.09.02 - version 2.5.3
+* Semantics: Update wording for my account meeting list to "View Meeting Details" from "View Post" - for clarirty
+
+2021.08.25 - version 2.5.2
+* Dev: Use core plugin function to generate join via browser
+
+2021.08.18 - version 2.5.1
+ * Feature: Ability to hide completed meetings
+ 
+2021.07.30 - version 2.5.0
+ * Fix: Use default Wordpress from header - unless explicitly specified via filter.
+
+2021.07.21 - version 2.4.9
+* Fix : Retrieve meeting by UUID and not Meeting ID, only retrieving by Meeting UUID gets you correct recordings for that meeting.
+
+2021.07.09 - version 2.4.8
+* Fixed: Remove Zoom Connection tab when Appointable Product is selected.
+
+2021.05.19 - version 2.4.7
+* Added: Hide Zoom Connection tab if selected product type is Appointable Product
+
+2021.05.19 - version 2.4.7
+* Fixed: Removed "sxss" for meeting details section.
+
+2021.04.27 - version 2.4.6
+* Added: $order paramter to vczapi_cron_host_subject_three_hours and vczapi_cron_host_subject_per_day hooks.
+
+2021.03.12 - version 2.4.5
+* Feature: Allow to sell Zoom Product for zero price.
+* Fixed: Join via web browser text made translatable.
+
+2021.03.07 – version 2.4.4
+* Fixed: Undefined start_time error in cart pages.
+
+2021.02.07 – version 2.4.3
+* Fixed: Purchased recordings list error if meeting is deleted.
+
+2021.01.28 – version 2.4.2
+* Fixed: Multiple purchased recordings being fetched for same product
+
+2020.01.04 – version 2.4.1
+* Fixed: My accounts endpoint pages not working.
+
+2020.12.31 - version 2.4.0
+* Added: Show purchased meeting recordings in user accounts page.
+
+2020.12.21 - version 2.3.10
+* Dev Feature: When meeting time is updated (UTC Time) - reset email reminder sent flag '_vczapi_cron_run_order_one_day'
+
+2020.12.21 - version 2.3.9
+* Dev: Only get meetings 2 days in the future for reminder email - also use UTC date.
+
+2020.11.27 - version 2.3.8
+* Added: Filter to change site email address when email is sent from cron. Filter: vczapi_woocommerce_change_sent_email
+
+2020.11.24 - version 2.3.7
+* Fix: Incorrect date tme shown on cart and checkout due to start_time and UTC conversion on cart and checkout
+
+2020.11.23 - versoin 2.3.6
+* Fix: Edge case scenario returning refunded / non-existent orders
+
+2020.11.19 - version 2.3.5
+* Dev: Added vczapi_before_new_zoom_product_saved and vczapi_before_zoom_product_saved hooks to allow for changes
+
+2020.11.17 - version 2.3.4
+* Fix: Date format not correct on Cart and Checkout
+
+2020.11.12 - version 2.3.3
+* Fix: Wrong dates being shown on my account > meetings page
+
+2020.11.05 - version 2.3.2
+* Feature: WPML Compatibility added
+
+2020.11.04 - version 2.3.1
+* Feature: Compatibility with Zoom Booking addon.
+
+2020.08.13 - version 2.3.0
+* Feature: Added compatibility for Video Conferencing with Zoom PRO
+
+2020.08.04 - version 2.2.4
+* Update: Add join via browser link in reminder e-mails
+
+2020.07.31 - version 2.2.3
+* Dev: Add filter `vczapi_woocommerce_join_via_app_text` to allow change of Join via App text for oder details and order email
+
+2020.07.29 - version 2.2.2
+* Feature: Added sorting for meeting lists on my account page
+* Dev: Added filter vczapi_woocommerce_meeting_order_posts_per_page to determine number of meetings to show per page on /my-account/
+
+2020.07.20 - version 2.2.1
+* Update: Correction for purchasasble meetings and category - code was not working.
+
+2020.07.20 - version 2.2.0
+* Update: Better upcoming purchasable meetings and Category pull query update - requires meetings to be saved on the backend once again.
+
+2020.05.25 - version 2.1.9
+* Fix: missing translations update
+
+2020.05.24 - version 2.1.8
+* Feature: Reminder email templates made translateable: note if you have overwritten email templates - please change templates from .html to .php
+
+2020.05.22 - version 2.1.7
+* Added: Compatiblity fix for PRO version requirements.
+
+2020.05.06 - version 2.1.6
+* Fixed: JS issue due to registrants table.
+
+2020.04.27 - version 2.1.5
+* Added: Meeting orders list inside product and meeting post type individual edit page.
+
+2020.04.23 - version 2.1.4
+* Fixed: Dependency update for recurring meetings addon.
+
+2020.04.21 - version 2.1.3
+* Fixed: Removed and corrected Fatal error related to recurring meetings plugin dependency check.
+
+2020.04.20 - version 2.1.2
+* Changed: Minor Bug Fixes
+* Changed: add_query_args fix for join via browser links
+
+2020.04.16 - version 2.1.1
+* Added: Fatal Error fix in backwards compabitiblity updater function being called (unresolved namespace).
+
+2020.04.15 - version 2.1.0
+* Added: Support for WooCommerce Product Vendors
+
+2020.04.14 - version 2.0.14
+* Fixed: Error fix for function call which did not exist in accounts page.
+
+2020.04.07 - version 2.0.13
+* Change: Make meetings listing overwritable, show meeting time instead of order time, add classes.
+
+2020.04.06 - version 2.0.11/version 2.0.12
+* Fix: Update to use correct encrypt_decrypt function
+
+2020.03.31 - version 2.0.10
+* Fix: Wrong time showing in Order details - timezone issue
+
+2020.03.30 - version 2.0.9
+* Feature: Ability to log reminder emails for easier debugging
+* Feature: Updated Shortcodes and make Shortcodes over writable
+
+2020.03.29 - version 2.0.8
+* Fix: Do not show meetings tab on products that do not have meetings assigned.
+* Added: Browser join link in emails as well as my-accounts section
+* Added: Disable join via browser link in general tab
+
+2020.03.26 - version 2.0.7
+* Fix: Make value uniform for enable_woocommerce meeting meta
+
+2020.03.24 - version 2.0.6
+* Fix: Check disable meeting reminder correctly
+* Feature: Added hooks for reminder emails
+
+2020.03.23 - version 2.0.5
+* Feature: Unlink Zoom Meeting with product when product gets deleted
+
+2020.03.21 - version 2.0.4
+* Feature: Added reminder e-mails option - allow notification emails to be sent for meetings
+
+2020.03.20 - version 2.0.3
+* Fixed: Fix product unlink link when product is not zoom meeting
+
+2020.03.20 - version 2.0.2
+* Fixed: Adjust validation for Zoom Meetings only
+* Shortcode: Added to shortcode to see purchasable products
+
+2020.03.19 - version 2.0.1
+*Fixed: Add to cart button for Zoom Meetings type.
+
+2020.03.18 - version 2.0.0
+* Added: Zoom Meetings post type change directly from WooCommerce for flexibility.
+* Added: Variable products will work now with pricing if Zoom Meeting is linked from Product section directly.
+* Fixed: Warning error due to array_push() string on file ProductType.php
+* Fixed: Minor bug fixes
+
+2020.03.16 - version 1.0.1
+* Added: Three hour before meeting emails added.
+
+2020.03.12 - version 1.0.0
+* Initial Release
