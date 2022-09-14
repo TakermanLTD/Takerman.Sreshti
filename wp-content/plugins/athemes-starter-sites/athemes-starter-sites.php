@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       aThemes Starter Sites
  * Description:       Starter Sites for Sydney, Botiga and Airi
- * Version:           1.0.21
+ * Version:           1.0.23
  * Author:            aThemes
  * Author URI:        https://athemes.com
  * License:           GPL-2.0+

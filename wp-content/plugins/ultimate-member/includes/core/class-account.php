@@ -94,20 +94,20 @@ if ( ! class_exists( 'um\core\Account' ) ) {
 			$tabs = array();
 			$tabs[100]['general'] = array(
 				'icon'          => 'um-faicon-user',
-				'title'         => __( 'Акаунт', 'ultimate-member' ),
-				'submit_title'  => __( 'Обнови акаунт', 'ultimate-member' ),
+				'title'         => __( 'Account', 'ultimate-member' ),
+				'submit_title'  => __( 'Update Account', 'ultimate-member' ),
 			);
 
 			$tabs[200]['password'] = array(
 				'icon'          => 'um-faicon-asterisk',
-				'title'         => __( 'Промяна на парола', 'ultimate-member' ),
-				'submit_title'  => __( 'Обнови парола', 'ultimate-member' ),
+				'title'         => __( 'Change Password', 'ultimate-member' ),
+				'submit_title'  => __( 'Update Password', 'ultimate-member' ),
 			);
 
 			$tabs[300]['privacy'] = array(
 				'icon'          => 'um-faicon-lock',
-				'title'         => __( 'Сигурност', 'ultimate-member' ),
-				'submit_title'  => __( 'Обнови сигурност', 'ultimate-member' ),
+				'title'         => __( 'Privacy', 'ultimate-member' ),
+				'submit_title'  => __( 'Update Privacy', 'ultimate-member' ),
 			);
 
 			$tabs[400]['notifications'] = array(
@@ -121,8 +121,8 @@ if ( ! class_exists( 'um\core\Account' ) ) {
 
 				$tabs[99999]['delete'] = array(
 					'icon'          => 'um-faicon-trash-o',
-					'title'         => __( 'Изтриване на акаунт', 'ultimate-member' ),
-					'submit_title'  => __( 'Изтриване на акаунт', 'ultimate-member' ),
+					'title'         => __( 'Delete Account', 'ultimate-member' ),
+					'submit_title'  => __( 'Delete Account', 'ultimate-member' ),
 				);
 
 			}

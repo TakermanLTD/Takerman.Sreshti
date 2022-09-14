@@ -132,13 +132,14 @@ if ( ! class_exists( 'um\core\Form' ) ) {
 			}
 
 			$allowed_callbacks = UM()->options()->get( 'allowed_choice_callbacks' );
+
 			if ( empty( $allowed_callbacks ) ) {
 				$arr_options['status']  = 'error';
 				$arr_options['message'] = __( 'This is not possible for security reasons.', 'ultimate-member' );
 				wp_send_json( $arr_options );
 			}
 
-			$allowed_callbacks = array_map( 'rtrim', explode( "\n", $allowed_callbacks ) );
+			$allowed_callbacks = array_map( 'rtrim', explode( "\n", wp_unslash( $allowed_callbacks ) ) );
 
 			if ( ! in_array( $ajax_source_func, $allowed_callbacks, true ) ) {
 				$arr_options['status']  = 'error';
@@ -670,9 +671,14 @@ if ( ! class_exists( 'um\core\Form' ) ) {
 												$form[ $k ] = esc_url_raw( $form[ $k ] );
 											}
 											break;
+										case 'password':
+											$form[ $k ] = trim( $form[ $k ] );
+											if ( array_key_exists( 'confirm_' . $k, $form ) ) {
+												$form[ 'confirm_' . $k ] = trim( $form[ 'confirm_' . $k ] );
+											}
+											break;
 										case 'text':
 										case 'select':
-										case 'password':
 										case 'image':
 										case 'file':
 										case 'date':

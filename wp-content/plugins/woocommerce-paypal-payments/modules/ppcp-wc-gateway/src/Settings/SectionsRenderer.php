@@ -9,9 +9,8 @@ declare( strict_types=1 );
 
 namespace WooCommerce\PayPalCommerce\WcGateway\Settings;
 
+use WooCommerce\PayPalCommerce\Onboarding\State;
 use WooCommerce\PayPalCommerce\WcGateway\Gateway\CreditCardGateway;
-use WooCommerce\PayPalCommerce\WcGateway\Gateway\PayPalGateway;
-use WooCommerce\PayPalCommerce\WcGateway\Gateway\PayUponInvoice\PayUponInvoiceGateway;
 use WooCommerce\PayPalCommerce\Webhooks\Status\WebhooksStatusPage;
 
 /**
@@ -29,21 +28,30 @@ class SectionsRenderer {
 	protected $page_id;
 
 	/**
-	 * The api shop country.
+	 * Key - page/gateway ID, value - displayed text.
 	 *
-	 * @var string
+	 * @var array<string, string>
 	 */
-	protected $api_shop_country;
+	protected $sections;
+
+	/**
+	 * The onboarding state.
+	 *
+	 * @var State
+	 */
+	private $state;
 
 	/**
 	 * SectionsRenderer constructor.
 	 *
-	 * @param string $page_id ID of the current PPCP gateway settings page, or empty if it is not such page.
-	 * @param string $api_shop_country The api shop country.
+	 * @param string                $page_id ID of the current PPCP gateway settings page, or empty if it is not such page.
+	 * @param array<string, string> $sections Key - page/gateway ID, value - displayed text.
+	 * @param State                 $state The onboarding state.
 	 */
-	public function __construct( string $page_id, string $api_shop_country ) {
-		$this->page_id          = $page_id;
-		$this->api_shop_country = $api_shop_country;
+	public function __construct( string $page_id, array $sections, State $state ) {
+		$this->page_id  = $page_id;
+		$this->sections = $sections;
+		$this->state    = $state;
 	}
 
 	/**
@@ -52,40 +60,34 @@ class SectionsRenderer {
 	 * @return bool
 	 */
 	public function should_render() : bool {
-		return ! empty( $this->page_id );
+		return ! empty( $this->page_id ) &&
+			( $this->state->production_state() === State::STATE_ONBOARDED ||
+			$this->state->sandbox_state() === State::STATE_ONBOARDED );
 	}
 
 	/**
 	 * Renders the Sections tab.
 	 */
-	public function render() {
+	public function render(): string {
 		if ( ! $this->should_render() ) {
-			return;
+			return '';
 		}
 
-		$sections = array(
-			PayPalGateway::ID         => __( 'PayPal Checkout', 'woocommerce-paypal-payments' ),
-			CreditCardGateway::ID     => __( 'PayPal Card Processing', 'woocommerce-paypal-payments' ),
-			PayUponInvoiceGateway::ID => __( 'Pay upon Invoice', 'woocommerce-paypal-payments' ),
-			WebhooksStatusPage::ID    => __( 'Webhooks Status', 'woocommerce-paypal-payments' ),
-		);
+		$html = '<nav class="nav-tab-wrapper woo-nav-tab-wrapper">';
 
-		if ( 'DE' !== $this->api_shop_country ) {
-			unset( $sections[ PayUponInvoiceGateway::ID ] );
-		}
-
-		echo '<ul class="subsubsub">';
-
-		$array_keys = array_keys( $sections );
-
-		foreach ( $sections as $id => $label ) {
-			$url = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&' . self::KEY . '=' . $id );
-			if ( PayUponInvoiceGateway::ID === $id ) {
-				$url = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-pay-upon-invoice-gateway' );
+		foreach ( $this->sections as $id => $label ) {
+			$url = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=' . $id );
+			if ( in_array( $id, array( CreditCardGateway::ID, WebhooksStatusPage::ID ), true ) ) {
+				// We need section=ppcp-gateway for the webhooks page because it is not a gateway,
+				// and for DCC because otherwise it will not render the page if gateway is not available (country/currency).
+				// Other gateways render fields differently, and their pages are not expected to work when gateway is not available.
+				$url = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&' . self::KEY . '=' . $id );
 			}
-			echo '<li><a href="' . esc_url( $url ) . '" class="' . ( $this->page_id === $id ? 'current' : '' ) . '">' . esc_html( $label ) . '</a> ' . ( end( $array_keys ) === $id ? '' : '|' ) . ' </li>';
+			$html .= '<a href="' . esc_url( $url ) . '" class="nav-tab ' . ( $this->page_id === $id ? 'nav-tab-active' : '' ) . '">' . esc_html( $label ) . '</a> ';
 		}
 
-		echo '</ul><br class="clear" />';
+		$html .= '</nav>';
+
+		return $html;
 	}
 }
