@@ -115,6 +115,7 @@ class BP_Better_Messages_Bulk
         $errors = array();
         $form = wp_parse_args($_POST['selector']);
         $sentTo = $form['sent-to'];
+        $current_user_id = get_current_user_id();
 
         $args = array(
             'count_total' => true,
@@ -163,12 +164,12 @@ class BP_Better_Messages_Bulk
 
         // User Loop
         if ( ! empty( $users->get_results() ) ) {
+
             foreach ( $users->get_results() as $user ) {
                 if($form['singleThread'] == '1'){
                     $usersIds[] = $user->ID;
                     continue;
                 }
-
 
                 $args = array(
                     'subject'    => sanitize_text_field( $form[ 'subject' ] ),
@@ -177,13 +178,22 @@ class BP_Better_Messages_Bulk
                     'recipients' => array($user->ID),
                     'append_thread' => false
                 );
-                
+
                 do_action_ref_array( 'bp_better_messages_before_new_thread', array( &$args, &$errors ));
 
                 if( empty( $errors ) ){
                     $thread_id = BP_Better_Messages()->functions->new_message( $args );
                     add_post_meta($report_id, 'thread_ids', $thread_id, false);
-                    if( $hide_thread == '1' ) BP_Messages_Thread::delete( $thread_id );
+                    if( $hide_thread == '1' ) {
+                        global $wpdb;
+
+                        $wpdb->update(bpbm_get_table('recipients'), [
+                            'is_deleted' => 1
+                        ], [
+                            'thread_id' => $thread_id,
+                            'user_id'   => $current_user_id
+                        ]);
+                    }
                 }
             }
 
@@ -201,7 +211,15 @@ class BP_Better_Messages_Bulk
                 if( empty( $errors ) ){
                     $thread_id = BP_Better_Messages()->functions->new_message( $args );
                     add_post_meta($report_id, 'thread_ids', $thread_id, false);
-                    if( $hide_thread == '1' ) BP_Messages_Thread::delete( $thread_id );
+                    if( $hide_thread == '1' ) {
+                        global $wpdb;
+                        $wpdb->update(bpbm_get_table('recipients'), [
+                            'is_deleted' => 1
+                        ], [
+                            'thread_id' => $thread_id,
+                            'user_id'   => $current_user_id
+                        ]);
+                    }
                 }
             }
 

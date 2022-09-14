@@ -177,14 +177,17 @@
 
     ns.shortnameLookup = [];
     ns.altShortNames = [];
+    ns.unicodeMap = {};
     ns.unicodeCharRegexCached = null;
     var tmpShortNames = [], emoji;
+
     for (emoji in ns.emojiList) {
 
         if (ns.emojiList.hasOwnProperty(emoji) || (emoji === '')) {
             tmpShortNames.push(emoji.replace(/[+]/g, "\\$&"));
             var cp = ns.convert(ns.emojiList[emoji].uc_full), i = 0;
             ns.shortnameLookup[cp] = emoji.replace(/[+]/g, "\\$&");
+            ns.unicodeMap[cp] = ns.emojiList[emoji];
 
             for (i = 0; i < ns.emojiList[emoji].shortnames.length; i++) {
                 tmpShortNames.push(ns.emojiList[emoji].shortnames[i].replace(/[+]/g, "\\$&"));
@@ -202,8 +205,8 @@
     };
 
     ns.toImage = function(str) {
-        str = ns.toShort(str);
-        str = ns.shortnameToImage(str).replace(/\/32\/32\//g, '/32/');
+        str = ns.replaceAllToImage(str);
+        //str = ns.shortnameToImage(str).replace(/\/32\/32\//g, '/32/');
         return str;
     };
 
@@ -251,6 +254,7 @@
     ns.shortnameToUnicode = function(str) {
         // replace regular shortnames first
         var unicode,fname;
+        return str;
         str = str.replace(ns.regShortNames, function(shortname) {
             if( (typeof shortname === 'undefined') || (shortname === '') ) {
                 // if the shortname is empty, return the entire match
@@ -293,6 +297,7 @@
     ns.shortnameToImage = function(str) {
         // replace regular shortnames first
         var replaceWith,shortname,unicode,fname,alt,category,title,size,ePath;
+
 
         if( str.indexOf(':') === -1 ) return str;
 
@@ -491,6 +496,28 @@
         return string.replace(/[-[\]{}()*+?.,;:&\\^$#\s]/g, "\\$&");
     };
 
+    ns.replaceAllToImage = function(string) {
+        var find = ns.unicodeCharRegex();
+        var escapedFind = ns.escapeRegExp(find); //sorted largest output to smallest output
+        var search = new RegExp("<object[^>]*>.*?<\/object>|<span[^>]*>.*?<\/span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|("+escapedFind+")", "gi");
+        // callback prevents replacing anything inside of these common html tags as well as between an <object></object> tag
+        var replace = function(entire, m1) {
+            if ((typeof m1 === 'undefined') || (m1 === '')) return entire
+
+            let fname    = ns.unicodeMap[m1].uc_base;
+            let alt      = m1;
+            let ePath    = (ns.defaultPathPNG !== ns.imagePathPNG) ? ns.imagePathPNG : ns.defaultPathPNG + ns.emojiSize + '/';
+
+            let replaceWith = '<img class="emojione" alt="' + alt + '" src="' + ePath + fname + ns.fileExtension + '"/>';
+
+            replaceWith = replaceWith.replace(/\/32\/32\//g, '/32/');
+
+            return replaceWith;
+        };
+
+        return string.replace(search, replace);
+    };
+
     ns.replaceAll = function(string, find) {
         var escapedFind = ns.escapeRegExp(find); //sorted largest output to smallest output
         var search = new RegExp("<object[^>]*>.*?<\/object>|<span[^>]*>.*?<\/span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|("+escapedFind+")", "gi");
@@ -498,6 +525,7 @@
         var replace = function(entire, m1) {
             return ((typeof m1 === 'undefined') || (m1 === '')) ? entire : ns.shortnameLookup[m1];
         };
+
         return string.replace(search, replace);
     };
 

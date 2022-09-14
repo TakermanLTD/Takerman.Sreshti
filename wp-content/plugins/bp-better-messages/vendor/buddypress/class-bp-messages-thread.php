@@ -758,7 +758,7 @@ class BP_Messages_Thread {
         $unread_count = wp_cache_get( $user_id, 'bp_messages_unread_count' );
 
         if ( false === $unread_count ) {
-            $unread_count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT SUM(unread_count) FROM " . bpbm_get_table('recipients') . " WHERE user_id = %d AND is_deleted = 0 AND sender_only = 0", $user_id ) );
+            $unread_count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT SUM(unread_count) FROM " . bpbm_get_table('recipients') . " WHERE user_id = %d AND is_deleted = 0", $user_id ) );
 
             wp_cache_set( $user_id, $unread_count, 'bp_messages_unread_count' );
         }

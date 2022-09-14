@@ -145,9 +145,10 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
                 }
             }
 
-            $attachments = bp_messages_get_meta( $message_id, 'attachments', true );
+            $attachments = apply_filters('better_messages_message_attachments', bp_messages_get_meta( $message_id, 'attachments', true ), $message, $message_id, $context, $user_id);
 
             $desc = false;
+
             if( is_array($attachments) ) {
                 if (count($attachments) > 0) {
                     $desc = "<i class=\"fas fa-file\"></i> " . count($attachments) . " " . __('attachments', 'bp-better-messages');
@@ -173,7 +174,6 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
             global $processedUrls;
 
             if ( !empty( $attachments ) ) {
-
                 $images = array();
                 $videos = array();
                 $audios = array();
@@ -183,6 +183,16 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
 
                 $allowed_image_extenstions = [ 'bmp', 'jpg', 'jpeg', 'png', 'gif' ];
                 foreach ( $attachments as $attachment_id => $url ) {
+                    $thumb = false;
+
+                    if( is_array($url) ) {
+                        $data = $url;
+                        $url = $data['url'];
+                        if( isset( $data['thumb'] ) ){
+                            $thumb = $data['thumb'];
+                        }
+                    }
+
                     $_attachment = get_post( $attachment_id );
                     if ( ! $_attachment ) {
                         $message = str_replace( array( $url . "\n", "\n" . $url, $url ), '', $message );
@@ -190,14 +200,14 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
                     } else if ( strpos( $_attachment->post_mime_type, 'image/' ) === 0 && in_array(str_replace('image/', '', $_attachment->post_mime_type), $allowed_image_extenstions) ) {
                         $images[$attachment_id] = array(
                             'url' => $url,
-                            'thumb' => wp_get_attachment_image_url($attachment_id, array(200, 200))
+                            'thumb' => ( $thumb ) ? $thumb : wp_get_attachment_image_url($attachment_id, array(200, 200))
                         );
 
                         $message = str_replace( array( $url . "\n", "\n" . $url, $url ), '', $message );
-                    } else if (strpos( $_attachment->post_mime_type, 'video/mp4') === 0 || strpos( $_attachment->post_mime_type, 'video/quicktime') === 0 ) {
+                    } else if ( strpos( $_attachment->post_mime_type, 'video/mp4') === 0 || strpos( $_attachment->post_mime_type, 'video/quicktime') === 0 ) {
                         $videos[$attachment_id] = $url;
                         $message = str_replace( array( $url . "\n", "\n" . $url, $url ), '', $message );
-                    }else if (strpos( $_attachment->post_mime_type, 'audio/') === 0 ) {
+                    } else if (strpos( $_attachment->post_mime_type, 'audio/') === 0 ) {
                         $audios[$attachment_id] = $url;
                         $message = str_replace( array( $url . "\n", "\n" . $url, $url ), '', $message );
                     } else {
@@ -223,6 +233,7 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
                     }
                     $message .= '</div>';
                 }
+
 
                 if ( !empty( $images ) ) {
                     $message .= '<div class="images images-'. count($images) .'">';
@@ -405,7 +416,7 @@ if ( !class_exists( 'BP_Better_Messages_Files' ) ):
                         var button   = '<span id="bpbm-upload-btn-<?php echo $thread_id; ?>" title="' + select + '"  class="upload-btn"><i class="fas fa-paperclip" aria-hidden="true"></i><span class="count count-' + count + '">' + count + '</span></span>';
                         <?php } else { ?>
 
-                        var selector = '.bp-messages-wrap.bp-messages-wrap-main[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-messages-wrap-chat[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap#bp-better-messages-mini-mobile-container[data-thread="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-better-messages-mini .chat[data-thread="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-wrap-chat[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-wrap-chat.bp-messages-mobile[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-messages-group-thread[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-group-thread.bp-messages-mobile[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message';
+                        var selector = '.bp-messages-wrap.bp-messages-wrap-main[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-messages-wrap-chat[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap#bp-better-messages-mini-mobile-container[data-thread="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-better-messages-mini .chat[data-thread="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-wrap-chat[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-wrap-chat.bp-messages-mobile[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message,.bp-messages-wrap.bp-messages-group-thread[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message .bp-emojionearea,.bp-messages-wrap.bp-messages-group-thread[data-thread-id="<?php echo $thread_id; ?>"] .reply form .message';
                         var button   = '<span id="bpbm-upload-btn-<?php echo $thread_id; ?>" title="' + select + '"  class="upload-btn"><i class="fas fa-paperclip" aria-hidden="true"></i><span class="count count-' + count + '">' + count + '</span></span>';
 
                         <?php } ?>

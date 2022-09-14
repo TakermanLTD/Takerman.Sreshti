@@ -336,20 +336,22 @@ if ( !class_exists( 'BP_Better_Messages_Peepso' ) ){
                 $user_id = (int) get_current_user_id();
                 $friends = PeepSoFriendsModel::get_instance()->get_friends_ids( $user_id );
 
-                if( ! $friends ) return false;
-                if( count( $friends ) === 0 ) return false;
-                ?><div class="ps-friends">
-                <div class="scroller scrollbar-inner">
-                    <div class="bpbm-search-in-list">
-                        <input title="<?php _e('Search...', 'bp-better-messages'); ?>" type="text" name="bpbm-search" value="" placeholder="<?php _e('Search...', 'bp-better-messages'); ?>">
-                    </div>
-                    <div class="bp-messages-user-list">
-                        <div class="bpbm-loader-icon"><i class="fas fa-spinner fa-spin"></i></div>
-                    </div>
-                </div>
-                <?php echo $chat_footer; ?>
-                </div>
-                <?php
+                if( $friends ) {
+                    if( count( $friends ) > 0 ) {
+                        ?><div class="ps-friends">
+                        <div class="scroller scrollbar-inner">
+                            <div class="bpbm-search-in-list">
+                                <input title="<?php _e('Search...', 'bp-better-messages'); ?>" type="text" name="bpbm-search" value="" placeholder="<?php _e('Search...', 'bp-better-messages'); ?>">
+                            </div>
+                            <div class="bp-messages-user-list">
+                                <div class="bpbm-loader-icon"><i class="fas fa-spinner fa-spin"></i></div>
+                            </div>
+                        </div>
+                        <?php echo $chat_footer; ?>
+                        </div>
+                        <?php
+                    }
+                }
             }
 
             if( BP_Better_Messages()->settings['PSminiGroupsEnable'] === '1' && class_exists('PeepSoGroups') ){

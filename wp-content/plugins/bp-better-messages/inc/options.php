@@ -196,6 +196,8 @@ class BP_Better_Messages_Options
             'UMmobileGroupsEnable'          => '0',
             'privateThreadInvite'           => '0',
             'reactionsEmojies'              => BP_Better_Messages_Reactions::get_default_reactions(),
+
+            'bpForceMiniChat'               => '0'
         );
 
         $args = get_option( 'bp-better-chat-settings', array() );
@@ -749,6 +751,10 @@ class BP_Better_Messages_Options
             $settings['peepsoHeader'] = '0';
         }
 
+        if( ! isset( $settings['bpForceMiniChat'] ) ) {
+            $settings['bpForceMiniChat'] = '0';
+        }
+
         $links_allowed = [ 'restrictBadWordsList', 'restrictCallsMessage', 'restrictNewThreadsMessage', 'restrictNewRepliesMessage', 'restrictViewMessagesMessage', 'rateLimitReplyMessage', 'myCredNewMessageChargeMessage', 'myCredNewThreadChargeMessage' ];
 
         $textareas = [ 'badWordsList' ];
@@ -825,7 +831,9 @@ class BP_Better_Messages_Options
             $this->settings['bpGroupSlug'] = 'bp-messages';
         }
 
-        wp_unschedule_hook('bp_better_messages_send_notifications');
+        try {
+            wp_unschedule_hook('bp_better_messages_send_notifications');
+        } catch ( Exception $exception ){}
 
         update_option( 'bp-better-chat-settings', $this->settings );
         do_action( 'bp_better_chat_settings_updated', $this->settings );

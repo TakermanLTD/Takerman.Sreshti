@@ -211,6 +211,18 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
             jQuery( '#' + hash ).addClass('active');
         }
 
+        $(window).on('hashchange', function() {
+            var hash = location.href.split('#')[1];
+            if(typeof hash != 'undefined'){
+                var selector = jQuery("#bpbm-tabs > a[href='#"+ hash+"']");
+                jQuery('#bpbm-tabs > a').removeClass('nav-tab-active');
+                jQuery('.bpbm-tab').removeClass('active');
+
+                jQuery( selector ).addClass('nav-tab-active');
+                jQuery( '#' + hash ).addClass('active');
+            }
+        });
+
 
         $('input[name="mechanism"]').change(function () {
             var mechanism = $('input[name="mechanism"]:checked').val();
@@ -386,6 +398,7 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                                 ?>
 
                                 <p><?php echo sprintf(__('You can use <code>%s</code> shortcode to place chat in specific place of your selected page, if you not used this shortcode all page content will be replaced.', 'bp-better-messages'), '[bp-better-messages]'); ?></p>
+                                <p><?php echo sprintf(__('If first shortcode does not work (this can happen when using some page builders) - use <code>%s</code> shortcode instead.', 'bp-better-messages'), '[bp_better_messages]'); ?></p>
                             </td>
                         </tr>
                         <tr>
@@ -611,7 +624,8 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                     <?php if( bpbm_fs()->is_premium() && ! BP_Better_Messages()->functions->can_use_premium_code() ){ ?>
                         <div class="bp-better-messages-connection-check bpbm-error">
                             <p><?php _e('This website using WebSocket plugin version, but has no active license attached.', 'bp-better-messages'); ?></p>
-                            <p><?php echo sprintf(__('If you have license and it must be attached to this website, try to press sync button in <a href="%s">your account</a>.', 'bp-better-messages'), admin_url('admin.php?page=bp-better-messages-account')); ?></p>
+                            <p><?php echo sprintf(__('If you have license and it must be attached to this website, try to <a href="%s">activate the license</a>.', 'bp-better-messages'), bpbm_fs()->get_reconnect_url()); ?></p>
+                            <p><?php echo sprintf(_x('If you see error message like "Your license quota of 1 site(s) has been reached", <a href="%s" target="_blank">follow this guide</a> to reset the license', 'Settings page', 'bp-better-messages'), 'https://www.wordplus.org/knowledge-base/how-to-reset-the-license/'); ?></p>
                         </div>
                     <?php } else if( BP_Better_Messages()->functions->can_use_premium_code() ){
                     if( ! class_exists('BP_Better_Messages_Premium') ) {  ?>
@@ -628,7 +642,13 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                             jQuery(document).ready(function($){
                                 var checking = $('.bpbm-checking-sync');
                                 $.post('https://license.bpbettermessages.com/checksyncv4.php', {
-                                    site_id    : '<?php echo bpbm_fs()->get_site()->id; ?>',
+                                    site_id    : '<?php
+                                        $site = bpbm_fs()->get_site();
+                                        if( $site) {
+                                            echo bpbm_fs()->get_site()->id;
+                                        } else {
+                                            echo 'false';
+                                        } ?>',
                                     domain     : '<?php echo BP_Better_Messages_Premium()->site_id; ?>',
                                     secret_key : '<?php echo base64_encode(BP_Better_Messages_Premium()->secret_key); ?>'
                                 }, function(response){
@@ -1265,6 +1285,8 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                         <input name="stopBPNotifications" type="checkbox" <?php checked( $this->settings[ 'stopBPNotifications' ], '1' ); ?> value="1" />
                     </td>
                 </tr>
+
+
                 <tr valign="top" class="">
                     <th scope="row" valign="top">
                         <?php _e( 'Enable Browser Push Notifications', 'bp-better-messages' ); ?>
@@ -1273,10 +1295,24 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                         <p style="font-size: 10px;"><?php _e( 'Supported in all major browsers like: Chrome, Opera, Firefox, IE, Edge and others', 'bp-better-messages' ); ?></p>
                     </th>
                     <td>
-                        <input name="enablePushNotifications" type="checkbox" <?php checked( $this->settings[ 'enablePushNotifications' ], '1' ); ?> value="1" <?php  if( ! BP_Better_Messages()->functions->can_use_premium_code() || ! bpbm_fs()->is_premium() ) echo 'disabled'; ?> />
+                        <?php
+                        $disabled = ! BP_Better_Messages()->functions->can_use_premium_code() || ! bpbm_fs()->is_premium();
+                        if( class_exists('Better_Messages_BuddyBoss') && Better_Messages_BuddyBoss::instance()->bb_pushs_active() ) {
+                            $disabled = true;
+                        }
+                        ?>
+                        <input name="enablePushNotifications" type="checkbox" <?php checked( $this->settings[ 'enablePushNotifications' ], '1' ); ?> value="1" <?php  if( $disabled ) echo 'disabled'; ?> />
+                        <?php
+                        if( class_exists('Better_Messages_BuddyBoss') && Better_Messages_BuddyBoss::instance()->bb_pushs_active() ) {
+                            echo '<p style="color: #0c5460;background-color: #d1ecf1;border: 1px solid #d1ecf1;padding: 15px;line-height: 24px;max-width: 550px;">';
+                            _ex('The BuddyBoss OneSignal integration is active and will be used, this option do not need to be enabled', 'Settings page', 'bp-better-messages');
+                            echo '</p>';
+                        }
+                        ?>
                         <?php BP_Better_Messages()->functions->license_proposal(); ?>
                     </td>
                 </tr>
+
 
                 <tr valign="top" class="">
                     <th scope="row" valign="top">
@@ -2091,6 +2127,7 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                             <input name="PSonlyFriendsMode" type="checkbox" <?php disabled( ! class_exists('PeepSoFriendsPlugin') ); ?>  <?php checked( $this->settings[ 'PSonlyFriendsMode' ] && class_exists('PeepSoFriendsPlugin'), '1' ); ?> value="1" />
                         </td>
                     </tr>
+
                     <tr>
                         <th scope="row">
                             <?php _ex( 'PeepSo Friends', 'Settings page','bp-better-messages' ); ?>
@@ -2750,6 +2787,19 @@ if (isset($roles['administrator'])) unset($roles['administrator']);
                         </th>
                         <td>
                             <input name="friendsMode" type="checkbox" <?php disabled( ! function_exists('friends_check_friendship') ); ?>  <?php checked( $this->settings[ 'friendsMode' ] && function_exists('friends_check_friendship'), '1' ); ?> value="1" />
+                        </td>
+                    </tr>
+
+                    <tr valign="top" class="">
+                        <th scope="row" valign="top">
+                            <?php _ex( 'Advanced Mini Chats', 'Settings page', 'bp-better-messages' ); ?>
+                            <p style="font-size: 10px;"><?php _ex( 'Open mini chat instead of redirecting to standalone messages page, when clicking private messages button in members directory or member profile', 'Settings page', 'bp-better-messages' ); ?></p>
+                            <p style="font-size: 10px;"><?php printf(_x( 'Mini Chats must be enabled. Ensure they are enabled <a href="%s">here</a>', 'Settings page', 'bp-better-messages' ), '#mini-widgets'); ?></p>
+                        </th>
+                        <td>
+                            <input name="bpForceMiniChat" type="checkbox" <?php disabled( ! class_exists( 'BuddyPress' ) ); ?>  <?php checked( $this->settings[ 'bpForceMiniChat' ] && class_exists( 'BuddyPress' ), '1' ); ?> value="1" <?php  if( ! BP_Better_Messages()->functions->can_use_premium_code() || ! bpbm_fs()->is_premium() || ! class_exists( 'BuddyPress' ) ) echo 'disabled'; ?> />
+                            <?php BP_Better_Messages()->functions->license_proposal(); ?>
+
                         </td>
                     </tr>
 

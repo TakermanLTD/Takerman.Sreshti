@@ -5,7 +5,7 @@
     Plugin Name: Better Messages
     Plugin URI: https://www.wordplus.org
     Description: Enhanced Private Messages System for BuddyPress and WordPress
-    Version: 1.9.10.42
+    Version: 1.9.10.66
     Author: WordPlus
     Author URI: https://www.wordplus.org
     License: GPL2
@@ -17,7 +17,7 @@ if ( !class_exists( 'BP_Better_Messages' ) && !function_exists( 'bpbm_fs' ) ) {
     class BP_Better_Messages
     {
         public  $realtime ;
-        public  $version = '1.9.10.42' ;
+        public  $version = '1.9.10.66' ;
         public  $path ;
         public  $url ;
         public  $settings ;
@@ -372,7 +372,7 @@ if ( !class_exists( 'BP_Better_Messages' ) && !function_exists( 'bpbm_fs' ) ) {
                 'calling'                 => __( 'Calling...', 'bp-better-messages' ),
                 'default'                 => __( 'Default', 'bp-better-messages' ),
                 'call_reject'             => __( 'User rejected your call', 'bp-better-messages' ),
-                'call_busy'               => _x( 'User you are trying to call is already in call. Please try later.', 'bp-better-messages' ),
+                'call_busy'               => __( 'User you are trying to call is already in call. Please try later.', 'bp-better-messages' ),
                 'call_offline'            => __( 'User is offline at the moment. Try later.', 'bp-better-messages' ),
                 'cam_not_works'           => __( 'Webcam not available', 'bp-better-messages' ),
                 'mic_not_works'           => __( 'Microphone not available', 'bp-better-messages' ),

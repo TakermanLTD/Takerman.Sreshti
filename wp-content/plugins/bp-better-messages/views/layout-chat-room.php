@@ -16,6 +16,7 @@ $is_in_chat_now   = ! isset( $_GET['thread_id'] );
 $side_threads     = (BP_Better_Messages()->settings['combinedView'] === '1');
 $user_id          = get_current_user_id();
 $subject          = BP_Better_Messages()->functions->get_thread_subject($thread_id);
+$subject          = BP_Better_Messages()->functions->remove_re($subject);
 
 $can_read = true;
 if( $chat_settings['only_joined_can_read'] === '1' ){
@@ -42,6 +43,7 @@ $can_moderate = current_user_can('manage_options');
 if( $can_moderate ){
     $hide_participants = false;
 }
+
 
 ?><div class="bp-messages-wrap <?php if( $is_in_chat_now ) { echo 'bp-messages-wrap-chat'; } else { echo 'bp-messages-wrap-main'; }; ?> <?php BP_Better_Messages()->functions->messages_classes($thread_id, 'chat-room'); ?>" data-thread-id="<?php esc_attr_e($thread_id); ?>" data-chat-id="<?php esc_attr_e($chat_id); ?>">
 

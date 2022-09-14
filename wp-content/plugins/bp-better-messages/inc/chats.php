@@ -139,7 +139,7 @@ class BP_Better_Messages_Chats
         $thread_id = $this->get_chat_thread_id( $chat_id );
 
         $userIsParticipant = (bool) $wpdb->get_var($wpdb->prepare("
-        SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0'
+        SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d
         ", $user_id, $thread_id));
 
         if( $userIsParticipant ) {

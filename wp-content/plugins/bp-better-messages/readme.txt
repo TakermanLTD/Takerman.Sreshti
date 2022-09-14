@@ -154,6 +154,94 @@ You can translate plugin to your language with LocoTranslate or [participate in 
 
 == Changelog ==
 
+= 1.9.10.66 =
+* Other minor bugfixes and improvements
+* Check the demonstration of Better Messages 2.0 Beta here: https://beta.wordplus.org/demo.php
+
+= 1.9.10.65 =
+* Other minor bugfixes and improvements
+
+= 1.9.10.64 =
+* Other bugfixes and improvements
+
+= 1.9.10.63 =
+* Other bugfixes and improvements
+
+= 1.9.10.62 =
+* Fixed PeepSo groups widget does not show if no friends
+
+= 1.9.10.61 =
+* Tuned strings which are untranslatable without BuddyPress
+
+= 1.9.10.60 =
+* Fixed Private Thread was not found properly in some cases
+
+= 1.9.10.59 =
+* CSS Icon for Youzify Group Messages
+* Other minor bugfixes and improvements
+
+= 1.9.10.58 =
+* Other bugfixes and improvements
+
+= 1.9.10.57 =
+* GIFs sent from BuddyBoss messaging now will appear in Better Messages correctly and reverse way
+* Images and Videos sent from BuddyBoss messaging now will appear in Better Messages correctly and reverse way
+* Other bugfixes and improvements
+
+= 1.9.10.56 =
+* Fixed mass messages dont worked in some cases
+* Other bugfixes and improvements
+
+= 1.9.10.55 =
+* Minor bugfixes and improvements
+
+= 1.9.10.54 =
+* Other bugfixes and improvements
+
+= 1.9.10.53 =
+* Fixed mobile message popup was not clickable in some cases
+* Other bugfixes and improvements
+
+= 1.9.10.52 =
+* Minor improvements to make license activation easier in some cases
+* Other bugfixes and improvements
+
+= 1.9.10.51 =
+* Fixed one more MyCred charge applied when not needed
+* Other bugfixes and improvements
+
+= 1.9.10.50 =
+* Fixed MyCred charge applied when not needed
+* Minor CSS improvements to avoid conflicts in some cases
+* Added 2nd shortcode to settings to improve documentation
+
+= 1.9.10.49 =
+* Minor CSS Fixes for RTL websites
+* Other bugfixes and improvements
+
+= 1.9.10.48 =
+* Improved SQL to work correctly when database is inconsistent
+* Minor improvements for non buddypress installs
+* Other bugfixes and improvements
+
+= 1.9.10.47 =
+* Other bugfixes and improvements
+
+= 1.9.10.46 =
+* Added option to open mini chats when clicking in BuddyPress/BuddyBoss profile or members list
+* Fixed possible icons CSS conflict
+* Other bugfixes and improvements
+
+= 1.9.10.44 =
+* Integration with BuddyBoss web-push in WebSocket version
+* Other bugfixes and improvements
+
+= 1.9.10.43 =
+* Minor CSS bugfixes and improvements
+* Fixed potential PHP warnings
+* Frontend performance optimization for some devices
+* Minor optimization frontend scripts
+
 = 1.9.10.42 =
 * Fixed multiline messages to appear in editor correctly when editing the message
 * Autofocus editor on reply or edit the message action

@@ -70,6 +70,7 @@ LIMIT {$offset}, {$per_page}
                 echo ' ' . $message->thread_id . '<br>';
                 _e( 'Participants Count:',  'bp-better-messages' );
                 echo ' ' . $participants['count'] . '<br>';
+
                 $view_link = add_query_arg([
                     'thread_id' => $message->thread_id
                 ], BP_Better_Messages()->functions->get_link() );
