@@ -70,6 +70,7 @@ if ( !class_exists( 'BP_Better_Messages_Giphy' ) ):
                 $args = array(
                     'content'    => $message,
                     'thread_id'  => $thread_id,
+                    'return'     => 'message_id',
                     'error_type' => 'wp_error'
                 );
 
@@ -86,6 +87,8 @@ if ( !class_exists( 'BP_Better_Messages_Giphy' ) ):
                     add_action( 'messages_message_sent', 'messages_notification_new_message', 10 );
                     BP_Better_Messages()->functions->messages_mark_thread_read( $thread_id );
                     add_filter( 'messages_message_content_before_save', 'bp_messages_filter_kses', 1 );
+
+                    bp_messages_update_meta( $sent, '_gif_data', [ 'still' => $poster, 'mp4' => $gif_mp4 ] );
 
                     if ( is_wp_error( $sent ) ) {
                         $errors[] = $sent->get_error_message();
@@ -317,7 +320,7 @@ if ( !class_exists( 'BP_Better_Messages_Giphy' ) ):
         }
 
         public function after_format_message( $message, $message_id, $context, $user_id ){
-            $is_gif = strpos( $message, '<span class="bpbm-gif">', 0 ) === 0 || $message === '%bpbmgif%';
+            $is_gif = strpos( $message, '<span class="bpbm-gif">' ) !== false || $message === '%bpbmgif%';
 
             if( $is_gif ){
                 $desc = '<i class="bpbm-gifs-icon" title="' . __('GIF', 'bp-better-messages') . '"></i>';

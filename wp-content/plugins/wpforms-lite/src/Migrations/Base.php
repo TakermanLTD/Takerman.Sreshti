@@ -42,6 +42,13 @@ abstract class Base {
 	const UPGRADE_CLASSES = [];
 
 	/**
+	 * Custom table handler classes.
+	 *
+	 * @since 1.7.6
+	 */
+	const CUSTOM_TABLE_HANDLER_CLASSES = [];
+
+	/**
 	 * Migration started status.
 	 *
 	 * @since 1.7.5
@@ -81,6 +88,15 @@ abstract class Base {
 	protected $migrated = [];
 
 	/**
+	 * Custom tables.
+	 *
+	 * @since 1.7.6
+	 *
+	 * @var array
+	 */
+	private static $custom_tables;
+
+	/**
 	 * Primary class constructor.
 	 *
 	 * @since 1.7.5
@@ -101,6 +117,7 @@ abstract class Base {
 			return;
 		}
 
+		$this->maybe_create_tables();
 		$this->maybe_convert_migration_option();
 		$this->hooks();
 	}
@@ -316,6 +333,30 @@ abstract class Base {
 	}
 
 	/**
+	 * Maybe create custom plugin tables.
+	 *
+	 * @since 1.7.6
+	 */
+	private function maybe_create_tables() {
+
+		if ( self::$custom_tables === null ) {
+			self::$custom_tables = wpforms()->get_existing_custom_tables();
+		}
+
+		foreach ( static::CUSTOM_TABLE_HANDLER_CLASSES as $custom_table_handler_class ) {
+			if ( ! class_exists( $custom_table_handler_class ) ) {
+				continue;
+			}
+
+			$custom_table_handler = new $custom_table_handler_class();
+
+			if ( ! in_array( $custom_table_handler->table_name, self::$custom_tables, true ) ) {
+				$custom_table_handler->create_table();
+			}
+		}
+	}
+
+	/**
 	 * Maybe convert migration option format.
 	 *
 	 * @since 1.7.5
@@ -331,8 +372,9 @@ abstract class Base {
 		 * zero means completed earlier at unknown time,
 		 * positive means completion timestamp.
 		 */
-		$this->migrated = get_option( static::MIGRATED_OPTION_NAME, [] );
+		$this->migrated = get_option( static::MIGRATED_OPTION_NAME );
 
+		// If option is an array, it means that it is already converted to the new format.
 		if ( is_array( $this->migrated ) ) {
 			return;
 		}
@@ -347,7 +389,6 @@ abstract class Base {
 		 */
 		$this->migrated = get_option(
 			str_replace( 'versions', 'version', static::MIGRATED_OPTION_NAME )
-			[]
 		);
 
 		$version         = $this->migrated === false ? self::INITIAL_FAKE_VERSION : (string) $this->migrated;

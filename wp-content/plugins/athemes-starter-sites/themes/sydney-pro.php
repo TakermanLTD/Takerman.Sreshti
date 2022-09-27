@@ -51,16 +51,16 @@ function sydney_atss_demos_list() {
 				'widgets'    => 'https://athemes.com/themes-demo-content/sydney/main-pro/widgets.wie',
 				'customizer' => 'https://athemes.com/themes-demo-content/sydney/main-pro/customizer-pro.dat',
 			),
-		),			
-		'shop'     => array(
-			'name'       => esc_html__( 'Shop', 'sydney' ),
+		),
+		'fashion'     => array(
+			'name'       => esc_html__( 'Fashion Shop', 'sydney' ),
 			'type'       => 'free',
 			'categories' => array( 'ecommerce' ),
 			'builders'   => array(
 				'elementor',
 			),
-			'preview'    => 'https://demo.athemes.com/sydney-shop/',
-			'thumbnail'  => 'https://athemes.com/themes-demo-content/sydney/shop/thumb.jpg',
+			'preview'    => 'https://demo.athemes.com/sydney-fashion/',
+			'thumbnail'  => 'https://athemes.com/themes-demo-content/sydney/fashion/thumb.jpg',
 			'plugins'    => array_merge(
 				array(
 					array(
@@ -73,9 +73,9 @@ function sydney_atss_demos_list() {
 				$plugins
 			),
 			'import'     => array(
-				'content'    => 'https://athemes.com/themes-demo-content/sydney/shop/content.xml',
-				'widgets'    => 'https://athemes.com/themes-demo-content/sydney/shop/widgets.wie',
-				'customizer' => 'https://athemes.com/themes-demo-content/sydney/shop/customizer-pro.dat',
+				'content'    => 'https://athemes.com/themes-demo-content/sydney/fashion/content.xml',
+				'widgets'    => 'https://athemes.com/themes-demo-content/sydney/fashion/widgets.wie',
+				'customizer' => 'https://athemes.com/themes-demo-content/sydney/fashion/customizer-pro.dat',
 			),
 		),
 		'plumber'     => array(
@@ -281,7 +281,7 @@ function sydney_atss_demos_list() {
 			),
 		),
 		'leads'    => array(
-			'name'       => esc_html__( 'Leads', 'sydney' ),
+			'name'       => esc_html__( 'Lead Generation', 'sydney' ),
 			'type'       => 'free',
 			'categories' => array( 'business' ),
 			'builders'   => array(
@@ -313,7 +313,7 @@ function sydney_atss_demos_list() {
 			),
 		),	
 		'tutor-lms'    => array(
-			'name'       => esc_html__( 'Learning', 'sydney' ),
+			'name'       => esc_html__( 'eLearning', 'sydney' ),
 			'type'       => 'free',
 			'categories' => array( 'business' ),
 			'builders'   => array(

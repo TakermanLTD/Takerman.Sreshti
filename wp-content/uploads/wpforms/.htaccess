@@ -1,8 +1,8 @@
 
 # BEGIN WPForms
-# The directives (lines) between "BEGIN WPForms" and "END WPForms" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
+# Директивите (редовете) между "BEGIN WPForms" и "END WPForms" са
+# динамично генерирани и трябва да се променят само чрез филтрите на WordPress.
+# Всяка промяна на директивите между тези маркери ще бъде заличена.
 # Disable PHP and Python scripts parsing.
 <Files *>
   SetHandler none

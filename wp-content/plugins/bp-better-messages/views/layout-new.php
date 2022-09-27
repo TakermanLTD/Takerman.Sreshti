@@ -20,7 +20,9 @@
             <div class="new-message">
                 <h4 id="bm-new-thread-title"><?php _ex('Start new conversation', 'New threads screen', 'bp-better-messages'); ?></h4>
                 <form>
-                    <?php if( BP_Better_Messages()->settings['disableUsersSearch'] !== '1' && BP_Better_Messages()->settings['enableUsersSuggestions'] === '1' ) {
+                    <?php
+                    if( ! isset($_GET['hideSendTo'] ) ) {
+                    if( BP_Better_Messages()->settings['disableUsersSearch'] !== '1' && BP_Better_Messages()->settings['enableUsersSuggestions'] === '1' ) {
                     $user_ids = apply_filters('better_messages_predefined_suggestions_user_ids', []);
 
                     if( ! is_array( $user_ids ) || count( $user_ids ) === 0 ){
@@ -46,6 +48,8 @@
                             }
                         }
                     }
+
+                    $user_ids = apply_filters( 'better_messages_pre_user_suggestions', $user_ids );
 
                     if( count( $user_ids ) > 0 ){
                     $args = [
@@ -78,6 +82,7 @@
                         <div id="send-to" class="input" tabindex="2"></div>
                         <span class="clearfix"></span>
                     </div>
+                    <?php } ?>
                     <?php if(BP_Better_Messages()->settings['disableSubject'] !== '1') {
                         $subject = '';
                         if ( isset( $_GET[ 'subject' ] ) && ! empty( $_GET[ 'subject' ] ) ) {
@@ -124,7 +129,7 @@
                             if( ! $user ) continue;
                             $img  = BP_Better_Messages()->functions->get_avatar( $user->ID, 40, [ 'html' => false ] );
 
-                            echo '<input type="hidden" name="to" data-label="' . BP_Better_Messages()->functions->get_name($user->ID) . '" data-img="' . $img . '" value="' . $recepient . '">';
+                            echo '<input type="hidden" name="recipients[]" data-label="' . BP_Better_Messages()->functions->get_name($user->ID) . '" data-img="' . $img . '" value="' . $recepient . '">';
                         }
                     } ?>
 

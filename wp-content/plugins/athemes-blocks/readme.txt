@@ -1,7 +1,7 @@
 === aThemes Blocks ===
 Tags: athemes, blocks, gutenberg, sites
 Requires at least: 5.5
-Tested up to: 6.0
+Tested up to: 6.0.1
 Requires PHP: 5.6
 Stable tag: trunk
 Contributors: aThemes
@@ -14,7 +14,7 @@ Extend the Gutenberg Block Editor with additional functionality.
 
 == EXTEND THE BLOCK EDITOR ==
 
-With aThemes Blocks, you can extend the Gutenberg block editor with additional functionality. 
+With aThemes Blocks, you can extend the Gutenberg block editor with additional functionality.
 
 CURRENTLY, ATHEMES BLOCKS INCLUDE A RESPONSIVE CONTAINER BLOCK WITH ADVANCED SETTINGS THAT ALLOWS YOU TO ADD MULTIPLE BLOCKS IN A SINGLE ROW.
 

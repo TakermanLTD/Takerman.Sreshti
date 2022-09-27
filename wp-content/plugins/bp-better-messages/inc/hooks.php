@@ -29,6 +29,8 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             add_filter( 'yz_get_send_private_message_url',  array( $this, 'pm_link' ), 20, 1 );
             add_filter( 'bp_get_send_message_button_args',  array( $this, 'pm_link_args'), 20, 1 );
 
+            add_filter( 'bp_nouveau_get_members_buttons',   array( $this, 'bp_nouveau_get_members_buttons'), 10, 3 );
+
 
             if( BP_Better_Messages()->settings['userListButton'] == '1' ) {
                 add_action('bp_directory_members_actions', array($this, 'pm_link_legacy'), 10);
@@ -130,7 +132,6 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
              */
             add_action('wp_enqueue_scripts', array( $this, 'inbox_counter_javascript' ) );
             add_filter('messages_thread_get_inbox_count', array( $this, 'replace_unread_count' ), 10, 2 );
-            add_filter('bp_messages_thread_current_threads', array( $this, 'buddyboss_notifications_fix' ), 10, 1 );
 
             add_action( 'wp_footer', array( $this, 'mobile_popup_button') );
 
@@ -193,30 +194,6 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
                 add_filter('bp_better_messages_full_chat_username', array( $this, 'verified_member_badge' ), 10, 3 );
                 add_filter('bp_better_messages_mini_chat_username', array( $this, 'verified_member_badge' ), 10, 3 );
                 add_filter('bp_better_messages_thread_displayname', array( $this, 'verified_member_badge' ), 10, 3 );
-            }
-
-            if( defined('BP_PLATFORM_VERSION') ) {
-                add_filter('bp_better_messages_after_format_message', array($this, 'buddyboss_group_messages'), 10, 4);
-                add_filter('heartbeat_received', array($this, 'heartbeat_unread_notifications'), 12);
-
-
-                if (BP_Better_Messages()->settings['replaceBuddyBossHeader'] === '1') {
-                    add_action('wp_ajax_buddyboss_theme_get_header_unread_messages', array($this, 'buddyboss_theme_get_header_unread_messages'), 9);
-                }
-            }
-
-            /**
-             * BuddyBoss moderation
-             */
-            if( function_exists('bp_is_moderation_member_blocking_enable') ){
-                $bb_blocking_enabled = bp_is_moderation_member_blocking_enable();
-                if( $bb_blocking_enabled ){
-                    add_filter( 'bp_better_messages_can_send_message', array($this, 'buddyboss_disable_message_to_blocked'), 10, 3);
-                }
-            }
-
-            if( function_exists('bb_access_control_member_can_send_message') ) {
-                add_filter( 'bp_better_messages_can_send_message', array($this, 'buddyboss_blocked_message'), 10, 3);
             }
 
             if ( class_exists( 'myCRED_BP_Charge_Messaging' ) ){
@@ -301,7 +278,7 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
                 BP_Better_Messages_Reactions::instance();
             }
 
-            #if( BP_Better_Messages()->settings['enablePinnedMessage'] === '1' ) { 
+            #if( BP_Better_Messages()->settings['enablePinnedMessage'] === '1' ) {
                 #require_once BP_Better_Messages()->path . 'addons/pinned-message.php';
                 #BP_Better_Messages_Pinned_Message::instance();
             #}
@@ -318,6 +295,26 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             }
 
             add_action('bp_better_messages_thread_pre_header', array( $this, 'participants_counter' ), 10, 4);
+
+
+            if( defined('BP_PLATFORM_VERSION') ) {
+                require_once BP_Better_Messages()->path . 'addons/buddyboss.php';
+                Better_Messages_BuddyBoss::instance();
+            }
+
+            add_action('template_redirect', array( $this, 'redirect_to_messages') );
+        }
+
+        public function redirect_to_messages(){
+            if( isset($_GET['bm-redirect-to-messages']) && is_user_logged_in() ) {
+                $link = BP_Better_Messages()->functions->get_link();
+                if( isset( $_GET['thread-id'] ) ){
+                    $link = add_query_arg( ['thread_id' => intval( $_GET['thread-id'] ) ], $link );
+                }
+
+                wp_redirect( $link );
+                exit;
+            }
         }
 
         public function participants_counter( $thread_id, $participants, $is_mini, $type = 'thread' ){
@@ -876,7 +873,7 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
                 }
             }
 
-            if( count($participants['recipients']) < 2 ) {
+            if( count($participants['recipients']) >= 2 ) {
                 if( BP_Better_Messages()->settings['allowGroupLeave'] === '1' && ! $is_moderator ) {
                     $buttons['leave_thread'] = '<span title="' . __('Leave thread', 'bp-better-messages') . '" class="bpbm-dropdown-item bpbm-leave-thread bpbm-can-be-hidden"><i class="fas fa-sign-out-alt"></i>' . __('Leave thread', 'bp-better-messages') . '</span>';
                 }
@@ -969,7 +966,7 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
 
             $user_id = get_current_user_id();
 
-            $user_charge_rate = BP_Better_Messages()->functions->get_user_mycred_charge_rate( $user_id );
+            $user_charge_rate = BP_Better_Messages()->functions->get_user_mycred_charge_new_thread_rate( $user_id );
             if( $user_charge_rate === 0 ) return false;
 
             $amount_to_deduct = 0 - $user_charge_rate;
@@ -981,6 +978,8 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             if( ! function_exists('mycred') ) {
                 return false;
             }
+
+            if( trim($message->message) === '<!-- BBPM START THREAD -->' ) return false;
 
             $user_id = (int) $message->sender_id;
 
@@ -1043,170 +1042,6 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             }
 
             return $allowed;
-        }
-
-        public function buddyboss_disable_message_to_blocked( $allowed, $user_id, $thread_id ){
-            if ( ! bp_is_active( 'moderation' ) ) return $allowed;
-            if( ! class_exists( 'BP_Moderation' ) ) return $allowed;
-            if( ! function_exists( 'bp_moderation_is_user_blocked' ) ) return $allowed;
-
-            $participants = BP_Better_Messages()->functions->get_participants($thread_id);
-
-            if( ! isset( $participants['recipients'] ) ) {
-                return $allowed;
-            }
-
-            /**
-             * Not block in group thread
-             */
-            if( count($participants['recipients']) > 1 ){
-                return $allowed;
-            }
-
-            $thread_type = BP_Better_Messages()->functions->get_thread_type( $thread_id );
-            if( $thread_type !== 'thread') return $allowed;
-
-            foreach( $participants['recipients'] as $recipient_user_id ){
-
-                if( bp_moderation_is_user_blocked( $recipient_user_id ) ){
-                    global $bp_better_messages_restrict_send_message;
-                    $bp_better_messages_restrict_send_message['bb_blocked_user'] = __( "You can't message a blocked member.", 'bp-better-messages' );
-                    $allowed = false;
-
-                    continue;
-                }
-
-                $moderation            = new BP_Moderation();
-                $moderation->user_id   = $recipient_user_id;
-                $moderation->item_id   = $user_id;
-                $moderation->item_type = 'user';
-
-                $id = BP_Moderation::check_moderation_exist( $user_id, 'user' );
-
-                if ( ! empty( $id ) ) {
-                    $moderation->id = (int) $id;
-                    $moderation->populate();
-                }
-
-                $is_blocked = ( ! empty( $moderation->id ) && ! empty( $moderation->report_id ) );
-
-                if( $is_blocked ){
-                    global $bp_better_messages_restrict_send_message;
-                    $bp_better_messages_restrict_send_message['bb_blocked_by_user'] = __("You can't message this member.", 'bp-better-messages');
-                    $allowed = false;
-                }
-            }
-
-            return $allowed;
-        }
-
-        public function buddyboss_blocked_message( $allowed, $user_id, $thread_id ){
-            $thread = new BP_Messages_Thread( $thread_id );
-
-            if( ! isset( $thread->recipients ) ) return $allowed;
-            if( ! is_array( $thread->recipients ) ) return $allowed;
-            if( count( $thread->recipients ) === 0 ) return $allowed;
-
-            $check_buddyboss_access = bb_access_control_member_can_send_message( $thread, $thread->recipients, 'wp_error' );
-
-            if( is_wp_error($check_buddyboss_access) ){
-                $allowed = false;
-                global $bp_better_messages_restrict_send_message;
-                $bp_better_messages_restrict_send_message['buddyboss_restricted'] = $check_buddyboss_access->get_error_message();
-            }
-            return $allowed;
-        }
-
-        public function buddyboss_theme_get_header_unread_messages(){
-            $response = array();
-            ob_start();
-
-            echo BP_Better_Messages()->functions->get_threads_html( get_current_user_id() );
-            ?>
-            <script type="text/javascript">
-                var notification_list = jQuery('.site-header .messages-wrap .notification-list');
-                notification_list.removeClass('notification-list').addClass('bm-notification-list');
-
-                notification_list.css({'margin' : 0, 'padding' : 0});
-
-                jQuery(document).trigger("bp-better-messages-init-scrollers");
-            </script>
-            <?php
-            $response['contents'] = ob_get_clean();
-
-            wp_send_json_success( $response );
-        }
-
-        public function buddyboss_group_messages( $message, $message_id, $context, $user_id ){
-            global $wpdb;
-            $group_id         = bp_messages_get_meta( $message_id, 'group_id', true );
-            $message_deleted  = bp_messages_get_meta( $message_id, 'bp_messages_deleted', true );
-
-            if( $group_id ) {
-                if ( function_exists('bp_get_group_name') ) {
-                    $group_name = bp_get_group_name(groups_get_group($group_id));
-                } else {
-                    $bp_prefix = bp_core_get_table_prefix();
-                    $table = $bp_prefix . 'bp_groups';
-                    $group_name = $wpdb->get_var( "SELECT `name` FROM `{$table}` WHERE `id` = '{$group_id}';" );
-                }
-
-                $message_left     = bp_messages_get_meta( $message_id, 'group_message_group_left', true );
-                $message_joined   = bp_messages_get_meta( $message_id, 'group_message_group_joined', true );
-
-                if ($message_left && 'yes' === $message_left) {
-                    $message = '<i>' . sprintf(__('Left "%s"', 'bp-better-messages'), ucwords($group_name)) . '</i>';
-                } else if ($message_joined && 'yes' === $message_joined) {
-                    $message = '<i>' . sprintf(__('Joined "%s"', 'bp-better-messages'), ucwords($group_name)) . '</i>';
-                }
-            }
-
-            if ( $message_deleted && 'yes' === $message_deleted ) {
-                $message =  '<i>' . __( 'This message was deleted.', 'bp-better-messages' ) . '</i>';
-            }
-
-            return $message;
-        }
-
-        public function buddyboss_catch_group_id_meta($val, $object_id, $meta_key, $single, $meta_type){
-            if( wp_doing_ajax() && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'buddyboss_theme_get_header_unread_messages' && $meta_key === 'group_id' ){
-                global $bpbm_buddyboss_catch_group_id_meta;
-                if( ! is_array($bpbm_buddyboss_catch_group_id_meta) ){
-                    $bpbm_buddyboss_catch_group_id_meta = [];
-                }
-
-                if( isset( $bpbm_buddyboss_catch_group_id_meta[ $object_id ] ) ) {
-                    if( $bpbm_buddyboss_catch_group_id_meta[ $object_id ] !== false ) {
-                        return $bpbm_buddyboss_catch_group_id_meta[ $object_id ];
-                    }
-                } else {
-                    global $wpdb, $messages_template;
-                    $table = bpbm_get_table('messages');
-
-                    $thread_id = $wpdb->get_var($wpdb->prepare("SELECT `thread_id` FROM `{$table}` WHERE `id` = %d;", $object_id));
-                    $first_message = $wpdb->get_var($wpdb->prepare("SELECT `id` FROM `{$table}` WHERE `thread_id` = %d ORDER BY `id` ASC LIMIT 0,1 ;", $thread_id));
-
-                    if (isset($messages_template->thread) && is_object($messages_template->thread)) {
-                        $messages_template->thread->thread_id = (int)$thread_id;
-                    }
-
-                    bp_messages_update_meta($first_message, 'first_message', true);
-                    bp_messages_update_meta($first_message, 'group_message_thread_id', $thread_id);
-                    bp_messages_update_meta($first_message, 'message_from', 'group');
-                    bp_messages_update_meta($first_message, 'group_message_users', 'all');
-                    bp_messages_update_meta($first_message, 'group_message_type', 'open');
-
-                    $group_id = BP_Better_Messages()->functions->get_thread_meta($thread_id, 'group_id');
-                    if (!empty($group_id)) {
-                        $bpbm_buddyboss_catch_group_id_meta[$object_id] = $group_id;
-                        return $group_id;
-                    } else {
-                        $bpbm_buddyboss_catch_group_id_meta[$object_id] = false;
-                    }
-                }
-            }
-
-            return $val;
         }
 
         public function verified_member_badge($username, $user_id, $thread_id){
@@ -1529,29 +1364,6 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             echo '<style type="text/css">.bp-messages-threads-wrapper{height:' . $max_height . 'px}</style>';
         }
 
-        public function buddyboss_notifications_fix( $array ){
-            if ( function_exists( 'buddyboss_theme_register_required_plugins' ) || class_exists('BuddyBoss_Theme') ) {
-                if( count( $array['threads'] ) > 0 && isset( $array['total'] ) ) {
-                    $new_threads = [];
-
-                    foreach ($array['threads'] as $i => $thread) {
-                        if ( ! isset($thread->last_message_date) || strtotime($thread->last_message_date) <= 0 ) {
-                            unset($array['threads'][$i]);
-                            $array['total']--;
-                        } else {
-                            $new_threads[] = $thread;
-                        }
-                    }
-
-
-                    $array['threads'] = $new_threads;
-                }
-                if( $array['total'] < 0 ) $array['total'] = 0;
-            }
-
-            return $array;
-        }
-
         public function beehive_theme_integration(){
             if( ! class_exists('Beehive') ) return false;
 
@@ -1672,16 +1484,6 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
 
             echo '<div id="bp-better-messages-mini-mobile-open" class="bp-messages-wrap' . $positionClass . '"><i class="fas fa-comments"></i><span class="count ' . $class . ' bp-better-messages-unread">' . $count . '</span></div>';
             echo '<div id="bp-better-messages-mini-mobile-container" class="bp-messages-wrap ' . $classes . '"></div>';
-        }
-
-        public function heartbeat_unread_notifications( $response = array() ){
-            if( BP_Better_Messages()->settings['mechanism'] === 'websocket') {
-                if (isset($response['total_unread_messages'])) {
-                    unset($response['total_unread_messages']);
-                }
-            }
-
-            return $response;
         }
 
         public function replace_unread_count( $unread_count, $user_id ){
@@ -2385,7 +2187,17 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
             if( ! is_user_logged_in() ) return false;
             $user_id = BP_Better_Messages()->functions->get_member_id();
             if( get_current_user_id() === $user_id ) return false;
-            echo '<div class="generic-button bp-better-messages-private-message-link"><a href="' . $this->pm_link() . '">' . __('Private Message', 'bp-better-messages') . '</a></div>';
+
+            echo '<div class="generic-button bp-better-messages-private-message-link">';
+
+            if( BP_Better_Messages()->settings['bpForceMiniChat'] === '1'
+                && function_exists('bp_displayed_user_id') ) {
+                echo '<a href="' . $this->pm_link() . '" class="bpbm-pm-button open-mini-chat" data-user-id="' .  $user_id . '">' . __('Private Message', 'bp-better-messages') . '</a>';
+            } else {
+                echo '<a href="' . $this->pm_link() . '">' . __('Private Message', 'bp-better-messages') . '</a>';
+            }
+
+            echo '</div>';
         }
 
         public function pm_link( $user_id = false )
@@ -2418,7 +2230,29 @@ if ( !class_exists( 'BP_Better_Messages_Hooks' ) ):
 
             $args['link_href'] = $this->pm_link();
 
+            if( BP_Better_Messages()->settings['bpForceMiniChat'] === '1' && function_exists('bp_displayed_user_id') ) {
+                //print_r( $args );
+                $args['link_class'] .= ' bpbm-pm-button open-mini-chat';
+                $args['button_attr']['data-user-id'] = bp_displayed_user_id();
+            }
+
             return $args;
+        }
+
+        public function bp_nouveau_get_members_buttons( $buttons, $user_id, $type ){
+            if ( ! is_user_logged_in() ) {
+                return $buttons;
+            }
+
+            if( BP_Better_Messages()->settings['bpForceMiniChat'] === '1'
+                && function_exists('bp_displayed_user_id')
+                && isset( $buttons['private_message'] )
+            ) {
+                $buttons['private_message']['button_attr']['data-user-id'] = bp_displayed_user_id();
+                #print_r($buttons['private_message']);
+            }
+
+            return $buttons;
         }
 
         public function thread_link( $thread_link, $thread_id )

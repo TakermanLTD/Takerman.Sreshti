@@ -1291,7 +1291,7 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
                     if (!$user) continue;
 
                     $userIsParticipant = (bool)$wpdb->get_var($wpdb->prepare("
-                    SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0'
+                    SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d
                     ", $user->ID, $thread_id));
 
                     if($userIsParticipant) continue;
@@ -1330,7 +1330,7 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
             if( ! $userCanExclude ) $errors[] = __('You can`t exclude members from this thread', 'bp-better-messages');
 
             $userIsParticipant = (bool) $wpdb->get_var($wpdb->prepare("
-            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0'
+            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d
             ", $user_id, $thread_id));
 
             if( ! $userIsParticipant ) $errors[] = __('Not found member in this thread', 'bp-better-messages');
@@ -1841,7 +1841,10 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
                 $bpbm_new_message_meta = [];
                 add_action( 'messages_message_sent', array( $this, 'save_message_meta' ), 1 );
 
+
+                $redirect = 'refresh';
                 $reply = false;
+
 
                 if(isset($_POST['reply']) && isset($_POST['message_id']) && ! empty($_POST['message_id'])){
                     $reply = intval( $_POST['message_id'] );
@@ -1854,11 +1857,22 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
                 }
 
                 $content = BP_Better_Messages()->functions->filter_message_content($_POST['message']);
+
+                $length = function_exists( 'mb_strlen' ) ?
+                    mb_strlen( $content ) :
+                    strlen( $content );
+
+                $max_length = apply_filters( 'better_messages_max_message_length', 20000 );
+
+                if( $length > $max_length ){
+                    $errors[] = sprintf(__('Your message is too long, maximum length allowed is %s characters', 'bp-better-messages'), $max_length);
+                    $redirect = false;
+                }
+
                 if( !! $reply && ! empty( trim( $content ) ) ){
                     $content = "<!-- BPBM REPLY -->" . $content;
                     $bpbm_new_message_meta['reply_to_message_id'] = $reply;
                 }
-
 
                 if( BP_Better_Messages()->settings['allowEditMessages'] === '1' ) {
                     if (!!$edit) {
@@ -1937,8 +1951,6 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
             if( ! empty($errors) ) {
                 do_action( 'bp_better_messages_on_message_not_sent', $thread_id, $errors );
 
-                $redirect = 'refresh';
-
                 if( count( $errors ) === 1 && ( isset( $errors['empty'] ) || isset( $errors['restrictBadWord'] ) ) ){
                     $redirect = false;
                 }
@@ -1977,6 +1989,16 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
                 $user = wp_get_current_user();
 
                 $content = BP_Better_Messages()->functions->filter_message_content($_POST['message']);
+
+                $length = function_exists( 'mb_strlen' ) ?
+                    mb_strlen( $content ) :
+                    strlen( $content );
+
+                $max_length = apply_filters( 'better_messages_max_message_length', 20000 );
+
+                if( $length > $max_length ){
+                    $errors[] = sprintf(__('Your message is too long, maximum length allowed is %s characters', 'bp-better-messages'), $max_length);
+                }
 
                 $args = array(
                     'subject'       => (isset ($_POST[ 'subject' ]) ) ? sanitize_text_field( $_POST[ 'subject' ] ) : '',
@@ -2080,15 +2102,20 @@ if ( !class_exists( 'BP_Better_Messages_Ajax' ) ):
             }
 
             add_filter( 'bp_members_suggestions_query_args', array( $this, 'remove_current_user' ), 10, 2 );
+
             $suggestions = bp_core_get_suggestions( array(
                 'limit'        => $limit,
                 'only_friends' => $only_friends,
                 'term'         => $term,
                 'type'         => 'members',
             ) );
+
             remove_filter( 'bp_members_suggestions_query_args', array( $this, 'remove_current_user' ), 10 );
 
-            if ( $suggestions && !is_wp_error( $suggestions ) ) {
+            if ( $suggestions && ! is_wp_error( $suggestions ) ) {
+
+                $suggestions = apply_filters( 'better_messages_members_suggestions_query_args', $suggestions );
+
                 $response = array();
 
                 foreach ( $suggestions as $index => $suggestion ) {

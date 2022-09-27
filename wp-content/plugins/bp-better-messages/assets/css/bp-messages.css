@@ -4373,21 +4373,17 @@ img.bpbmmfp-img {
     padding-left: 0;
     padding-right: 0;
   }
-
   .bpbmmfp-img-mobile img.bpbmmfp-img {
     padding: 0;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-figure:after {
     top: 0;
     bottom: 0;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-figure small {
     display: inline;
     margin-left: 5px;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-bottom-bar {
     background: rgba(0, 0, 0, 0.6);
     bottom: 0;
@@ -4397,16 +4393,13 @@ img.bpbmmfp-img {
     position: fixed;
     box-sizing: border-box;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-bottom-bar:empty {
     padding: 0;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-counter {
     right: 5px;
     top: 3px;
   }
-
   .bpbmmfp-img-mobile .bpbmmfp-close {
     top: 0;
     right: 0;
@@ -4424,17 +4417,14 @@ img.bpbmmfp-img {
     -webkit-transform: scale(0.75);
     transform: scale(0.75);
   }
-
   .bpbmmfp-arrow-left {
     -webkit-transform-origin: 0;
     transform-origin: 0;
   }
-
   .bpbmmfp-arrow-right {
     -webkit-transform-origin: 100%;
     transform-origin: 100%;
   }
-
   .bpbmmfp-container {
     padding-left: 6px;
     padding-right: 6px;
@@ -7917,6 +7907,12 @@ button.uppy-StatusBar-statusIndicator {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
+}
+.bp-messages-wrap i.fas {
+  font-weight: bold;
+}
+.bp-messages-wrap i.far {
+  font-weight: 400;
 }
 .bp-messages-wrap .fa-1x {
   font-size: 1em;
@@ -15795,7 +15791,7 @@ button.uppy-StatusBar-statusIndicator {
 .bp-messages-wrap {
   padding: 0;
   border-radius: 3px;
-  border: 1px solid #d7d8db9e;
+  border: 1px solid rgba(215, 216, 219, 0.6196078431);
   position: relative;
   background: var(--main-bm-bg-color);
   clear: both;
@@ -16438,6 +16434,7 @@ button.uppy-StatusBar-statusIndicator {
   padding: 0;
   border: 0;
   margin: 6px 0 15px 0 !important;
+  overflow: initial;
 }
 
 .bp-messages-wrap .list .messages-stack .content .messages-list > li {
@@ -16710,10 +16707,10 @@ button.uppy-StatusBar-statusIndicator {
 }
 
 .bp-messages-wrap .list .messages-stack .content .messages-list > li .files .file:hover {
-  -moz-box-shadow: 0 0 4px gainsboro;
-  -webkit-box-shadow: 0 0 4px gainsboro;
-  box-shadow: 0 0 4px gainsboro;
-  border-color: gainsboro;
+  -moz-box-shadow: 0 0 4px rgb(220, 220, 220);
+  -webkit-box-shadow: 0 0 4px rgb(220, 220, 220);
+  box-shadow: 0 0 4px rgb(220, 220, 220);
+  border-color: rgb(220, 220, 220);
 }
 
 .bp-messages-wrap .list .messages-stack .content .messages-list > li .images img {
@@ -17092,8 +17089,7 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
 }
 
 .bp-messages-wrap .clearfix {
-  zoom: 1;
-  /* For IE 6/7 (trigger hasLayout) */
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 
 .bp-messages-wrap .threads-list {
@@ -17245,12 +17241,9 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -ms-word-break: break-all;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
-  word-break: break-all;
-  /* Instead use this non-standard one: */
-  word-break: break-word;
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-word-break: break-all; /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all; /* Instead use this non-standard one: */
+  word-break: break-word; /* Adds a hyphen where the word breaks, if supported (No Blink) */
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
@@ -17541,10 +17534,10 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   font-size: 10px;
   box-sizing: border-box;
   width: 100%;
-  background: white;
-  background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fafbfc 100%);
-  background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fafbfc 100%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fafbfc 100%);
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(250, 251, 252) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(250, 251, 252) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(250, 251, 252) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#fafbfc",GradientType=1);
   z-index: 4;
 }
@@ -17884,10 +17877,10 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
 }
 
 .bp-messages-wrap .content .messages-list > li .url-wrap:hover {
-  -moz-box-shadow: 0 0 4px gainsboro;
-  -webkit-box-shadow: 0 0 4px gainsboro;
-  box-shadow: 0 0 4px gainsboro;
-  border-color: gainsboro;
+  -moz-box-shadow: 0 0 4px rgb(220, 220, 220);
+  -webkit-box-shadow: 0 0 4px rgb(220, 220, 220);
+  box-shadow: 0 0 4px rgb(220, 220, 220);
+  border-color: rgb(220, 220, 220);
 }
 
 .bp-messages-wrap .content .messages-list > li .url-wrap .url-image {
@@ -18004,8 +17997,7 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
 .bp-messages-wrap .jFiler-items-grid .jFiler-item {
   display: inline-block;
   margin-left: 0;
-  float: none;
-  /* width: 32%; */
+  float: none; /* width: 32%; */
   margin-right: 7px;
 }
 
@@ -18266,6 +18258,8 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   vertical-align: middle;
   float: none;
   min-height: 0;
+  width: auto;
+  height: auto;
   min-width: 0;
   line-height: 14px;
   right: 0;
@@ -18275,6 +18269,7 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   color: var(--main-bm-color);
   opacity: 1;
   display: inline-block;
+  background: none;
 }
 
 .bp-better-messages-mini .chats .chat .head .controls > div {
@@ -18304,7 +18299,7 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
 }
 
 .bp-better-messages-mini .chats .chat .head .controls span.close {
-  margin-left: 5px;
+  margin-left: 5px !important;
 }
 
 .bp-better-messages-mini .chats .chat .head .controls .video-call i {
@@ -18436,7 +18431,6 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
 .bp-better-messages-list {
     display: none;
   }
-
   #bp-better-messages-mini-mobile-open {
     display: block;
     position: fixed;
@@ -18548,9 +18542,9 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #f1f1f1;
+  border: 1px solid rgb(241, 241, 241);
   border-radius: 0;
-  box-shadow: 0px 1px 1px 0px #00000033;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 .bp-messages-wrap .expandingButtons.expandingButtonsOpen .bpbm-dropdown-menu {
@@ -18729,6 +18723,9 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   box-sizing: content-box !important;
   /* box-shadow: 0 0 3px 1px #d7d8db; */
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: nowrap;
 }
 
 .bp-better-messages-list .tabs > div {
@@ -19298,7 +19295,7 @@ body.bp-messages-mobile .bm-medium-editor-mention-panel {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffffff9e;
+  background: rgba(255, 255, 255, 0.6196078431);
   box-sizing: border-box;
   color: #216f95;
   z-index: 10;
@@ -19569,7 +19566,7 @@ body.bp-messages-mobile #yz-profile-navmenu {
   cursor: pointer;
 }
 .bp-messages-wrap .bp-messages-video-container .bp-messages-small-video-2 .bm-switch-videos > i {
-  background: #0000006b;
+  background: rgba(0, 0, 0, 0.4196078431);
   display: inline-block;
   padding: 4px;
   border-radius: 100%;
@@ -19886,7 +19883,7 @@ body.bp-messages-mobile #yz-profile-navmenu {
   display: inline-block;
   margin-bottom: 5px;
   color: white;
-  background: #00000075;
+  background: rgba(0, 0, 0, 0.4588235294);
   padding: 3px 8px;
   font-size: 12px;
   border-radius: 15px;
@@ -20291,8 +20288,8 @@ html[dir=rtl] .bp-messages-wrap .reply .message.file-uploader-enabled .bp-emojio
   /* padding: 6px 12px 6px 50px; */
 }
 
-html[dir=rtl] .bp-messages-wrap .message .upload-btn,
-html[dir=rtl] .bp-messages-wrap .new-message .bp-emojionearea .upload-btn {
+html[dir=rtl] .bp-messages-wrap:not(.bp-messages-mobile) .message .upload-btn,
+html[dir=rtl] .bp-messages-wrap:not(.bp-messages-mobile) .new-message .bp-emojionearea .upload-btn {
   right: auto;
   left: 28px;
 }
@@ -20303,8 +20300,8 @@ html[dir=rtl] .bp-messages-wrap .bp-emojionearea .bp-emojionearea-button {
 }
 
 html[dir=rtl] .bp-messages-wrap .threads-list .thread .time .delete {
-  left: 15px;
-  right: auto;
+  left: 15px !important;
+  right: auto !important;
 }
 
 html[dir=rtl] .bp-messages-wrap .list .messages-stack .pic {
@@ -20313,7 +20310,7 @@ html[dir=rtl] .bp-messages-wrap .list .messages-stack .pic {
 }
 
 html[dir=rtl] .bp-messages-wrap .list .messages-stack .content .messages-list > li {
-  padding: 3px 0 3px 50px;
+  padding: 3px 0 3px 50px !important;
 }
 
 html[dir=rtl] .bp-messages-wrap .list .messages-stack .content .messages-list > li .favorite {
@@ -20719,13 +20716,11 @@ html.bpbm-os-html > .bpbm-os-host {
   min-width: 100% !important;
   min-height: 100% !important;
   margin: 0 !important;
-  position: absolute !important;
-  /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
+  position: absolute !important; /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
 }
 
 html.bpbm-os-html > .bpbm-os-host > .bpbm-os-padding {
-  position: absolute;
-  /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
+  position: absolute; /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
 }
 
 body.bpbm-os-dragging,
@@ -21120,10 +21115,8 @@ CUSTOM SCROLLBARS AND CORNER CORE:
 }
 
 html.bpbm-os-html > .bpbm-os-host > .bpbm-os-scrollbar {
-  position: absolute;
-  /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
-  z-index: 999999;
-  /* highest z-index of the page */
+  position: absolute; /* could be position: fixed; but it causes issues on iOS (-webkit-overflow-scrolling: touch) */
+  z-index: 999999; /* highest z-index of the page */
 }
 
 .bpbm-os-scrollbar,
@@ -21493,7 +21486,7 @@ THEMES:
 
 .bpbm-stickers-selector .bpbm-stickers-head .bpbm-stickers-tabs span:hover,
 .bpbm-stickers-selector .bpbm-stickers-head .bpbm-stickers-tabs span.bpbm-stickers-tabs-active {
-  background: #0000000a;
+  background: rgba(0, 0, 0, 0.0392156863);
 }
 
 .bpbm-stickers-selector .bpbm-stickers-head .bpbm-stickers-tabs span img {
@@ -21553,7 +21546,7 @@ THEMES:
 }
 
 .bpbm-stickers-selector .bpbm-stickers-selector-sticker-list .bpbm-stickers-selector-sticker:hover {
-  background: #0000000a;
+  background: rgba(0, 0, 0, 0.0392156863);
 }
 
 .bpbm-stickers-selector .bpbm-stickers-selector-sticker-list .bpbm-stickers-selector-sticker img {
@@ -21692,7 +21685,7 @@ THEMES:
 
 .bpbm-gifs-selector .bpbm-gifs-head .bpbm-gifs-tabs span:hover,
 .bpbm-gifs-selector .bpbm-gifs-head .bpbm-gifs-tabs span.bpbm-gifs-tabs-active {
-  background: #0000000a;
+  background: rgba(0, 0, 0, 0.0392156863);
 }
 
 .bpbm-gifs-selector .bpbm-gifs-head .bpbm-gifs-tabs span img {
@@ -21749,16 +21742,13 @@ THEMES:
 }
 
 .bpbm-gifs-selector .bpbm-gifs-selector-gif-list .bpbm-gifs-selector-gif {
-  margin: 0 5px 10px;
-  /* height: 70px; */
-  /* width: 70px; */
+  margin: 0 5px 10px; /* height: 70px; */ /* width: 70px; */
   cursor: pointer;
-  border-radius: 3px;
-  /* vertical-align: top; */
+  border-radius: 3px; /* vertical-align: top; */
 }
 
 .bpbm-gifs-selector .bpbm-gifs-selector-gif-list .bpbm-gifs-selector-gif:hover {
-  background: #0000000a;
+  background: rgba(0, 0, 0, 0.0392156863);
 }
 
 .bpbm-gifs-selector .bpbm-gifs-selector-gif-list .bpbm-gifs-selector-gif img {
@@ -21877,7 +21867,7 @@ THEMES:
 
 .bpbm-video-popup {
   position: fixed;
-  background: #00000057;
+  background: rgba(0, 0, 0, 0.3411764706);
   top: 0;
   left: 0;
   bottom: 0;
@@ -21898,8 +21888,8 @@ THEMES:
   bottom: 0;
   right: 0;
   margin: auto;
-  border: 1px solid #eaeaea91;
-  box-shadow: 0 0 3px 1px #eaeaea91;
+  border: 1px solid rgba(234, 234, 234, 0.568627451);
+  box-shadow: 0 0 3px 1px rgba(234, 234, 234, 0.568627451);
   border-radius: 1%;
   overflow: hidden;
 }
@@ -22022,7 +22012,7 @@ body.bp-messages-mobile .message-content > .bpbm-gif {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #00000085;
+  background: rgba(0, 0, 0, 0.5215686275);
   cursor: pointer;
   z-index: 2;
 }
@@ -22325,7 +22315,7 @@ a.bpbm-pm-button:focus {
 .bp-messages-wrap.bpbm-template-modern .list .messages-stack.incoming .content .messages-list > li.selected .message-content:before {
   display: block;
   content: "";
-  background: #00000024;
+  background: rgba(0, 0, 0, 0.1411764706);
   border-radius: 2px;
   width: 100%;
   height: 100%;
@@ -22828,7 +22818,7 @@ a.bpbm-pm-button:focus {
   box-sizing: border-box;
 }
 .bp-messages-wrap .chat-footer .bpbm-user-me.bpbm-open, .bp-messages-wrap .chat-footer .bpbm-user-me:hover {
-  background: #0000000f;
+  background: rgba(0, 0, 0, 0.0588235294);
 }
 .bp-messages-wrap .chat-footer .bpbm-user-me .bpbm-user-me-avatar {
   margin-right: 10px;
@@ -22885,7 +22875,7 @@ a.bpbm-pm-button:focus {
   font-size: 13px;
 }
 .bp-messages-wrap .chat-footer .bpbm-user-me .bpbm-user-me-popup .bpbm-user-me-popup-list .bpbm-user-me-popup-list-item:hover {
-  background: #0000000f;
+  background: rgba(0, 0, 0, 0.0588235294);
 }
 .bp-messages-wrap .chat-footer .bpbm-user-me .bpbm-user-me-popup .bpbm-user-me-popup-list .bpbm-user-me-popup-list-item .bpbm-user-me-popup-list-item-title {
   display: block;
@@ -23207,7 +23197,7 @@ a.bpbm-pm-button:focus {
   right: 0;
   width: 100%;
   padding: 0;
-  background: #0000001c;
+  background: rgba(0, 0, 0, 0.1098039216);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -23743,7 +23733,7 @@ body.buddyboss-theme:not(.bb-template-v1):not(.bb-template-v2) .bp-messages-wrap
 }
 body.buddyboss-theme:not(.bb-template-v1):not(.bb-template-v2) .bp-messages-wrap.bp-messages-wrap-main {
   box-shadow: none;
-  border: 1px solid #00000021;
+  border: 1px solid rgba(0, 0, 0, 0.1294117647);
 }
 body.buddyboss-theme:not(.bb-template-v1):not(.bb-template-v2) .bp-messages-wrap .bmselectize-input {
   box-shadow: none !important;
@@ -24147,6 +24137,12 @@ body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap:
 body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) i.fas.fa-comments::before, body.buddyboss-theme.bb-template-v2:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) i.fas.fa-comments::before {
   content: "\ee31";
 }
+body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) .empty-thread i.fas.fa-comments, body.buddyboss-theme.bb-template-v2:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) .empty-thread i.fas.fa-comments {
+  font: normal normal normal 50px/1 "bb-icons" !important;
+}
+body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) .empty-thread i.fas.fa-comments::before, body.buddyboss-theme.bb-template-v2:not(.wcfm-dashboard-page) .bp-messages-wrap:not(#bp-better-messages-mini-mobile-open) .empty-thread i.fas.fa-comments::before {
+  content: "\ee31";
+}
 body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap .thread-not-selected .empty .bpbm-empty-icon i, body.buddyboss-theme.bb-template-v2:not(.wcfm-dashboard-page) .bp-messages-wrap .thread-not-selected .empty .bpbm-empty-icon i {
   font: normal normal normal 1.3em/1 "bb-icons" !important;
 }
@@ -24349,6 +24345,17 @@ body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap 
 body.buddyboss-theme.bb-template-v1:not(.wcfm-dashboard-page) .bp-messages-wrap .list .messages-stack .content .messages-list > li .favorite.active i::before, body.buddyboss-theme.bb-template-v2:not(.wcfm-dashboard-page) .bp-messages-wrap .list .messages-stack .content .messages-list > li .favorite.active i::before {
   font-weight: 300;
   content: "\ef32";
+}
+
+.youzify-group-navmenu a#nav-bp-messages:before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free" !important;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 10px;
+  font-size: 14px;
+  content: "\f086";
 }
 
 .bpbm-checkbox {

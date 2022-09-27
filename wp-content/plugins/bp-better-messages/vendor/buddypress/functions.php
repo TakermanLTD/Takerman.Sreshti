@@ -113,60 +113,71 @@ if( ! function_exists('bp_core_number_format') ){
 if( ! function_exists('bp_core_fetch_avatar') ){
     function bp_core_fetch_avatar( $args = '' ) {
 
-            global $current_blog;
+        global $current_blog;
 
-            // Set the default variables array and parse it against incoming $args array.
-            $params = wp_parse_args( $args, array(
-                'item_id'       => false,
-                'object'        => 'user',
-                'type'          => 'thumb',
-                'avatar_dir'    => false,
-                'width'         => false,
-                'height'        => false,
-                'class'         => 'avatar',
-                'css_id'        => false,
-                'alt'           => '',
-                'email'         => false,
-                'no_grav'       => null,
-                'html'          => true,
-                'title'         => '',
-                'extra_attr'    => '',
-                'scheme'        => null,
-                'rating'        => get_option( 'avatar_rating' ),
-                'force_default' => false,
-            ) );
+        // Set the default variables array and parse it against incoming $args array.
+        $params = wp_parse_args( $args, array(
+            'item_id'       => false,
+            'object'        => 'user',
+            'type'          => 'thumb',
+            'avatar_dir'    => false,
+            'width'         => false,
+            'height'        => false,
+            'class'         => 'avatar',
+            'css_id'        => false,
+            'alt'           => '',
+            'email'         => false,
+            'no_grav'       => null,
+            'html'          => true,
+            'title'         => '',
+            'extra_attr'    => '',
+            'scheme'        => null,
+            'rating'        => get_option( 'avatar_rating' ),
+            'force_default' => false,
+        ) );
 
-            $params['class'] .= ' bbpm-avatar';
-            $params['extra_attr'] .= ' data-user-id="' . $params['item_id'] . '"';
+        $params['class'] .= ' bbpm-avatar';
+        $params['extra_attr'] .= ' data-user-id="' . $params['item_id'] . '"';
 
 
-            $size = isset( $args['width'] ) ? $args['width'] : 50;
+        $size = isset( $args['width'] ) ? $args['width'] : 50;
 
-            $removed_um_filter = false;
-            if( has_filter( 'get_avatar', 'um_get_avatar' ) ){
-                remove_filter( 'get_avatar', 'um_get_avatar', 99999 );
-                $removed_um_filter = true;
-            }
+        $removed_um_filter = false;
 
-            if( $params['html'] === false ){
-                if( function_exists('get_wp_user_avatar_src') ){
-                    $return = get_wp_user_avatar_src( $params['item_id'], ['size' => $size] );
-                } else {
-                    $return = get_avatar_url($params['item_id'], ['size' => $size]);
-                }
+        if( has_filter( 'get_avatar', 'um_get_avatar' ) ){
+            remove_filter( 'get_avatar', 'um_get_avatar', 99999 );
+            $removed_um_filter = true;
+        }
+
+        $removed_ps_filter = false;
+        if( class_exists('PeepSo') && has_filter( 'get_avatar', array( PeepSo::get_instance(), 'filter_avatar' ) ) ){
+            remove_filter( 'get_avatar', array( PeepSo::get_instance(), 'filter_avatar'), 20, 5 );
+            $removed_ps_filter = true;
+        }
+
+        if( $params['html'] === false ){
+            if( function_exists('get_wp_user_avatar_src') ){
+                $return = get_wp_user_avatar_src( $params['item_id'], ['size' => $size] );
             } else {
-                if( function_exists('get_wp_user_avatar') ){
-                    $return = get_wp_user_avatar($params['item_id'], $size, '', '');
-                } else {
-                    $return = get_avatar($params['item_id'], $size, '', '', $params);
-                }
+                $return = get_avatar_url($params['item_id'], ['size' => $size]);
             }
-
-            if( $removed_um_filter ) {
-                add_filter( 'get_avatar', 'um_get_avatar', 99999, 5 );
+        } else {
+            if( function_exists('get_wp_user_avatar') ){
+                $return = get_wp_user_avatar($params['item_id'], $size, '', '');
+            } else {
+                $return = get_avatar($params['item_id'], $size, '', '', $params);
             }
+        }
 
-            return $return;
+        if( $removed_um_filter ) {
+            add_filter( 'get_avatar', 'um_get_avatar', 99999, 5 );
+        }
+
+        if( $removed_ps_filter ) {
+            add_filter( 'get_avatar', array( PeepSo::get_instance(), 'filter_avatar'), 20, 5 );
+        }
+
+        return $return;
     }
 }
 
@@ -334,10 +345,10 @@ function messages_new_message( $args = '' ) {
         if ( 'wp_error' === $r['error_type'] ) {
             if ( empty( $r['sender_id'] ) ) {
                 $error_code = 'messages_empty_sender';
-                $feedback   = __( 'Your message was not sent. Please use a valid sender.', 'buddypress' );
+                $feedback   = __( 'Your message was not sent. Please use a valid sender.', 'bp-better-messages' );
             } else {
                 $error_code = 'messages_empty_content';
-                $feedback   = __( 'Your message was not sent. Please enter some content.', 'buddypress' );
+                $feedback   = __( 'Your message was not sent. Please enter some content.', 'bp-better-messages' );
             }
 
             return new WP_Error( $error_code, $feedback );
@@ -370,7 +381,7 @@ function messages_new_message( $args = '' ) {
 
         // Set a default reply subject if none was sent.
         if ( empty( $message->subject ) ) {
-            $message->subject = sprintf( __( 'Re: %s', 'buddypress' ), $thread->messages[0]->subject );
+            $message->subject = sprintf( __( 'Re: %s', 'bp-better-messages' ), $thread->messages[0]->subject );
         }
 
         // ...otherwise use the recipients passed
@@ -379,7 +390,7 @@ function messages_new_message( $args = '' ) {
         // Bail if no recipients.
         if ( empty( $r['recipients'] ) ) {
             if ( 'wp_error' === $r['error_type'] ) {
-                return new WP_Error( 'message_empty_recipients', __( 'Message could not be sent. Please enter a recipient.', 'buddypress' ) );
+                return new WP_Error( 'message_empty_recipients', __( 'Message could not be sent. Please enter a recipient.', 'bp-better-messages' ) );
             } else {
                 return false;
             }
@@ -387,7 +398,7 @@ function messages_new_message( $args = '' ) {
 
         // Set a default subject if none exists.
         if ( empty( $message->subject ) ) {
-            $message->subject = __( 'No Subject', 'buddypress' );
+            $message->subject = __( 'No Subject', 'bp-better-messages' );
         }
 
         // Setup the recipients array.
@@ -439,7 +450,7 @@ function messages_new_message( $args = '' ) {
         $recipient_ids = array_unique( $recipient_ids );
         if ( empty( $recipient_ids ) ) {
             if ( 'wp_error' === $r['error_type'] ) {
-                return new WP_Error( 'message_invalid_recipients', __( 'Message could not be sent because you have entered an invalid username. Please try again.', 'buddypress' ) );
+                return new WP_Error( 'message_invalid_recipients', __( 'Message could not be sent because you have entered an invalid username. Please try again.', 'bp-better-messages' ) );
             } else {
                 return false;
             }
@@ -459,7 +470,7 @@ function messages_new_message( $args = '' ) {
             if ( is_wp_error( $send ) ) {
                 return $send;
             } else {
-                return new WP_Error( 'message_generic_error', __( 'Message was not sent. Please try again.', 'buddypress' ) );
+                return new WP_Error( 'message_generic_error', __( 'Message was not sent. Please try again.', 'bp-better-messages' ) );
             }
         }
 

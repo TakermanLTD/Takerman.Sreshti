@@ -14,6 +14,7 @@ return array(
     'WooCommerce\\PayPalCommerce\\Subscription\\' => array($baseDir . '/modules/ppcp-subscription/src'),
     'WooCommerce\\PayPalCommerce\\StatusReport\\' => array($baseDir . '/modules/ppcp-status-report/src'),
     'WooCommerce\\PayPalCommerce\\Session\\' => array($baseDir . '/modules/ppcp-session/src'),
+    'WooCommerce\\PayPalCommerce\\OrderTracking\\' => array($baseDir . '/modules/ppcp-order-tracking/src'),
     'WooCommerce\\PayPalCommerce\\Onboarding\\' => array($baseDir . '/modules/ppcp-onboarding/src'),
     'WooCommerce\\PayPalCommerce\\Compat\\' => array($baseDir . '/modules/ppcp-compat/src'),
     'WooCommerce\\PayPalCommerce\\Button\\' => array($baseDir . '/modules/ppcp-button/src'),

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.0.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-10 19:34:56+0000\n"
+"PO-Revision-Date: 2022-09-04 15:06:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,90 +205,122 @@ msgid "Sunday"
 msgstr "неделя"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:168 wp-includes/js/dist/components.js:60843
+#: wp-includes/class-wp-locale.php:168 wp-includes/js/dist/components.js:61056
 #, gp-priority: high
 msgid "December"
 msgstr "декември"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:167 wp-includes/js/dist/components.js:60841
+#: wp-includes/class-wp-locale.php:167 wp-includes/js/dist/components.js:61054
 #, gp-priority: high
 msgid "November"
 msgstr "ноември"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:166 wp-includes/js/dist/components.js:60839
+#: wp-includes/class-wp-locale.php:166 wp-includes/js/dist/components.js:61052
 #, gp-priority: high
 msgid "October"
 msgstr "октомври"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:165 wp-includes/js/dist/components.js:60837
+#: wp-includes/class-wp-locale.php:165 wp-includes/js/dist/components.js:61050
 #, gp-priority: high
 msgid "September"
 msgstr "септември"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:164 wp-includes/js/dist/components.js:60835
+#: wp-includes/class-wp-locale.php:164 wp-includes/js/dist/components.js:61048
 #, gp-priority: high
 msgid "August"
 msgstr "август"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:163 wp-includes/js/dist/components.js:60833
+#: wp-includes/class-wp-locale.php:163 wp-includes/js/dist/components.js:61046
 #, gp-priority: high
 msgid "July"
 msgstr "юли"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:162 wp-includes/js/dist/components.js:60831
+#: wp-includes/class-wp-locale.php:162 wp-includes/js/dist/components.js:61044
 #, gp-priority: high
 msgid "June"
 msgstr "юни"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:161 wp-includes/js/dist/components.js:60829
+#: wp-includes/class-wp-locale.php:161 wp-includes/js/dist/components.js:61042
 #, gp-priority: high
 msgid "May"
 msgstr "май"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:160 wp-includes/js/dist/components.js:60827
+#: wp-includes/class-wp-locale.php:160 wp-includes/js/dist/components.js:61040
 #, gp-priority: high
 msgid "April"
 msgstr "април"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:159 wp-includes/js/dist/components.js:60825
+#: wp-includes/class-wp-locale.php:159 wp-includes/js/dist/components.js:61038
 #, gp-priority: high
 msgid "March"
 msgstr "март"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:158 wp-includes/js/dist/components.js:60823
+#: wp-includes/class-wp-locale.php:158 wp-includes/js/dist/components.js:61036
 #, gp-priority: high
 msgid "February"
 msgstr "февруари"
 
 #. translators: Month name.
-#: wp-includes/class-wp-locale.php:157 wp-includes/js/dist/components.js:60821
+#: wp-includes/class-wp-locale.php:157 wp-includes/js/dist/components.js:61034
 #, gp-priority: high
 msgid "January"
 msgstr "януари"
 
 #: wp-includes/category-template.php:161
-#: wp-includes/js/dist/block-editor.js:23348
-#: wp-includes/js/dist/block-editor.js:23353
-#: wp-includes/js/dist/block-editor.js:24263
+#: wp-includes/js/dist/block-editor.js:23363
+#: wp-includes/js/dist/block-editor.js:23368
+#: wp-includes/js/dist/block-editor.js:24278
 #: wp-includes/js/dist/edit-post.js:4726 wp-admin/includes/upgrade.php:158
 #, gp-priority: high
 msgid "Uncategorized"
 msgstr "Без категория"
 
+#: wp-includes/theme.php:3824
+msgid "Whether a theme uses block-based templates."
+msgstr "Използва ли темата темплейти на базата на блокове. "
+
+#: wp-includes/option.php:2250
+msgid "The ID of the page that should display the latest posts"
+msgstr "ID на страницата, която трябва да показва най-новите публикации."
+
+#: wp-includes/option.php:2240
+msgid "The ID of the page that should be displayed on the front page"
+msgstr "ID на страницата, която да се показва като заглавна страница"
+
+#: wp-includes/option.php:2230
+msgid "What to show on the front page"
+msgstr "Какво се показва на началната страница"
+
+#. translators: 1: PHP file name, 2: Version number.
+#: wp-includes/functions.php:5575
+msgid "File %1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "Файлът %1$s <strong>не се използва</strong> след версия %2$s и няма налична алтернатива."
+
 #. translators: 1: PHP file name, 2: Version number, 3: Alternative file name.
 #: wp-includes/functions.php:5564
 msgid "File %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr "<strong>Не се препоръчва използването</strong> на файла %1$s след версия %2$s! Вместо него използвайте %3$s."
+
+#. translators: 1: PHP function name, 2: Version number.
+#: wp-includes/functions.php:5385
+msgid "Function %1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "Функция %1$s <strong>не се използва</strong> след версия %2$s и няма налична алтернатива."
+
+#. translators: 1: PHP function name, 2: Version number, 3: Alternative
+#. function name.
+#: wp-includes/functions.php:5374
+msgid "Function %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
+msgstr "Функция %1$s <strong>не се използва</strong> след версия %2$s. Използвайте %3$s."
 
 #: wp-includes/blocks/read-more/block.json
 msgctxt "block description"
@@ -344,6 +376,11 @@ msgstr "Създава връзка, която винаги сочи към н�
 msgctxt "block title"
 msgid "Home Link"
 msgstr "Връзка към начална страница"
+
+#: wp-includes/blocks/group/block.json
+msgctxt "block description"
+msgid "Gather blocks in a layout container."
+msgstr "Съберете блокове в контейнер за оформление."
 
 #: wp-includes/blocks/comments-title/block.json
 msgctxt "block description"
@@ -411,6 +448,11 @@ msgid "Comment Reply Link"
 msgstr "Връзка за отговор на коментара"
 
 #: wp-includes/blocks/comment-edit-link/block.json
+msgctxt "block description"
+msgid "Displays a link to edit the comment in the WordPress Dashboard. This link is only visible to users with the edit comment capability."
+msgstr "Показва връзка за редактиране на коментара в таблото за управление на WordPress. Тази връзка се вижда само от потребители с възможност за редактиране на коментари."
+
+#: wp-includes/blocks/comment-edit-link/block.json
 msgctxt "block title"
 msgid "Comment Edit Link"
 msgstr "Връзка за редакция на коментара"
@@ -426,14 +468,29 @@ msgid "Displays the contents of a comment."
 msgstr "Показва съдържанието на коментар."
 
 #: wp-includes/blocks/comment-author-name/block.json
+msgctxt "block description"
+msgid "Displays the name of the author of the comment."
+msgstr "Показва името на автора на коментара."
+
+#: wp-includes/blocks/comment-author-name/block.json
 msgctxt "block title"
 msgid "Comment Author Name"
 msgstr "Име на автора на коментара"
 
 #: wp-includes/blocks/avatar/block.json
+msgctxt "block description"
+msgid "Add a user's avatar."
+msgstr "Добавяне на аватар на потребителя."
+
+#: wp-includes/blocks/avatar/block.json
 msgctxt "block title"
 msgid "Avatar"
 msgstr "Аватар"
+
+#: wp-includes/js/dist/block-library.js:31319
+#: wp-includes/js/dist/block-library.js:31360 wp-admin/includes/upgrade.php:273
+msgid "A WordPress Commenter"
+msgstr "Коментатор от WordPress"
 
 #. translators: %s: Post title.
 #: wp-includes/blocks/comments-title.php:69
@@ -458,6 +515,30 @@ msgstr "Дата на коментара"
 msgctxt "block title"
 msgid "Comment Content"
 msgstr "Съдържание на коментара"
+
+#: wp-includes/js/dist/block-library.js:1910
+#: wp-includes/js/dist/block-library.js:1953
+#: wp-admin/options-discussion.php:267 wp-admin/options-discussion.php:268
+msgid "Default Avatar"
+msgstr "Аватар по подразбиране"
+
+#: wp-trackback.php:130
+msgid "There is already a ping from that URL for this post."
+msgstr "Вече има ping от този адрес за тази публикация."
+
+#: wp-login.php:915
+msgid "The password cannot be a space or all spaces."
+msgstr "Паролата не може да бъде интервал или множество интервали."
+
+#. translators: 1: Documentation URL, 2: wp-config.php
+#: wp-load.php:95 wp-admin/setup-config.php:190
+msgid "Need more help? <a href=\"%1$s\">Read the support article on %2$s</a>."
+msgstr "Нуждаете се от повече помощ? <a href=\"%1$s\">Прочетете статията за поддръжка на %2$s</a>."
+
+#. translators: %s: Database name.
+#: wp-includes/wp-db.php:1189
+msgid "The database server could be connected to (which means your username and password is okay) but the %s database could not be selected."
+msgstr "Сървърът на базата данни може да осъществи връзка (което означава, че вашето потребителско име и парола са ок), но базата данни %s не може да бъде избрана."
 
 #: wp-includes/wp-db.php:1185
 msgid "Cannot select database"
@@ -502,6 +583,14 @@ msgstr "Не може да надвиши %s, ако не използвате �
 msgid "Webfont font weight must be a properly formatted string or integer."
 msgstr "Дебелината на шрифта на уеб-базирания шрифт трябва да бъде правилно форматиран низ или цяло число. "
 
+#: wp-includes/script-loader.php:3215
+msgid "Each webfont src must be a non-empty string."
+msgstr "Семейството от шрифтове на уеб-базирания шрифт не може да бъде празен низ."
+
+#: wp-includes/script-loader.php:3207
+msgid "Webfont src must be a non-empty string or an array of strings."
+msgstr "Webfont src трябва да не бъде празен низ или ред от низове"
+
 #: wp-includes/script-loader.php:3200
 msgid "Webfont font family must be a non-empty string."
 msgstr "Семейството от шрифтове на уеб-базирания шрифт не може да бъде празен низ."
@@ -517,6 +606,51 @@ msgstr "Блокове предшественици."
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:207
 msgid "Determines whether the pattern is visible in inserter."
 msgstr "Определя дали макетът е видим в лентата за добавяне."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:195
+msgid "The pattern keywords."
+msgstr "Ключови думи за този шаблон."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:189
+msgid "The pattern category slugs."
+msgstr "Кратки имена на категориите на макета."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:183
+msgid "Block types that the pattern is intended to be used with."
+msgstr "Типове блокове, с които шаблонът е предназначен да се използва."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:177
+msgid "The pattern viewport width for inserter preview."
+msgstr "Ширината на изгледа на модела за визуализация на вмъкването."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:171
+msgid "The pattern detailed description."
+msgstr "Подробно описание на модела."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:159
+msgid "The pattern name."
+msgstr "Име на шаблон."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:78
+msgid "Sorry, you are not allowed to view the registered block patterns."
+msgstr "За съжаление не можете да преглеждате регистрираните блокови модели."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-pattern-categories-controller.php:140
+msgid "The category label, in human readable format."
+msgstr "Името на блока."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-pattern-categories-controller.php:134
+msgid "The category name."
+msgstr "Име на новата категория."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-pattern-categories-controller.php:70
+msgid "Sorry, you are not allowed to view the registered block pattern categories."
+msgstr "Нямате право да разглеждате локалната директория с макети от блокове."
+
+#: wp-includes/media.php:4508 wp-admin/edit.php:171 wp-admin/post.php:322
+#: wp-admin/upload.php:198
+msgid "Error in deleting the attachment."
+msgstr "Грешка при изтриването на прикачения файл."
 
 #: wp-includes/functions.php:1603
 msgid "<strong>Error</strong>: This is not a valid feed template."
@@ -634,17 +768,17 @@ msgid "Displays posts on the homepage, or on the Posts page if a static homepage
 msgstr "Показва публикации на началната страница или на страницата за публикации, ако е зададена статична начална страница."
 
 #. translators: %1s: file name; %2s: slug value found.
-#: wp-includes/block-patterns.php:271
+#: wp-includes/block-patterns.php:267
 msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr "Файл \"%s\" не може да се регистрира като макетен блок (полето \"Заглавие\" липсва)"
 
 #. translators: %1s: file name; %2s: slug value found.
-#: wp-includes/block-patterns.php:253
+#: wp-includes/block-patterns.php:249
 msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr "Файл \"%1$s\" не може да се регистрира като макетен блок (невалидно кратко име \"%2$s\")"
 
 #. translators: %s: file name.
-#: wp-includes/block-patterns.php:240
+#: wp-includes/block-patterns.php:236
 msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr "Не може да се регистрира файл \"%s\" като макетен блок (полето \"Кратко име\" липсва)"
 
@@ -818,6 +952,88 @@ msgstr "Редактор (бета)"
 msgid "Confirm"
 msgstr "Потвърждаване"
 
+#: wp-includes/wp-db.php:3363
+msgid "Could not strip invalid text."
+msgstr "Невъзможност за премахване на невалидния текст."
+
+#: wp-includes/wp-db.php:2918
+msgid "Could not retrieve table charset."
+msgstr "Невъзможност за възвръщане на наборът от символи на таблицата."
+
+#. translators: %s: Database fields where the error occurred.
+#: wp-includes/wp-db.php:2591
+msgid "WordPress database error: Processing the values for the following fields failed: %s. The supplied values may be too long or contain invalid data."
+msgstr "Грешка в базата данни на WordPress: Неуспешна обработка на данните за следните полета: %s. Предоставените стойности може да са прекалено дълги или да съдържат невалидна информация."
+
+#. translators: %s: Database field where the error occurred.
+#: wp-includes/wp-db.php:2585
+msgid "WordPress database error: Processing the value for the following field failed: %s. The supplied value may be too long or contains invalid data."
+msgstr "Грешка в базата данни на WordPress: Неуспешна обработка на данните за следното поле: %s. Предоставената стойност може да е прекалено дълга или да съдържа невалидна информация."
+
+#: wp-includes/wp-db.php:2047
+msgid "WordPress database error: Could not perform query because it contains invalid data."
+msgstr "Грешка в базата данни на WordPress: Неуспешна заявка поради съдържание на невалидна информация."
+
+#. translators: 1: 'wp-edit-post', 2: 'wp-edit-widgets', 3:
+#. 'wp-customize-widgets'.
+#: wp-includes/widgets.php:2098
+msgid "\"%1$s\" style should not be enqueued together with the new widgets editor (%2$s or %3$s)."
+msgstr "\"%1$s\" стил не може да бъде поставян на опашката заедно с новия редактор за джаджи (%2$s or %3$s)."
+
+#. translators: 1: 'wp-editor', 2: 'wp-edit-widgets', 3:
+#. 'wp-customize-widgets'.
+#: wp-includes/widgets.php:2085
+msgid "\"%1$s\" script should not be enqueued together with the new widgets editor (%2$s or %3$s)."
+msgstr "%1$s\" скрипт не може да бъде поставян на опашката заедно с новия редактор за джаджи (%2$s or %3$s)."
+
+#: wp-includes/class-wp-taxonomy.php:610
+msgid "The description is not prominent by default; however, some themes may show it."
+msgstr "Описанието не е видимо по подразбиране, но някои теми може все пак да го покажат."
+
+#: wp-includes/class-wp-taxonomy.php:609
+msgid "Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band."
+msgstr "Определяне на главен термин за създаване на йерархия. Терминът Джаз например, би бил главен за Бебоп и Биг Бенд."
+
+#: wp-includes/class-wp-taxonomy.php:608
+msgid "The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
+msgstr "Краткото име е URL версия на името. Обикновено не включва главни букви и съдържа малки букви, цифри и тирета."
+
+#: wp-includes/class-wp-taxonomy.php:607
+msgid "The name is how it appears on your site."
+msgstr "Това е името, което ще се показва на сайта ви."
+
+#: wp-includes/taxonomy.php:215
+msgid "Template Part Area"
+msgstr "Зона Шаблонни Части"
+
+#: wp-includes/taxonomy.php:214
+msgid "Template Part Areas"
+msgstr "Зони Шаблонни Части"
+
+#: wp-includes/script-loader.php:927
+msgid "The server cannot process the image. This can happen if the server is busy or does not have enough resources to complete the task. Uploading a smaller image may help. Suggested maximum size is 2560 pixels."
+msgstr "Сървърът не може да обработи изображението. Това може да е защото е зает или няма достатъчно ресурси да изпълни задачата. Качването на по-малко изображение може да помогне. Препоръчителният максимален размер е 2560 пиксела."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1590
+msgid "Limit result set to users who have published posts."
+msgstr "Резултатите са ограничени до потребители, които имат споделени публикации."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1574
+msgid "Limit result set to users matching at least one specific capability provided. Accepts csv list or single capability."
+msgstr "Резултатите са ограничени до потребители, съответстващи на поне едно от предоставените изисквания. Поддържа csv списък или поединично въвеждане."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:205
+msgid "Sorry, you are not allowed to filter users by capability."
+msgstr "За съжаление, нямате права да филтрирате потребителите по способност."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:270
+msgid "Unable to retrieve body from response at this URL."
+msgstr "Не може да се извлече текстов отговор на този адрес."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:260
+msgid "URL not found. Response returned a non-200 status code for this URL."
+msgstr "Адресът не е намерен. Отговорът върна non-200 статус код за този адрес."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:210
 msgid "Sorry, you are not allowed to process remote URLs."
 msgstr "Нямате право да обработвате отдалечени адреси."
@@ -831,18 +1047,121 @@ msgstr "Невалиден адрес"
 msgid "The Open Graph image link of the %1$s or %2$s element from the URL."
 msgstr "Връзката на изображеието от Open Graph на елементи %1$s или %2$s от адреса."
 
+#. translators: %s: HTML meta tag.
+#: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:101
+msgid "The content of the %s element from the URL."
+msgstr "Съдържанието на %s елемента от адреса."
+
 #. translators: %s: HTML link tag.
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:90
 msgid "The favicon image link of the %s element from the URL."
 msgstr "Линка към изображението на иконата на елемент %s от адреса на сайта."
 
+#. translators: %s: HTML title tag.
+#: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:80
+msgid "The contents of the %s element from the URL."
+msgstr "Съдържанието на %s елемента от адреса."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:46
+msgid "The URL to process."
+msgstr "Адресът за обработка."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:890
+msgid "Where the template part is intended for use (header, footer, etc.)"
+msgstr "Къде е предназначена за употреба шаблонната част(горната част, долната част и т.н.)"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:881
+msgid "Whether a template is a custom template."
+msgstr "Дали шаблонът е потребителски."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:872
+msgid "The ID for the author of the template."
+msgstr "ID за автора на шаблона."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:839
+msgid "HTML title for the template, transformed for display."
+msgstr "HTML заглавие за шаблона, трансформирано за екран."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:834
+msgid "Title for the template, as it exists in the database."
+msgstr "Заглавие за шаблона както съществува в базата от данни."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:820
+msgid "Version of the content block format used by the template."
+msgstr "Версия на блоковия формат за съдържание, използван от шаблона."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:815
+msgid "Content for the template, as it exists in the database."
+msgstr "Съдържание за шаблона както съществува в базата от данни."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:803
+msgid "Source of a customized template"
+msgstr "Източник на персонализиран шаблон"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:792
+msgid "Type of template."
+msgstr "Вид на шаблон."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:748
+msgid "Post type to get the templates for."
+msgstr "Тип публикация, за да получите шаблоните."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:744
+msgid "Limit to the specified template part area."
+msgstr "Ограничаване до определеното пространство от шаблонната част."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:377
+msgid "REST namespace route for the taxonomy."
+msgstr "REST namespace път за таксономията."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:371
+msgid "Whether to make the post type available for selection in navigation menus."
+msgstr "Дали този тип публикация да бъде свободен за избиране в навигационните менюта."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:367
+msgid "Whether to generate a default UI for managing this post type."
+msgstr "Дали да се генерира UI по подразбиране за управление на този тип публикации."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:361
+msgid "The visibility settings for the post type."
+msgstr "Настройките за видимост на вида публикация."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:355
+msgid "REST route's namespace for the post type."
+msgstr "REST namespace на пътя за типа публикации."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:561
+msgid "Whether to automatically add top level pages to this menu."
+msgstr "Дали автоматично да  се добавят страници от първо ниво за това меню."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:527
+msgid "The locations assigned to the menu."
+msgstr "Локациите, определени за това меню."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:383
 msgid "The menu cannot be deleted."
 msgstr "Менюто не може да бъде изтрито."
 
+#. translators: %s: force=true
+#: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:373
+msgid "Menus do not support trashing. Set '%s' to delete."
+msgstr "Менютата не могат да се изтриват. Използвайте '%s' за изтриване."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:103
 msgid "Sorry, you are not allowed to view menus."
 msgstr "Нямате право да разглеждате менюта."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-locations-controller.php:240
+msgid "The ID of the assigned menu."
+msgstr "ID на възложено меню."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-locations-controller.php:234
+msgid "The description of the menu location."
+msgstr "Описанието на локацията на менюто,"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-locations-controller.php:228
+msgid "The name of the menu location."
+msgstr "Името на локацията на менюто."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-locations-controller.php:148
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:494
@@ -855,22 +1174,146 @@ msgstr "Невалидна локация за меню."
 msgid "Sorry, you are not allowed to view menu locations."
 msgstr "Нямате право да преглеждате локациите за менюта."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-locations-controller.php:57
+msgid "An alphanumeric identifier for the menu location."
+msgstr "Идентификатор за локацията на менюто от букви и цифри."
+
+#. translators: %s: taxonomy name
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:902
+msgid "The terms assigned to the object in the %s taxonomy."
+msgstr "%s: име на таксономията"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:890
+msgid "Whether the menu item represents an object that no longer exists."
+msgstr "Дали елементът от менюто представлява вече несъществуващ обект."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:876
+msgid "The XFN relationship expressed in the link of this menu item."
+msgstr "XFN отношението, изразено във връзката на този елемент от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:853
+msgid "The URL to which this menu item points."
+msgstr "Адресът, към който този елемент от менюто сочи."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:846
+msgid "The singular label used to describe this type of menu item."
+msgstr "Единичният етикет, използван за описание на този тип елемент от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:836
+msgid "The target attribute of the link element for this menu item."
+msgstr "Целевият атрибут от елемента на връзка за този елемент от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:828
+msgid "The database ID of the original object this menu item represents, for example the ID for posts or the term_id for categories."
+msgstr "ID-то от базата от данни на оригиналния обект, представляван от този елемент от менюто, например ID за posts или term_id за categories."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:819
+msgid "The type of object originally represented, such as \"category\", \"post\", or \"attachment\"."
+msgstr "Видът обект, представен първоначално  като \"category\", \"post\", или \"attachment\""
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:811
+msgid "The DB ID of the nav_menu_item that is this item's menu parent, if any, otherwise 0."
+msgstr "ID от базата данни на nav_menu_item което е родителското меню на този обект, иначе е 0."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:802
+msgid "The description of this menu item."
+msgstr "Описанието на този обект от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:788
+msgid "Class names for the link element of this menu item."
+msgstr "Имена на класовете за свързващия елемент на този обект от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:779
+msgid "Text for the title attribute of the link element for this menu item."
+msgstr "Текст за заглавния атрибут на свързващия елемент на този обект от менюто."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:771
+msgid "The ID for the parent of the object."
+msgstr "ID за главния обект."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:763
 msgid "A named status for the object."
 msgstr "Име на състояние на обекта."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:755
+msgid "The family of objects originally represented, such as \"post_type\" or \"taxonomy\"."
+msgstr "Семейството от първоначално представени обекти като \"post_type\" или \"taxonomy\"."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:748
 msgid "Name of type."
 msgstr "Име на типа."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:730
+msgid "HTML title for the object, transformed for display."
+msgstr "HTML заглавие за обекта, преобразувано за показване."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:725
+msgid "Title for the object, as it exists in the database."
+msgstr "Заглавие за обекта, както съществува в базата данни."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:690
+msgid "Get linked object."
+msgstr "Получаване на свързан обект."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:454
+msgid "The url is required when using a custom menu item type."
+msgstr "URL се изисква когато се използва тип обект от потребителско меню."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:451
+msgid "The title is required when using a custom menu item type."
+msgstr "Когато се използва тип обект от потребителско меню е необходимо заглавие."
+
+#. translators: %s: force=true
+#: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:288
+msgid "Menu items do not support trashing. Set '%s' to delete."
+msgstr "Обектите от менюто не поддържат изпращане за изтриване. Задайте '%s' за да изтриете."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:547
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:619
+msgid "Sorry, you are not allowed to access the global styles on this site."
+msgstr "За съжаление, достъпът до глобалните стилове на тази страница не е позволен."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:513
+msgid "Title for the global styles variation, as it exists in the database."
+msgstr "Заглавие за вариацията на глобалните стилове, както съществува в базата от данни."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:507
+msgid "Title of the global styles variation."
+msgstr "Заглавие на вариацията на глобалните стилове."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:502
 msgid "Global settings."
 msgstr "Глобални настройки."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:497
+msgid "Global styles."
+msgstr "Глобални стилове."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:491
+msgid "ID of global styles config."
+msgstr "ID на конфигурацията на глобалните стилове."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:391
+msgid "No global styles config exist with that id."
+msgstr "Не съществува конфигурация на глобалните стилове с това id."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:153
+msgid "Sorry, you are not allowed to view this global style."
+msgstr "За съжаление, не е позволено да видите този глобален стил."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:145
+#: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:208
+msgid "Sorry, you are not allowed to edit this global style."
+msgstr "За съжаление, не е позволено да редактирате този глобален стил."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:51
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:77
 msgid "The theme identifier"
 msgstr "Идентификатор на темата"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-edit-site-export-controller.php:62
+msgid "Sorry, you are not allowed to export templates and template parts."
+msgstr "За съжаление, не е позволено да експортирате шаблони и шаблонни части."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-types-controller.php:545
 msgid "Public facing and editor style handle."
@@ -894,13 +1337,33 @@ msgctxt "file type group"
 msgid "Audio"
 msgstr "Аудио"
 
+#: wp-includes/post.php:504
+msgid "Navigation menus that can be inserted into your site."
+msgstr "Навигационни менюта, които могат да бъдат вкарани във вашия сайт."
+
 #: wp-includes/post.php:502
 msgid "Navigation Menus list"
 msgstr "Списък с навигационни менюта"
 
+#: wp-includes/post.php:501
+msgid "Navigation Menus list navigation"
+msgstr "Навигация в списъка с навигационни менюта"
+
+#: wp-includes/post.php:500
+msgid "Filter Navigation Menu list"
+msgstr "Филтриране на списъка с Навигационни Менюта"
+
+#: wp-includes/post.php:499
+msgid "Uploaded to this Navigation Menu"
+msgstr "Качено в това навигационно меню"
+
 #: wp-includes/post.php:498
 msgid "Insert into Navigation Menu"
 msgstr "Вмъкване в това навигационно меню"
+
+#: wp-includes/post.php:497
+msgid "Navigation Menu archives"
+msgstr "Архиви на навигационното меню"
 
 #: wp-includes/post.php:496
 msgid "No Navigation Menu found in Trash."
@@ -910,6 +1373,18 @@ msgstr "Не е намерено навигационно меню в кошче
 msgid "No Navigation Menu found."
 msgstr "Не е намерено навигационно меню."
 
+#: wp-includes/post.php:494
+msgid "Parent Navigation Menu:"
+msgstr "Основно навигационно меню:"
+
+#: wp-includes/post.php:493
+msgid "Search Navigation Menus"
+msgstr "Търсене в менюто за навигация"
+
+#: wp-includes/post.php:491
+msgid "View Navigation Menu"
+msgstr "Преглед на навигационното меню"
+
 #: wp-includes/post.php:490
 msgid "Edit Navigation Menu"
 msgstr "Редактиране на навигационното меню"
@@ -917,6 +1392,10 @@ msgstr "Редактиране на навигационното меню"
 #: wp-includes/post.php:489
 msgid "New Navigation Menu"
 msgstr "Ново навигационно меню"
+
+#: wp-includes/post.php:488
+msgid "Add New Navigation Menu"
+msgstr "Добавяне на ново навигационно меню"
 
 #: wp-includes/post.php:487
 msgctxt "Navigation Menu"
@@ -932,6 +1411,35 @@ msgstr "Навигационно меню"
 msgctxt "post type general name"
 msgid "Navigation Menus"
 msgstr "Навигационни менюта"
+
+#: wp-includes/post.php:457
+msgid "Global styles to include in themes."
+msgstr "Глобални стилове за включване в темите."
+
+#: wp-includes/post.php:456
+msgctxt "post type general name"
+msgid "Global Styles"
+msgstr "Глобални стилове"
+
+#: wp-includes/post.php:417
+msgid "Template parts to include in your templates."
+msgstr "Части за включване в шаблони."
+
+#: wp-includes/post.php:415
+msgid "Template parts list"
+msgstr "Списък със шаблонни части"
+
+#: wp-includes/post.php:414
+msgid "Template parts list navigation"
+msgstr "Навигация на списъка с шаблонни части"
+
+#: wp-includes/post.php:413
+msgid "Filter template parts list"
+msgstr "Филтриране на списъка с шаблонни части"
+
+#: wp-includes/post.php:412
+msgid "Uploaded to this template part"
+msgstr "Качени към тази шаблонна част"
 
 #: wp-includes/post.php:411
 msgid "Insert into template part"
@@ -956,6 +1464,15 @@ msgstr "Родителска категория от шаблони:"
 #: wp-includes/post.php:406
 msgid "Search Template Parts"
 msgstr "Търсене на категория от шаблони"
+
+#: wp-includes/post.php:405 wp-includes/js/dist/edit-site.js:10161
+#: wp-includes/js/dist/editor.js:5416
+msgid "Template Parts"
+msgstr "Част от шаблон"
+
+#: wp-includes/post.php:404
+msgid "View Template Part"
+msgstr "Преглед на частта от шаблон"
 
 #: wp-includes/post.php:403
 msgid "Edit Template Part"
@@ -1053,7 +1570,7 @@ msgstr "Името на стила на блока не трябва да съд
 #. translators: %s: Template part slug.
 #. translators: %s: Template part slug
 #: wp-includes/blocks/template-part.php:118
-#: wp-includes/js/dist/block-library.js:45087
+#: wp-includes/js/dist/block-library.js:45107
 msgid "Template part has been deleted or is unavailable: %s"
 msgstr "Шаблонната част е била изтрита или не е достъпна: %s"
 
@@ -1242,12 +1759,12 @@ msgid "Index"
 msgstr "Индекс"
 
 #: wp-includes/block-template-utils.php:87
-#: wp-includes/js/dist/block-library.js:45199
+#: wp-includes/js/dist/block-library.js:45219
 msgid "The Footer template defines a page area that typically contains site credits, social links, or any other combination of blocks."
 msgstr "Шаблонът ефинира област на страницата, която обикновено съдържа кредити за сайта, социални връзки или друга комбинация от блокове."
 
 #: wp-includes/block-template-utils.php:78
-#: wp-includes/js/dist/block-library.js:45190
+#: wp-includes/js/dist/block-library.js:45210
 msgid "The Header template defines a page area that typically contains a title, logo, and main navigation."
 msgstr "Шаблонът за горната част дефинира област на страницата, която обикновено съдържа заглавие, лого и основна навигация."
 
@@ -1435,16 +1952,16 @@ msgid "Small"
 msgstr "Малък"
 
 #: wp-includes/blocks/query-pagination-previous.php:22
-#: wp-includes/js/dist/block-library.js:36688
+#: wp-includes/js/dist/block-library.js:36708
 msgid "Previous Page"
 msgstr "Предишна страница"
 
 #: wp-includes/blocks/query-pagination-next.php:23
-#: wp-includes/js/dist/block-library.js:36511
+#: wp-includes/js/dist/block-library.js:36531
 msgid "Next Page"
 msgstr "Следваща страница"
 
-#: wp-includes/js/dist/block-library.js:35475
+#: wp-includes/js/dist/block-library.js:35495
 #: wp-admin/includes/plugin-install.php:325
 #: wp-admin/includes/theme-install.php:103
 msgid "Keyword"
@@ -2153,7 +2670,7 @@ msgstr "Показване на архив за на вашите публика
 #. translators: %s: User login.
 #. translators: %s: Theme name.
 #. translators: %s: Site URL.
-#: wp-includes/js/dist/block-editor.js:27683
+#: wp-includes/js/dist/block-editor.js:27698
 #: wp-admin/includes/class-wp-links-list-table.php:181
 #: wp-admin/includes/class-wp-media-list-table.php:403
 #: wp-admin/includes/class-wp-plugins-list-table.php:991
@@ -2166,12 +2683,12 @@ msgstr "Показване на архив за на вашите публика
 msgid "Select %s"
 msgstr "Избиране на %s"
 
-#: wp-includes/js/dist/block-editor.js:25286
+#: wp-includes/js/dist/block-editor.js:25301
 #: wp-includes/js/dist/block-library.js:30519 wp-admin/edit-form-blocks.php:188
 msgid "Type / to choose a block"
 msgstr "Напишете / за да изберете блок"
 
-#: wp-includes/js/dist/block-editor.js:36914
+#: wp-includes/js/dist/block-editor.js:36929
 #: wp-includes/js/dist/edit-site.js:7286 wp-includes/js/dist/edit-site.js:9040
 #: wp-admin/includes/class-wp-screen.php:1205 wp-admin/includes/theme.php:342
 #: wp-admin/includes/theme.php:378 wp-admin/index.php:70
@@ -2737,7 +3254,7 @@ msgstr "(Връзка към начална страница, отваря се 
 
 #. translators: 1: Block type, 2: Typography supports key, e.g: fontSize,
 #. lineHeight, etc. 3: block.json, 4: Old metadata key, 5: New metadata key.
-#: wp-includes/blocks.php:1066
+#: wp-includes/blocks.php:1067
 msgid "Block \"%1$s\" is declaring %2$s support in %3$s file under %4$s. %2$s support is now declared under %5$s."
 msgstr "Блокът „%1$s“ декларира поддръжка за %2$s във файла %3$s в %4$s. %2$s сега се декларира в %5$s."
 
@@ -3339,7 +3856,7 @@ msgstr "&larr; Към таговете"
 msgid "&#8592; Go to library"
 msgstr "&#8592; Към библиотеката"
 
-#: wp-includes/js/dist/block-editor.js:34237
+#: wp-includes/js/dist/block-editor.js:34252
 #: wp-includes/js/dist/edit-post.js:4828 wp-includes/js/dist/edit-site.js:5047
 #: wp-admin/menu.php:188
 msgid "Appearance"
@@ -3815,7 +4332,7 @@ msgstr "Коментар"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1372
 #: wp-includes/js/dist/block-library.js:20309
-#: wp-includes/js/dist/block-library.js:39479
+#: wp-includes/js/dist/block-library.js:39499
 #: wp-admin/includes/image-edit.php:62
 msgid "Crop"
 msgstr "Изрязване"
@@ -4693,7 +5210,7 @@ msgctxt "block keyword"
 msgid "links"
 msgstr "връзки"
 
-#: wp-includes/media.php:4568 wp-includes/js/dist/block-library.js:46683
+#: wp-includes/media.php:4568 wp-includes/js/dist/block-library.js:46703
 msgid "Select poster image"
 msgstr "Избор на заглавно изображение"
 
@@ -4938,19 +5455,19 @@ msgstr "Списък с медийни файлове"
 msgid "Filter media"
 msgstr "Филтриране"
 
-#: wp-includes/media-template.php:316 wp-includes/js/dist/block-editor.js:40421
+#: wp-includes/media-template.php:316 wp-includes/js/dist/block-editor.js:40433
 #: wp-includes/js/dist/block-library.js:21930
 #: wp-includes/js/dist/block-library.js:34805
-#: wp-includes/js/dist/block-library.js:37988
+#: wp-includes/js/dist/block-library.js:38008
 #: wp-admin/includes/class-wp-media-list-table.php:45
 msgid "Grid view"
 msgstr "Изглед в мрежа"
 
-#: wp-includes/media-template.php:313 wp-includes/js/dist/block-editor.js:40024
-#: wp-includes/js/dist/block-editor.js:40057
+#: wp-includes/media-template.php:313 wp-includes/js/dist/block-editor.js:40039
+#: wp-includes/js/dist/block-editor.js:40072
 #: wp-includes/js/dist/block-library.js:21923
 #: wp-includes/js/dist/block-library.js:34798
-#: wp-includes/js/dist/block-library.js:37981
+#: wp-includes/js/dist/block-library.js:38001
 #: wp-admin/includes/class-wp-media-list-table.php:44
 msgid "List view"
 msgstr "Изглед в списък"
@@ -5416,7 +5933,7 @@ msgstr "Възстановяване от кошчето"
 #: wp-admin/includes/translation-install.php:92
 #: wp-admin/includes/update.php:141 wp-admin/theme-install.php:65
 msgid "https://wordpress.org/support/forums/"
-msgstr "https://wordpress.org/support/forums/"
+msgstr "https://bg.wordpress.org/support/forums/"
 
 #: wp-includes/admin-bar.php:184
 msgid "Support"
@@ -5833,7 +6350,7 @@ msgstr "Бързи клавишни комбинации за класическ
 msgid "Sorry, you are not allowed to view autosaves of this post."
 msgstr "Нямате права да разглеждате автоматични записи на тази публикация. "
 
-#: wp-includes/js/dist/block-library.js:44717
+#: wp-includes/js/dist/block-library.js:44737
 #: wp-includes/js/dist/edit-post.js:7778 wp-includes/js/dist/edit-site.js:10482
 #: wp-admin/options-privacy.php:268
 msgid "Create"
@@ -5899,7 +6416,7 @@ msgid "Visibility:"
 msgstr "Видимост:"
 
 #: wp-includes/media-template.php:514 wp-includes/media-template.php:743
-#: wp-includes/js/dist/components.js:47786 wp-includes/js/dist/editor.js:9781
+#: wp-includes/js/dist/components.js:47947 wp-includes/js/dist/editor.js:9781
 #: wp-admin/async-upload.php:73
 #: wp-admin/includes/class-wp-media-list-table.php:824
 #: wp-admin/includes/class-wp-privacy-policy-content.php:425
@@ -5927,7 +6444,7 @@ msgstr "Разрешаване на коментарите"
 msgid "Order"
 msgstr "Подредба"
 
-#: wp-includes/js/dist/components.js:66718
+#: wp-includes/js/dist/components.js:66931
 #: wp-admin/includes/edit-tag-messages.php:14
 msgid "Item added."
 msgstr "Елементът е добавен."
@@ -5940,7 +6457,7 @@ msgstr "Елементът е добавен."
 #: wp-includes/customize/class-wp-customize-nav-menu-locations-control.php:58
 #: wp-includes/functions.php:8104 wp-includes/media-template.php:167
 #: wp-includes/widgets/class-wp-widget-custom-html.php:318 wp-login.php:648
-#: wp-includes/js/dist/components.js:62360
+#: wp-includes/js/dist/components.js:62573
 #: wp-includes/js/dist/customize-widgets.js:1232
 #: wp-includes/js/dist/edit-post.js:3479 wp-includes/js/dist/edit-site.js:5399
 #: wp-includes/js/dist/edit-widgets.js:3756 wp-includes/js/dist/editor.js:7866
@@ -7090,7 +7607,7 @@ msgid "Estonian"
 msgstr "Естонски"
 
 #: wp-includes/script-loader.php:1033
-#: wp-includes/js/dist/block-library.js:46322 wp-admin/includes/ms.php:670
+#: wp-includes/js/dist/block-library.js:46342 wp-admin/includes/ms.php:670
 msgid "English"
 msgstr "Английски"
 
@@ -7151,7 +7668,7 @@ msgid "Live Broadcast"
 msgstr "Предаване на живо"
 
 #: wp-includes/script-loader.php:1018
-#: wp-includes/js/dist/block-library.js:46201
+#: wp-includes/js/dist/block-library.js:46221
 msgid "Chapters"
 msgstr "Глави"
 
@@ -7173,7 +7690,7 @@ msgid "oEmbed Responses"
 msgstr "Отговори от oEmbed"
 
 #. translators: %s: Post custom field name.
-#: wp-includes/post-template.php:1109
+#: wp-includes/post-template.php:1110
 msgctxt "Post custom field name"
 msgid "%s:"
 msgstr "%s:"
@@ -7392,24 +7909,24 @@ msgid "Hour"
 msgstr "Час"
 
 #: wp-includes/customize/class-wp-customize-date-time-control.php:160
-#: wp-includes/js/dist/components.js:60865
+#: wp-includes/js/dist/components.js:61078
 msgid "Time"
 msgstr "Час"
 
 #: wp-includes/customize/class-wp-customize-date-time-control.php:146
 #: wp-includes/js/dist/block-library.js:1753
-#: wp-includes/js/dist/components.js:60798 wp-admin/includes/template.php:832
+#: wp-includes/js/dist/components.js:61011 wp-admin/includes/template.php:832
 msgid "Day"
 msgstr "Ден"
 
 #: wp-includes/customize/class-wp-customize-date-time-control.php:130
 #: wp-includes/js/dist/block-library.js:1747
-#: wp-includes/js/dist/components.js:60813 wp-admin/includes/template.php:822
+#: wp-includes/js/dist/components.js:61026 wp-admin/includes/template.php:822
 msgid "Month"
 msgstr "Месец"
 
 #: wp-includes/customize/class-wp-customize-date-time-control.php:127
-#: wp-includes/js/dist/components.js:60849
+#: wp-includes/js/dist/components.js:61062
 #: wp-admin/includes/ajax-actions.php:2202
 #: wp-admin/includes/class-wp-posts-list-table.php:700
 #: wp-admin/includes/class-wp-posts-list-table.php:1649
@@ -8777,7 +9294,7 @@ msgstr "За да работи това е нужден ID."
 msgid "Homepage"
 msgstr "Начална страница"
 
-#: wp-includes/script-loader.php:868 wp-includes/js/dist/components.js:55597
+#: wp-includes/script-loader.php:868 wp-includes/js/dist/components.js:55759
 msgid "Item selected."
 msgstr "Избран елемент."
 
@@ -9572,7 +10089,7 @@ msgstr "Атрибути на прикачения файл"
 
 #. translators: Post revision title. 1: Author avatar, 2: Author name, 3: Time
 #. ago, 4: Date.
-#: wp-includes/post-template.php:1891
+#: wp-includes/post-template.php:1892
 msgid "%1$s %2$s, %3$s ago (%4$s)"
 msgstr "%1$s %2$s, преди %3$s (%4$s)"
 
@@ -10175,7 +10692,7 @@ msgstr "Опции на връзките"
 msgid "Link inserted."
 msgstr "Връзката е добавена."
 
-#: wp-includes/script-loader.php:1173 wp-includes/js/dist/block-editor.js:43288
+#: wp-includes/script-loader.php:1173 wp-includes/js/dist/block-editor.js:43300
 msgid "Link selected."
 msgstr "Връзката е избрана."
 
@@ -10301,7 +10818,7 @@ msgctxt "post status"
 msgid "Published"
 msgstr "Публикувана"
 
-#: wp-includes/post-template.php:1728
+#: wp-includes/post-template.php:1729
 msgctxt "post password form"
 msgid "Enter"
 msgstr "Вход"
@@ -10317,7 +10834,7 @@ msgid "%1$s %2$s %3$s %4$s Feed"
 msgstr "%1$s %2$s %3$s %4$s поток"
 
 #: wp-includes/functions.php:7140 wp-includes/media-template.php:199
-#: wp-includes/media-template.php:347 wp-includes/js/dist/components.js:55989
+#: wp-includes/media-template.php:347 wp-includes/js/dist/components.js:56151
 msgid "Close dialog"
 msgstr "Затваряне на прозореца"
 
@@ -10397,7 +10914,7 @@ msgid "Invalid object type."
 msgstr "Невалиден тип на обектa."
 
 #: wp-includes/class-wp-editor.php:1385
-#: wp-includes/js/dist/block-editor.js:43363
+#: wp-includes/js/dist/block-editor.js:43375
 msgid "Paste URL or type to search"
 msgstr "Поставяне или въвеждане на адрес за търсене"
 
@@ -11011,7 +11528,7 @@ msgstr[1] "%s <span class=\"screen-reader-text\">коментара</span>"
 #: wp-includes/blocks/read-more.php:24
 #: wp-includes/js/dist/block-library.js:21970
 #: wp-includes/js/dist/block-library.js:24456
-#: wp-includes/js/dist/block-library.js:37801
+#: wp-includes/js/dist/block-library.js:37821
 msgid "Read more"
 msgstr "Прочети още"
 
@@ -11737,7 +12254,7 @@ msgstr "Имената на типовете публикации трябва �
 
 #. translators: Revision date format, see
 #. https://www.php.net/manual/datetime.format.php
-#: wp-includes/post-template.php:1837 wp-includes/post-template.php:1879
+#: wp-includes/post-template.php:1838 wp-includes/post-template.php:1880
 msgctxt "revision date format"
 msgid "F j, Y @ H:i:s"
 msgstr "d.m.Y G:i:s"
@@ -12012,7 +12529,7 @@ msgstr "Редакция на избраните"
 
 #: wp-includes/script-loader.php:1860
 #: wp-includes/js/dist/block-library.js:32689
-#: wp-includes/js/dist/components.js:66896
+#: wp-includes/js/dist/components.js:67109
 msgid "Previous"
 msgstr "Предишни"
 
@@ -12120,7 +12637,7 @@ msgctxt "horizontal table cell alignment"
 msgid "H Align"
 msgstr "Хоризонтално подравняване"
 
-#: wp-includes/class-wp-editor.php:1299 wp-includes/js/dist/components.js:49436
+#: wp-includes/class-wp-editor.php:1299 wp-includes/js/dist/components.js:49598
 msgid "Border color"
 msgstr "Цвят на рамката"
 
@@ -12142,13 +12659,13 @@ msgid "Custom color"
 msgstr "Друг цвят"
 
 #: wp-includes/class-wp-editor.php:1267
-#: wp-includes/js/dist/block-editor.js:32126
-#: wp-includes/js/dist/block-editor.js:33158
-#: wp-includes/js/dist/block-editor.js:48425
-#: wp-includes/js/dist/block-editor.js:48482
+#: wp-includes/js/dist/block-editor.js:32141
+#: wp-includes/js/dist/block-editor.js:33173
+#: wp-includes/js/dist/block-editor.js:48437
+#: wp-includes/js/dist/block-editor.js:48494
 #: wp-includes/js/dist/block-library.js:11437
 #: wp-includes/js/dist/block-library.js:26439
-#: wp-includes/js/dist/block-library.js:41939
+#: wp-includes/js/dist/block-library.js:41959
 #: wp-includes/js/dist/edit-site.js:6871 wp-includes/js/dist/edit-site.js:6924
 msgid "Color"
 msgstr "Цвят"
@@ -12430,7 +12947,7 @@ msgstr "Време"
 
 #: wp-includes/customize/class-wp-customize-date-time-control.php:151
 #: wp-includes/media.php:2923 wp-includes/js/dist/block-library.js:1744
-#: wp-includes/js/dist/components.js:60854 wp-admin/includes/template.php:833
+#: wp-includes/js/dist/components.js:61067 wp-admin/includes/template.php:833
 msgid "Year"
 msgstr "Година"
 
@@ -12450,7 +12967,7 @@ msgstr "Изпълнител"
 
 #: wp-includes/media-template.php:1213
 #: wp-includes/widgets/class-wp-widget-media-image.php:130
-#: wp-includes/js/dist/block-editor.js:48017
+#: wp-includes/js/dist/block-editor.js:48029
 msgid "Link CSS Class"
 msgstr "Свързване на CSS клас"
 
@@ -12468,12 +12985,12 @@ msgstr "Описание на изображението"
 msgid "Advanced Options"
 msgstr "Допълнителни настройки"
 
-#: wp-includes/media-template.php:1143 wp-includes/js/dist/components.js:65876
+#: wp-includes/media-template.php:1143 wp-includes/js/dist/components.js:66089
 msgid "Custom Size"
 msgstr "Друг размер"
 
 #: wp-includes/media-template.php:1090
-#: wp-includes/js/dist/block-library.js:38497
+#: wp-includes/js/dist/block-library.js:38517
 msgid "Display Settings"
 msgstr "Настройки на изгледа"
 
@@ -12892,7 +13409,7 @@ msgstr "Създаване на плейлист"
 #: wp-includes/class-wp-customize-widgets.php:893
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:72
 #: wp-includes/customize/class-wp-customize-themes-panel.php:70
-#: wp-includes/media.php:4473 wp-includes/js/dist/components.js:67859
+#: wp-includes/media.php:4473 wp-includes/js/dist/components.js:68072
 #: wp-includes/js/dist/edit-post.js:3791 wp-includes/js/dist/edit-post.js:5169
 #: wp-includes/js/dist/edit-site.js:10842 wp-admin/includes/ms.php:49
 #: wp-admin/theme-install.php:61
@@ -12909,14 +13426,14 @@ msgstr "Изображение"
 
 #: wp-includes/media-template.php:1309 wp-includes/media-template.php:1408
 #: wp-includes/js/dist/block-library.js:2908
-#: wp-includes/js/dist/block-library.js:46130
+#: wp-includes/js/dist/block-library.js:46150
 msgid "Autoplay"
 msgstr "Автоматично тръгване"
 
 #: wp-includes/media-template.php:1300 wp-includes/media-template.php:1399
 #: wp-includes/js/dist/block-library.js:2931
-#: wp-includes/js/dist/block-library.js:46079
-#: wp-includes/js/dist/block-library.js:46204
+#: wp-includes/js/dist/block-library.js:46099
+#: wp-includes/js/dist/block-library.js:46224
 #: wp-admin/includes/meta-boxes.php:1483
 msgid "Metadata"
 msgstr "Мета данни"
@@ -12950,8 +13467,8 @@ msgstr "Вмъкване на етикет „Прочетете повече“
 msgid "Toolbar Toggle"
 msgstr "Скриване/показване на лентата с инструменти"
 
-#: wp-includes/js/dist/block-editor.js:47639
-#: wp-includes/js/dist/block-editor.js:47645
+#: wp-includes/js/dist/block-editor.js:47651
+#: wp-includes/js/dist/block-editor.js:47657
 #: wp-includes/js/dist/block-library.js:24939
 #: wp-includes/js/dist/customize-widgets.js:1212
 #: wp-includes/js/dist/edit-post.js:3408 wp-includes/js/dist/edit-site.js:5385
@@ -12973,7 +13490,7 @@ msgid "Background color"
 msgstr "Цвят на фона"
 
 #: wp-includes/class-wp-editor.php:1318
-#: wp-includes/js/dist/block-library.js:43761
+#: wp-includes/js/dist/block-library.js:43781
 msgid "Delete column"
 msgstr "Изтриване на колоната"
 
@@ -12991,7 +13508,7 @@ msgstr "Главна клетка"
 
 #. translators: accessibility text for the footer landmark region.
 #: wp-includes/block-template-utils.php:86
-#: wp-includes/js/dist/block-library.js:45198
+#: wp-includes/js/dist/block-library.js:45218
 #: wp-includes/js/dist/edit-post.js:1633 wp-includes/js/dist/edit-site.js:2287
 #: wp-includes/js/dist/edit-widgets.js:1217
 msgid "Footer"
@@ -13034,11 +13551,11 @@ msgid "Find and replace"
 msgstr "Откриване и заменяне"
 
 #: wp-includes/media-template.php:1226 wp-includes/media.php:4471
-#: wp-includes/js/dist/block-editor.js:44810
+#: wp-includes/js/dist/block-editor.js:44822
 #: wp-includes/js/dist/block-library.js:11385
 #: wp-includes/js/dist/block-library.js:34886
-#: wp-includes/js/dist/block-library.js:45110
-#: wp-includes/js/dist/block-library.js:46695
+#: wp-includes/js/dist/block-library.js:45130
+#: wp-includes/js/dist/block-library.js:46715
 msgid "Replace"
 msgstr "Смяна"
 
@@ -13092,9 +13609,9 @@ msgid "Insert image"
 msgstr "Вмъкване на изображение"
 
 #: wp-includes/class-wp-editor.php:1221
-#: wp-includes/js/dist/block-editor.js:32849
-#: wp-includes/js/dist/block-editor.js:33151
-#: wp-includes/js/dist/components.js:49452
+#: wp-includes/js/dist/block-editor.js:32864
+#: wp-includes/js/dist/block-editor.js:33166
+#: wp-includes/js/dist/components.js:49614
 #: wp-includes/js/dist/edit-site.js:6916
 msgid "Style"
 msgstr "Стил"
@@ -13197,7 +13714,7 @@ msgstr "Избор на зона, в която да преместите джа
 
 #: wp-includes/class-wp-customize-nav-menus.php:1093
 #: wp-includes/class-wp-customize-widgets.php:722
-#: wp-includes/js/dist/block-editor.js:27190
+#: wp-includes/js/dist/block-editor.js:27205
 #: wp-admin/includes/class-walker-nav-menu-edit.php:147
 #: wp-admin/includes/template.php:1351
 msgid "Move up"
@@ -13205,7 +13722,7 @@ msgstr "Преместване нагоре"
 
 #: wp-includes/class-wp-customize-nav-menus.php:1094
 #: wp-includes/class-wp-customize-widgets.php:721
-#: wp-includes/js/dist/block-editor.js:27196
+#: wp-includes/js/dist/block-editor.js:27211
 #: wp-admin/includes/class-walker-nav-menu-edit.php:164
 #: wp-admin/includes/template.php:1361
 msgid "Move down"
@@ -13400,7 +13917,7 @@ msgctxt "Comma-separated list of search stopwords in your language"
 msgid "about,an,are,as,at,be,by,com,for,from,how,in,is,it,of,on,or,that,the,this,to,was,what,when,where,who,will,with,www"
 msgstr "за,с,със,към,на,от,до,през,ще,щеше,в,във,то,това,тези,този,тази,кога, когато,когото, където,кой,който,на кого,на когото,www,съм,се,си,са,е,сме,сте,щяха"
 
-#: wp-includes/post-template.php:1727
+#: wp-includes/post-template.php:1728
 msgid "This content is password protected. To view it please enter your password below:"
 msgstr "Съдържанието е заключено. За да го разгледате, въведете паролата си отдолу:"
 
@@ -13488,7 +14005,7 @@ msgstr[1] "%s седмици"
 msgid "#%d (no title)"
 msgstr "#%d (няма заглавие)"
 
-#: wp-includes/post-template.php:1964
+#: wp-includes/post-template.php:1965
 msgid "JavaScript must be enabled to use this feature."
 msgstr "За тази функционалност се изисква JavaScript."
 
@@ -13612,7 +14129,7 @@ msgstr "Невалидно потребителско ID."
 msgid "Random Order"
 msgstr "Произволен ред"
 
-#: wp-includes/media.php:4524 wp-includes/js/dist/block-editor.js:45457
+#: wp-includes/media.php:4524 wp-includes/js/dist/block-editor.js:45469
 msgid "Insert from URL"
 msgstr "Вмъкване от URL"
 
@@ -13682,7 +14199,7 @@ msgid "Manage Video"
 msgstr "Управление на видео"
 
 #: wp-includes/widgets/class-wp-widget-media-video.php:28
-#: wp-includes/js/dist/block-editor.js:45407 wp-includes/js/dist/editor.js:7130
+#: wp-includes/js/dist/block-editor.js:45419 wp-includes/js/dist/editor.js:7130
 msgid "Video"
 msgstr "Видео"
 
@@ -13717,7 +14234,7 @@ msgid "Insert into page"
 msgstr "Вмъкване в страницата"
 
 #: wp-includes/widgets/class-wp-widget-media-audio.php:28
-#: wp-includes/js/dist/block-editor.js:45403 wp-includes/js/dist/editor.js:7106
+#: wp-includes/js/dist/block-editor.js:45415 wp-includes/js/dist/editor.js:7106
 msgid "Audio"
 msgstr "Аудио"
 
@@ -13740,9 +14257,9 @@ msgstr "Потребителски URL адрес"
 #: wp-includes/js/dist/block-library.js:16247
 #: wp-includes/js/dist/block-library.js:17152
 #: wp-includes/js/dist/block-library.js:21893
-#: wp-includes/js/dist/block-library.js:35444
-#: wp-includes/js/dist/block-library.js:38029
-#: wp-includes/js/dist/block-library.js:45553
+#: wp-includes/js/dist/block-library.js:35467
+#: wp-includes/js/dist/block-library.js:38049
+#: wp-includes/js/dist/block-library.js:45573
 #: wp-admin/includes/class-wp-screen.php:1156
 msgid "Columns"
 msgstr "Колони"
@@ -13758,7 +14275,7 @@ msgstr "Подробности за файла"
 #: wp-includes/block-editor.php:167 wp-includes/media-template.php:856
 #: wp-includes/media-template.php:936 wp-includes/media-template.php:1127
 #: wp-includes/media.php:4104 wp-includes/js/dist/block-editor.js:3258
-#: wp-includes/js/dist/block-library.js:41780
+#: wp-includes/js/dist/block-library.js:41800
 #: wp-admin/includes/class-custom-background.php:606
 #: wp-admin/includes/media.php:1188
 msgid "Large"
@@ -13793,7 +14310,7 @@ msgid "Insert gallery"
 msgstr "Вмъкване на галерия"
 
 #: wp-includes/media-template.php:209 wp-includes/media-template.php:216
-#: wp-includes/media-template.php:253 wp-includes/js/dist/components.js:61899
+#: wp-includes/media-template.php:253 wp-includes/js/dist/components.js:62112
 #: wp-admin/includes/media.php:2231
 msgid "Drop files to upload"
 msgstr "За да качите файловете, пуснете ги тук"
@@ -13802,7 +14319,7 @@ msgstr "За да качите файловете, пуснете ги тук"
 msgid "Create gallery"
 msgstr "Създаване на галерия"
 
-#: wp-includes/media.php:4487 wp-includes/js/dist/block-editor.js:45475
+#: wp-includes/media.php:4487 wp-includes/js/dist/block-editor.js:45487
 #: wp-admin/includes/media.php:21 wp-admin/upload.php:80
 #: wp-admin/upload.php:220
 msgid "Media Library"
@@ -13863,7 +14380,7 @@ msgstr ""
 
 #: wp-includes/media-template.php:819 wp-includes/media-template.php:894
 #: wp-includes/media-template.php:1167
-#: wp-includes/js/dist/block-editor.js:47946
+#: wp-includes/js/dist/block-editor.js:47958
 #: wp-includes/js/dist/block-library.js:15910
 #: wp-includes/js/dist/block-library.js:16801
 msgid "Media File"
@@ -13871,7 +14388,7 @@ msgstr "Файл"
 
 #: wp-includes/media-template.php:826 wp-includes/media-template.php:891
 #: wp-includes/media-template.php:1170
-#: wp-includes/js/dist/block-editor.js:47954
+#: wp-includes/js/dist/block-editor.js:47966
 #: wp-includes/js/dist/block-library.js:15907
 #: wp-includes/js/dist/block-library.js:16798 wp-admin/includes/media.php:2608
 msgid "Attachment Page"
@@ -13945,9 +14462,9 @@ msgstr "%1$s %2$s"
 msgid "Could not insert term relationship into the database."
 msgstr "Грешка при създаването на връзка към термин."
 
-#: wp-includes/media-template.php:756 wp-includes/js/dist/components.js:48905
-#: wp-includes/js/dist/components.js:54574
-#: wp-includes/js/dist/components.js:62254 wp-admin/theme-install.php:218
+#: wp-includes/media-template.php:756 wp-includes/js/dist/components.js:49067
+#: wp-includes/js/dist/components.js:54736
+#: wp-includes/js/dist/components.js:62467 wp-admin/theme-install.php:218
 #: wp-admin/theme-install.php:240 wp-admin/js/color-picker.js:154
 msgid "Clear"
 msgstr "Изчистване"
@@ -14177,7 +14694,7 @@ msgstr "Позволени файлове"
 #: wp-includes/customize/class-wp-customize-media-control.php:259
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:158
 #: wp-includes/media-template.php:574 wp-includes/media.php:4472
-#: wp-includes/js/dist/block-library.js:46705
+#: wp-includes/js/dist/block-library.js:46725
 #: wp-includes/js/dist/edit-post.js:392
 #: wp-admin/includes/class-walker-nav-menu-edit.php:287
 #: wp-admin/includes/class-wp-users-list-table.php:278
@@ -14185,10 +14702,10 @@ msgstr "Позволени файлове"
 msgid "Remove"
 msgstr "Изтриване"
 
-#: wp-includes/js/dist/block-editor.js:44949
-#: wp-includes/js/dist/block-editor.js:45507
-#: wp-includes/js/dist/block-editor.js:45520
-#: wp-includes/js/dist/block-library.js:46462
+#: wp-includes/js/dist/block-editor.js:44961
+#: wp-includes/js/dist/block-editor.js:45519
+#: wp-includes/js/dist/block-editor.js:45532
+#: wp-includes/js/dist/block-library.js:46482
 #: wp-admin/includes/class-custom-background.php:339
 #: wp-admin/includes/class-custom-image-header.php:651
 #: wp-admin/includes/class-wp-theme-install-list-table.php:63
@@ -14717,8 +15234,8 @@ msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a 
 msgstr "Вашият акаунт е вече активиран. <a href=\"%1$s\">Посетете сайта</a> или <a href=\"%2$s\">влезте</a>."
 
 #: wp-includes/class-wp-editor.php:1256
-#: wp-includes/js/dist/block-editor.js:34089
-#: wp-includes/js/dist/block-editor.js:38899
+#: wp-includes/js/dist/block-editor.js:34104
+#: wp-includes/js/dist/block-editor.js:38914
 #: wp-includes/js/dist/block-library.js:4368
 #: wp-includes/js/dist/block-library.js:28067
 #: wp-includes/js/dist/block-library.js:29222
@@ -14754,7 +15271,7 @@ msgstr "Плакат"
 #: wp-includes/media-template.php:1296 wp-includes/media-template.php:1395
 #: wp-includes/widgets/class-wp-widget-media-audio.php:72
 #: wp-includes/widgets/class-wp-widget-media-video.php:74
-#: wp-includes/js/dist/block-library.js:46151
+#: wp-includes/js/dist/block-library.js:46171
 msgid "Preload"
 msgstr "Предварително зареждане"
 
@@ -15836,7 +16353,7 @@ msgstr "%s е вашето ново потребителско име"
 #: wp-includes/class-wp-customize-nav-menus.php:1112
 #: wp-includes/script-loader.php:1859 wp-signup.php:626
 #: wp-includes/js/dist/block-library.js:32689
-#: wp-includes/js/dist/components.js:66899
+#: wp-includes/js/dist/components.js:67112
 msgid "Next"
 msgstr "Напред"
 
@@ -16063,7 +16580,7 @@ msgstr "на"
 
 #: wp-includes/class-wp-editor.php:1212 wp-includes/script-loader.php:900
 #: wp-includes/widgets/class-wp-widget-media-image.php:28
-#: wp-includes/js/dist/block-editor.js:45405 wp-includes/js/dist/editor.js:7115
+#: wp-includes/js/dist/block-editor.js:45417 wp-includes/js/dist/editor.js:7115
 #: wp-admin/includes/media.php:2925
 msgid "Image"
 msgstr "Изображение"
@@ -16188,18 +16705,18 @@ msgstr "Ревизия"
 
 #. translators: %s: Revision date.
 #. translators: %s: Revision date with author avatar.
-#: wp-includes/post-template.php:1841 wp-includes/post-template.php:1901
+#: wp-includes/post-template.php:1842 wp-includes/post-template.php:1902
 msgid "%s [Current Revision]"
 msgstr "%s [Текуща версия]"
 
 #. translators: %s: Revision date.
 #. translators: %s: Revision date with author avatar.
-#: wp-includes/post-template.php:1839 wp-includes/post-template.php:1899
+#: wp-includes/post-template.php:1840 wp-includes/post-template.php:1900
 msgid "%s [Autosave]"
 msgstr "%s [Автоматичен запис]"
 
 #. translators: 'Home' as in a website's home page.
-#: wp-includes/post-template.php:1438
+#: wp-includes/post-template.php:1439
 #: wp-includes/js/dist/block-library.js:19407
 #: wp-includes/js/dist/block-library.js:27331 wp-admin/menu.php:26
 #: wp-admin/network/menu.php:13
@@ -16381,13 +16898,13 @@ msgstr "Такъв потребител не съществува."
 
 #: wp-includes/class-wp-locale.php:202
 #: wp-includes/customize/class-wp-customize-date-time-control.php:173
-#: wp-includes/js/dist/components.js:60902
+#: wp-includes/js/dist/components.js:61115
 msgid "PM"
 msgstr "PM"
 
 #: wp-includes/class-wp-locale.php:201
 #: wp-includes/customize/class-wp-customize-date-time-control.php:172
-#: wp-includes/js/dist/components.js:60898
+#: wp-includes/js/dist/components.js:61111
 msgid "AM"
 msgstr "AM"
 
@@ -16434,13 +16951,13 @@ msgid "Fill Screen"
 msgstr "Цял екран"
 
 #: wp-includes/class-wp-editor.php:1253
-#: wp-includes/js/dist/block-editor.js:48055
+#: wp-includes/js/dist/block-editor.js:48067
 msgid "Remove link"
 msgstr "Премахване на връзка"
 
 #: wp-includes/class-wp-editor.php:1257 wp-includes/script-loader.php:711
-#: wp-includes/js/dist/block-editor.js:47753
-#: wp-includes/js/dist/block-editor.js:48026
+#: wp-includes/js/dist/block-editor.js:47765
+#: wp-includes/js/dist/block-editor.js:48038
 msgid "Insert link"
 msgstr "Вмъкване/редактиране на връзка"
 
@@ -16462,7 +16979,7 @@ msgstr "Писмо"
 
 #: wp-includes/media-template.php:1209
 #: wp-includes/widgets/class-wp-widget-media-image.php:137
-#: wp-includes/js/dist/block-editor.js:48013
+#: wp-includes/js/dist/block-editor.js:48025
 msgid "Link Rel"
 msgstr "rel атрибут"
 
@@ -16471,25 +16988,25 @@ msgid "Source"
 msgstr "Адрес"
 
 #: wp-includes/customize/class-wp-customize-background-position-control.php:79
-#: wp-includes/js/dist/components.js:24193
+#: wp-includes/js/dist/components.js:24281
 #: wp-admin/includes/class-custom-background.php:407
 msgid "Bottom Right"
 msgstr "Долу вдясно"
 
 #: wp-includes/customize/class-wp-customize-background-position-control.php:71
-#: wp-includes/js/dist/components.js:24191
+#: wp-includes/js/dist/components.js:24279
 #: wp-admin/includes/class-custom-background.php:399
 msgid "Bottom Left"
 msgstr "Долу вляво"
 
 #: wp-includes/customize/class-wp-customize-background-position-control.php:51
-#: wp-includes/js/dist/components.js:24187
+#: wp-includes/js/dist/components.js:24275
 #: wp-admin/includes/class-custom-background.php:379
 msgid "Top Right"
 msgstr "Горе вдясно"
 
 #: wp-includes/customize/class-wp-customize-background-position-control.php:43
-#: wp-includes/js/dist/components.js:24185
+#: wp-includes/js/dist/components.js:24273
 #: wp-admin/includes/class-custom-background.php:371
 msgid "Top Left"
 msgstr "Горе вляво"
@@ -16502,7 +17019,7 @@ msgstr "Спиране на звука"
 msgid "Fullscreen"
 msgstr "Цял екран"
 
-#: wp-includes/admin-bar.php:1049 wp-includes/js/dist/block-editor.js:34079
+#: wp-includes/admin-bar.php:1049 wp-includes/js/dist/block-editor.js:34094
 #: wp-includes/js/dist/block-library.js:26448
 #: wp-includes/js/dist/edit-site.js:8590 wp-includes/js/dist/edit-site.js:8899
 #: wp-includes/js/dist/format-library.js:1441
@@ -16512,7 +17029,7 @@ msgstr "Фон"
 
 #: wp-includes/media-template.php:1028 wp-includes/media-template.php:1092
 #: wp-includes/js/dist/block-editor.js:12076
-#: wp-includes/js/dist/block-editor.js:37739
+#: wp-includes/js/dist/block-editor.js:37754
 msgid "Align"
 msgstr "Подравняване"
 
@@ -16520,11 +17037,11 @@ msgstr "Подравняване"
 #: wp-includes/widgets/class-wp-widget-media-audio.php:77
 #: wp-includes/widgets/class-wp-widget-media-video.php:80
 #: wp-includes/js/dist/block-library.js:2913
-#: wp-includes/js/dist/block-library.js:46135
+#: wp-includes/js/dist/block-library.js:46155
 msgid "Loop"
 msgstr "Повторения (loop)"
 
-#: wp-includes/js/dist/components.js:54405
+#: wp-includes/js/dist/components.js:54567
 #: wp-admin/includes/ajax-actions.php:2202
 msgid "Type"
 msgstr "Тип"
@@ -16548,7 +17065,7 @@ msgstr "Това прилича на имейл адрес, искате ли д
 
 #: wp-includes/class-wp-editor.php:1336
 #: wp-includes/customize/class-wp-customize-background-position-control.php:75
-#: wp-includes/js/dist/components.js:50804
+#: wp-includes/js/dist/components.js:50966
 #: wp-admin/includes/class-custom-background.php:403
 msgid "Bottom"
 msgstr "Долу"
@@ -16559,8 +17076,8 @@ msgstr "Среда"
 
 #: wp-includes/class-wp-editor.php:1334
 #: wp-includes/customize/class-wp-customize-background-position-control.php:47
-#: wp-includes/js/dist/components.js:50803
-#: wp-includes/js/dist/components.js:64228
+#: wp-includes/js/dist/components.js:50965
+#: wp-includes/js/dist/components.js:64441
 #: wp-admin/includes/class-custom-background.php:375
 msgid "Top"
 msgstr "Горе"
@@ -16574,15 +17091,15 @@ msgid "Vertical space"
 msgstr "Вертикално разстояние"
 
 #: wp-includes/class-wp-editor.php:1222
-#: wp-includes/js/dist/block-editor.js:48432
-#: wp-includes/js/dist/block-editor.js:48489
+#: wp-includes/js/dist/block-editor.js:48444
+#: wp-includes/js/dist/block-editor.js:48501
 #: wp-includes/js/dist/edit-site.js:7089
 msgid "Dimensions"
 msgstr "Размери"
 
 #: wp-includes/class-wp-editor.php:1217
-#: wp-includes/js/dist/block-editor.js:48435
-#: wp-includes/js/dist/block-editor.js:48492
+#: wp-includes/js/dist/block-editor.js:48447
+#: wp-includes/js/dist/block-editor.js:48504
 #: wp-includes/js/dist/edit-site.js:6899
 msgid "Border"
 msgstr "Рамка"
@@ -16601,8 +17118,8 @@ msgstr "Вмъкване"
 
 #: wp-includes/class-wp-customize-manager.php:4360
 #: wp-includes/class-wp-editor.php:1171
-#: wp-includes/js/dist/block-editor.js:29654
-#: wp-includes/js/dist/components.js:47786 wp-includes/js/dist/editor.js:9781
+#: wp-includes/js/dist/block-editor.js:29669
+#: wp-includes/js/dist/components.js:47947 wp-includes/js/dist/editor.js:9781
 msgid "Copy"
 msgstr "Копиране"
 
@@ -16621,13 +17138,13 @@ msgid "Subscript"
 msgstr "Долен индекс"
 
 #: wp-includes/class-wp-editor.php:1152
-#: wp-includes/js/dist/block-editor.js:35429
+#: wp-includes/js/dist/block-editor.js:35444
 #: wp-includes/js/dist/format-library.js:1150
 msgid "Strikethrough"
 msgstr "Зачеркнат"
 
 #: wp-includes/class-wp-editor.php:1151
-#: wp-includes/js/dist/block-editor.js:35425
+#: wp-includes/js/dist/block-editor.js:35440
 #: wp-includes/js/dist/format-library.js:1196
 msgid "Underline"
 msgstr "Подчертан"
@@ -16676,7 +17193,7 @@ msgid "Heading 1"
 msgstr "Заглавие 1"
 
 #: wp-includes/class-wp-editor.php:1143
-#: wp-includes/js/dist/block-library.js:40087
+#: wp-includes/js/dist/block-library.js:40107
 msgid "Paragraph"
 msgstr "Параграф"
 
@@ -16743,27 +17260,27 @@ msgid "Merge table cells"
 msgstr "Сливане на клетките"
 
 #: wp-includes/class-wp-editor.php:1314
-#: wp-includes/js/dist/block-library.js:43756
+#: wp-includes/js/dist/block-library.js:43776
 msgid "Insert column after"
 msgstr "Вмъкване на колона след"
 
 #: wp-includes/class-wp-editor.php:1313
-#: wp-includes/js/dist/block-library.js:43751
+#: wp-includes/js/dist/block-library.js:43771
 msgid "Insert column before"
 msgstr "Вмъкване на колона преди"
 
 #: wp-includes/class-wp-editor.php:1317
-#: wp-includes/js/dist/block-library.js:43746
+#: wp-includes/js/dist/block-library.js:43766
 msgid "Delete row"
 msgstr "Изтриване на ред"
 
 #: wp-includes/class-wp-editor.php:1312
-#: wp-includes/js/dist/block-library.js:43741
+#: wp-includes/js/dist/block-library.js:43761
 msgid "Insert row after"
 msgstr "Вмъкване на ред след"
 
 #: wp-includes/class-wp-editor.php:1311
-#: wp-includes/js/dist/block-library.js:43736
+#: wp-includes/js/dist/block-library.js:43756
 msgid "Insert row before"
 msgstr "Вмъкване на ред преди"
 
@@ -17058,7 +17575,7 @@ msgstr "Коментари за %s"
 msgid "Comments for %1$s searching on %2$s"
 msgstr "Коментари към %1$s, при търсене на %2$s"
 
-#: wp-includes/deprecated.php:1872 wp-includes/post-template.php:1620
+#: wp-includes/deprecated.php:1872 wp-includes/post-template.php:1621
 msgid "Missing Attachment"
 msgstr "Липсва прикачен файл"
 
@@ -17134,7 +17651,7 @@ msgid "Automatically add paragraphs"
 msgstr "Автоматично добавяне на параграфи"
 
 #: wp-includes/widgets/class-wp-widget-text.php:43
-#: wp-includes/js/dist/block-editor.js:34071
+#: wp-includes/js/dist/block-editor.js:34086
 #: wp-includes/js/dist/block-library.js:26444
 #: wp-includes/js/dist/blocks.js:5547 wp-includes/js/dist/edit-site.js:8412
 #: wp-includes/js/dist/edit-site.js:8442 wp-includes/js/dist/edit-site.js:8614
@@ -17152,7 +17669,7 @@ msgstr "Календар"
 #: wp-includes/widgets/class-wp-widget-categories.php:198
 #: wp-includes/js/dist/block-library.js:1736
 #: wp-includes/js/dist/block-library.js:5323
-#: wp-includes/js/dist/block-library.js:44399
+#: wp-includes/js/dist/block-library.js:44419
 msgid "Show post counts"
 msgstr "Показване на броя на публикациите"
 
@@ -17374,10 +17891,10 @@ msgstr "Коментари на %s"
 #: wp-includes/class-wp-customize-nav-menus.php:335
 #: wp-includes/script-loader.php:863 wp-includes/script-loader.php:1172
 #: wp-includes/js/dist/block-directory.js:1375
-#: wp-includes/js/dist/block-editor.js:23701
+#: wp-includes/js/dist/block-editor.js:23716
 #: wp-includes/js/dist/block-library.js:8589
 #: wp-includes/js/dist/block-library.js:33057
-#: wp-includes/js/dist/components.js:68390 wp-admin/includes/nav-menu.php:600
+#: wp-includes/js/dist/components.js:68603 wp-admin/includes/nav-menu.php:600
 #: wp-admin/includes/nav-menu.php:895 wp-admin/js/nav-menu.js:1463
 msgid "No results found."
 msgstr "Не са открити резултати."
@@ -17392,10 +17909,10 @@ msgstr "&laquo; Предишна страница"
 
 #. translators: 'Label. Used to signify a layout property (eg: margin, padding)
 #. will apply uniformly to all screensizes.'
-#: wp-includes/js/dist/block-editor.js:47425
-#: wp-includes/js/dist/components.js:50802
-#: wp-includes/js/dist/components.js:69693
-#: wp-includes/js/dist/components.js:69710 wp-admin/export.php:189
+#: wp-includes/js/dist/block-editor.js:47437
+#: wp-includes/js/dist/components.js:50964
+#: wp-includes/js/dist/components.js:69906
+#: wp-includes/js/dist/components.js:69923 wp-admin/export.php:189
 #: wp-admin/export.php:201 wp-admin/export.php:226 wp-admin/export.php:248
 #: wp-admin/export.php:273 wp-admin/includes/class-wp-users-list-table.php:190
 msgid "All"
@@ -17456,10 +17973,10 @@ msgstr "Заглавие:"
 #: wp-includes/customize/class-wp-customize-media-control.php:237
 #: wp-includes/customize/class-wp-customize-media-control.php:248
 #: wp-includes/customize/class-wp-customize-media-control.php:258
-#: wp-includes/js/dist/block-editor.js:34261
-#: wp-includes/js/dist/block-editor.js:34821
-#: wp-includes/js/dist/components.js:61094
-#: wp-includes/js/dist/components.js:65590
+#: wp-includes/js/dist/block-editor.js:34276
+#: wp-includes/js/dist/block-editor.js:34836
+#: wp-includes/js/dist/components.js:61307
+#: wp-includes/js/dist/components.js:65803
 #: wp-includes/js/dist/edit-post.js:5893 wp-includes/js/dist/edit-post.js:6022
 #: wp-includes/js/dist/edit-site.js:8711 wp-includes/js/dist/edit-site.js:8765
 #: wp-includes/js/dist/edit-site.js:9285 wp-admin/js/color-picker.js:149
@@ -17468,10 +17985,10 @@ msgstr "По подразбиране"
 
 #: wp-includes/class-wp-editor.php:1324 wp-includes/media-template.php:1155
 #: wp-includes/widgets/class-wp-widget-media-image.php:84
-#: wp-includes/js/dist/block-editor.js:42900
+#: wp-includes/js/dist/block-editor.js:42912
 #: wp-includes/js/dist/block-library.js:32314
 #: wp-includes/js/dist/block-library.js:32324
-#: wp-includes/js/dist/block-library.js:42253 wp-admin/options-media.php:65
+#: wp-includes/js/dist/block-library.js:42273 wp-admin/options-media.php:65
 msgid "Height"
 msgstr "Височина"
 
@@ -17518,9 +18035,9 @@ msgstr "Първа публикация"
 #: wp-includes/js/dist/block-library.js:9062
 #: wp-includes/js/dist/block-library.js:9574
 #: wp-includes/js/dist/block-library.js:31880
-#: wp-includes/js/dist/block-library.js:35429
-#: wp-includes/js/dist/block-library.js:36375
-#: wp-includes/js/dist/block-library.js:39441
+#: wp-includes/js/dist/block-library.js:35452
+#: wp-includes/js/dist/block-library.js:36395
+#: wp-includes/js/dist/block-library.js:39461
 #: wp-includes/js/dist/edit-post.js:1627 wp-includes/js/dist/edit-post.js:8059
 #: wp-includes/js/dist/edit-site.js:2281 wp-includes/js/dist/edit-site.js:9972
 #: wp-includes/js/dist/edit-widgets.js:1211
@@ -17605,14 +18122,14 @@ msgstr "<strong>Грешка</strong>: въведете потребителск
 
 #: wp-includes/class-wp-editor.php:1325 wp-includes/media-template.php:1150
 #: wp-includes/widgets/class-wp-widget-media-image.php:78
-#: wp-includes/js/dist/block-editor.js:33042
-#: wp-includes/js/dist/block-editor.js:33143
-#: wp-includes/js/dist/block-editor.js:42893
+#: wp-includes/js/dist/block-editor.js:33057
+#: wp-includes/js/dist/block-editor.js:33158
+#: wp-includes/js/dist/block-editor.js:42905
 #: wp-includes/js/dist/block-library.js:6146
 #: wp-includes/js/dist/block-library.js:32333
 #: wp-includes/js/dist/block-library.js:32343
-#: wp-includes/js/dist/block-library.js:38499
-#: wp-includes/js/dist/block-library.js:42246
+#: wp-includes/js/dist/block-library.js:38519
+#: wp-includes/js/dist/block-library.js:42266
 #: wp-includes/js/dist/edit-site.js:6904 wp-includes/js/dist/edit-site.js:6909
 #: wp-includes/js/dist/format-library.js:295 wp-admin/options-media.php:62
 msgid "Width"
@@ -17698,8 +18215,8 @@ msgstr "Редактиране на информация за файл"
 msgid "New Page"
 msgstr "Нова страница"
 
-#: wp-includes/media.php:4468 wp-includes/js/dist/block-editor.js:47656
-#: wp-includes/js/dist/block-library.js:46695
+#: wp-includes/media.php:4468 wp-includes/js/dist/block-editor.js:47668
+#: wp-includes/js/dist/block-library.js:46715
 #: wp-includes/js/dist/editor.js:5341 wp-admin/includes/template.php:1961
 #: wp-admin/nav-menus.php:905 wp-admin/plugin-editor.php:236
 #: wp-admin/theme-editor.php:239
@@ -17710,12 +18227,12 @@ msgstr "Избор"
 #: wp-includes/class-wp-customize-manager.php:5707
 #: wp-includes/class-wp-editor.php:1179 wp-includes/class-wp-editor.php:1868
 #: wp-includes/script-loader.php:902 wp-includes/script-loader.php:1216
-#: wp-includes/script-loader.php:1855 wp-includes/js/dist/block-editor.js:24144
-#: wp-includes/js/dist/block-editor.js:29414
-#: wp-includes/js/dist/block-editor.js:47770
+#: wp-includes/script-loader.php:1855 wp-includes/js/dist/block-editor.js:24159
+#: wp-includes/js/dist/block-editor.js:29429
+#: wp-includes/js/dist/block-editor.js:47782
 #: wp-includes/js/dist/block-library.js:29777
-#: wp-includes/js/dist/block-library.js:46344
-#: wp-includes/js/dist/components.js:60991
+#: wp-includes/js/dist/block-library.js:46364
+#: wp-includes/js/dist/components.js:61204
 #: wp-includes/js/dist/customize-widgets.js:1146
 #: wp-includes/js/dist/edit-post.js:1759 wp-includes/js/dist/edit-post.js:4210
 #: wp-includes/js/dist/edit-post.js:5325 wp-includes/js/dist/edit-post.js:7745
@@ -17729,7 +18246,7 @@ msgstr "Избор"
 msgid "Close"
 msgstr "Затваряне"
 
-#: wp-includes/post-template.php:1274 wp-includes/theme-compat/sidebar.php:117
+#: wp-includes/post-template.php:1275 wp-includes/theme-compat/sidebar.php:117
 #: wp-includes/widgets/class-wp-widget-pages.php:31
 #: wp-includes/widgets/class-wp-widget-pages.php:44 wp-admin/export.php:237
 msgid "Pages"
@@ -17780,7 +18297,7 @@ msgstr "Изображения"
 msgid "By %s"
 msgstr "От %s"
 
-#: wp-includes/js/dist/block-library.js:44225
+#: wp-includes/js/dist/block-library.js:44245
 #: wp-admin/includes/class-plugin-installer-skin.php:217
 #: wp-admin/includes/class-theme-installer-skin.php:240
 #: wp-admin/includes/class-wp-debug-data.php:69
@@ -17793,13 +18310,13 @@ msgstr "Версия"
 #: wp-includes/blocks/search.php:25 wp-includes/blocks/search.php:26
 #: wp-includes/blocks/search.php:45 wp-includes/class-wp-editor.php:1889
 #: wp-includes/media.php:4467 wp-includes/media.php:4512
-#: wp-includes/js/dist/block-editor.js:23659
-#: wp-includes/js/dist/block-editor.js:24721
-#: wp-includes/js/dist/block-editor.js:24840
-#: wp-includes/js/dist/block-library.js:38458
-#: wp-includes/js/dist/block-library.js:38624
-#: wp-includes/js/dist/block-library.js:38625
-#: wp-includes/js/dist/components.js:67430
+#: wp-includes/js/dist/block-editor.js:23674
+#: wp-includes/js/dist/block-editor.js:24736
+#: wp-includes/js/dist/block-editor.js:24855
+#: wp-includes/js/dist/block-library.js:38478
+#: wp-includes/js/dist/block-library.js:38644
+#: wp-includes/js/dist/block-library.js:38645
+#: wp-includes/js/dist/components.js:67643
 #: wp-includes/js/dist/edit-site.js:8272
 #: wp-admin/includes/class-wp-media-list-table.php:307
 #: wp-admin/includes/class-wp-theme-install-list-table.php:59
@@ -17868,7 +18385,7 @@ msgstr "Публична"
 msgid "Private"
 msgstr "Лична"
 
-#: wp-includes/class-wp-editor.php:1177 wp-includes/js/dist/components.js:56078
+#: wp-includes/class-wp-editor.php:1177 wp-includes/js/dist/components.js:56240
 #: wp-admin/includes/meta-boxes.php:155 wp-admin/includes/meta-boxes.php:208
 #: wp-admin/includes/template.php:867 wp-admin/js/post.js:1029
 msgid "OK"
@@ -17887,7 +18404,7 @@ msgstr "Действия"
 #. translators: Default privacy policy heading.
 #: wp-includes/block-template-utils.php:165
 #: wp-includes/class-wp-editor.php:1229 wp-includes/media.php:4464
-#: wp-includes/media.php:5122 wp-includes/js/dist/block-editor.js:45400
+#: wp-includes/media.php:5122 wp-includes/js/dist/block-editor.js:45412
 #: wp-includes/js/dist/blocks.js:5550 wp-includes/js/dist/core-data.js:2058
 #: wp-admin/export.php:293
 #: wp-admin/includes/class-wp-privacy-policy-content.php:504
@@ -17916,9 +18433,9 @@ msgstr "Подравняване"
 #: wp-includes/media-template.php:843 wp-includes/media-template.php:922
 #: wp-includes/media-template.php:1114
 #: wp-includes/widgets/class-wp-widget-media-image.php:72
-#: wp-includes/js/dist/block-library.js:41900
-#: wp-includes/js/dist/block-library.js:41901
-#: wp-includes/js/dist/components.js:65803 wp-admin/includes/media.php:1237
+#: wp-includes/js/dist/block-library.js:41920
+#: wp-includes/js/dist/block-library.js:41921
+#: wp-includes/js/dist/components.js:66016 wp-admin/includes/media.php:1237
 msgid "Size"
 msgstr "Размер"
 
@@ -17941,7 +18458,7 @@ msgstr "Среден"
 #: wp-includes/class-wp-editor.php:1331
 #: wp-includes/customize/class-wp-customize-background-position-control.php:65
 #: wp-includes/media-template.php:782 wp-includes/media-template.php:1038
-#: wp-includes/media-template.php:1102 wp-includes/js/dist/components.js:50806
+#: wp-includes/media-template.php:1102 wp-includes/js/dist/components.js:50968
 #: wp-admin/includes/class-custom-background.php:393
 #: wp-admin/includes/media.php:1146 wp-admin/includes/media.php:2966
 msgid "Right"
@@ -17959,8 +18476,8 @@ msgstr "Център"
 #: wp-includes/class-wp-editor.php:1329
 #: wp-includes/customize/class-wp-customize-background-position-control.php:57
 #: wp-includes/media-template.php:776 wp-includes/media-template.php:1032
-#: wp-includes/media-template.php:1096 wp-includes/js/dist/components.js:50805
-#: wp-includes/js/dist/components.js:64223
+#: wp-includes/media-template.php:1096 wp-includes/js/dist/components.js:50967
+#: wp-includes/js/dist/components.js:64436
 #: wp-admin/includes/class-custom-background.php:385
 #: wp-admin/includes/media.php:1144 wp-admin/includes/media.php:2962
 msgid "Left"
@@ -18039,7 +18556,7 @@ msgstr "Странична лента"
 
 #. translators: accessibility text for the top bar landmark region.
 #: wp-includes/admin-bar.php:1063 wp-includes/block-template-utils.php:77
-#: wp-includes/js/dist/block-library.js:45189
+#: wp-includes/js/dist/block-library.js:45209
 #: wp-includes/js/dist/edit-post.js:1618 wp-includes/js/dist/edit-site.js:2272
 #: wp-includes/js/dist/edit-widgets.js:1202
 #: wp-admin/includes/class-custom-image-header.php:73 wp-admin/menu.php:233
@@ -18092,17 +18609,17 @@ msgstr "Съдържание"
 
 #: wp-includes/class-wp-editor.php:1178 wp-includes/class-wp-editor.php:1914
 #: wp-includes/media.php:4469 wp-includes/script-loader.php:1215
-#: wp-includes/js/dist/block-editor.js:29468
-#: wp-includes/js/dist/block-editor.js:42737
-#: wp-includes/js/dist/block-editor.js:45443
-#: wp-includes/js/dist/block-editor.js:45446
+#: wp-includes/js/dist/block-editor.js:29483
+#: wp-includes/js/dist/block-editor.js:42749
+#: wp-includes/js/dist/block-editor.js:45455
+#: wp-includes/js/dist/block-editor.js:45458
 #: wp-includes/js/dist/block-library.js:25637
 #: wp-includes/js/dist/block-library.js:25646
 #: wp-includes/js/dist/block-library.js:29791
-#: wp-includes/js/dist/block-library.js:35775
-#: wp-includes/js/dist/block-library.js:44700
-#: wp-includes/js/dist/block-library.js:45121
-#: wp-includes/js/dist/components.js:56077
+#: wp-includes/js/dist/block-library.js:35795
+#: wp-includes/js/dist/block-library.js:44720
+#: wp-includes/js/dist/block-library.js:45141
+#: wp-includes/js/dist/components.js:56239
 #: wp-includes/js/dist/edit-post.js:7773 wp-includes/js/dist/edit-post.js:8595
 #: wp-includes/js/dist/edit-site.js:10477
 #: wp-includes/js/dist/edit-site.js:12928 wp-includes/js/dist/editor.js:5623
@@ -18141,9 +18658,9 @@ msgstr "Последни коментари"
 #. translators: button label text should, if possible, be under 16 characters.
 #: wp-includes/class-wp-customize-manager.php:4314
 #: wp-includes/class-wp-editor.php:1245 wp-includes/media-template.php:1488
-#: wp-includes/js/dist/block-editor.js:27735
-#: wp-includes/js/dist/block-editor.js:28312
-#: wp-includes/js/dist/block-editor.js:48097
+#: wp-includes/js/dist/block-editor.js:27750
+#: wp-includes/js/dist/block-editor.js:28327
+#: wp-includes/js/dist/block-editor.js:48109
 #: wp-includes/js/dist/block-library.js:19557 wp-admin/customize.php:207
 #: wp-admin/includes/class-custom-background.php:264
 #: wp-admin/includes/class-custom-image-header.php:537
@@ -18162,8 +18679,8 @@ msgstr "Преглед"
 msgid "RSS"
 msgstr "RSS  "
 
-#: wp-includes/js/dist/block-editor.js:44660
-#: wp-includes/js/dist/block-editor.js:47777
+#: wp-includes/js/dist/block-editor.js:44672
+#: wp-includes/js/dist/block-editor.js:47789
 #: wp-admin/includes/dashboard.php:1375 wp-admin/setup-config.php:250
 msgid "Submit"
 msgstr "Напред"
@@ -18176,7 +18693,7 @@ msgstr "Анонимен"
 
 #: wp-includes/customize/class-wp-customize-nav-menu-control.php:57
 #: wp-includes/customize/class-wp-widget-area-customize-control.php:61
-#: wp-includes/js/dist/components.js:55260 wp-admin/includes/widgets.php:297
+#: wp-includes/js/dist/components.js:55422 wp-admin/includes/widgets.php:297
 #: wp-admin/js/set-post-thumbnail.js:21
 msgid "Done"
 msgstr "Готово"
@@ -18236,8 +18753,8 @@ msgid "Description"
 msgstr "Описание"
 
 #: wp-includes/comment-template.php:2370
-#: wp-includes/js/dist/block-library.js:37720
-#: wp-includes/js/dist/block-library.js:44706
+#: wp-includes/js/dist/block-library.js:37740
+#: wp-includes/js/dist/block-library.js:44726
 #: wp-includes/js/dist/edit-post.js:7757 wp-includes/js/dist/edit-site.js:10432
 #: wp-includes/js/dist/edit-site.js:12915
 #: wp-includes/js/dist/reusable-blocks.js:363 wp-admin/edit-form-comment.php:49
@@ -18251,7 +18768,7 @@ msgid "Name"
 msgstr "Име"
 
 #: wp-includes/class-wp-editor.php:1215
-#: wp-includes/js/dist/block-editor.js:48508 wp-admin/edit-link-form.php:34
+#: wp-includes/js/dist/block-editor.js:48520 wp-admin/edit-link-form.php:34
 msgid "Advanced"
 msgstr "Допълнителни"
 
@@ -18266,7 +18783,7 @@ msgstr "Target (HTML атрибут)"
 #: wp-includes/widgets/class-wp-widget-categories.php:48
 #: wp-includes/js/dist/block-library.js:5298
 #: wp-includes/js/dist/block-library.js:5336
-#: wp-includes/js/dist/components.js:69698 wp-admin/edit-link-form.php:31
+#: wp-includes/js/dist/components.js:69911 wp-admin/edit-link-form.php:31
 #: wp-admin/includes/class-wp-links-list-table.php:135
 #: wp-admin/includes/upgrade.php:421
 msgid "Categories"
@@ -18369,11 +18886,11 @@ msgstr "Коментари"
 
 #: wp-includes/class-wp-customize-widgets.php:800
 #: wp-includes/class-wp-editor.php:1386 wp-includes/media.php:4509
-#: wp-includes/js/dist/block-editor.js:29471
-#: wp-includes/js/dist/block-editor.js:42735
-#: wp-includes/js/dist/block-editor.js:45101
-#: wp-includes/js/dist/block-editor.js:45217
-#: wp-includes/js/dist/block-library.js:41504
+#: wp-includes/js/dist/block-editor.js:29486
+#: wp-includes/js/dist/block-editor.js:42747
+#: wp-includes/js/dist/block-editor.js:45113
+#: wp-includes/js/dist/block-editor.js:45229
+#: wp-includes/js/dist/block-library.js:41524
 #: wp-includes/js/dist/format-library.js:301
 #: wp-admin/includes/class-wp-list-table.php:513
 #: wp-admin/includes/class-wp-screen.php:1093
@@ -18414,14 +18931,14 @@ msgstr "преди %s"
 #: wp-includes/class-walker-comment.php:261
 #: wp-includes/class-walker-comment.php:460
 #: wp-includes/class-wp-editor.php:1384
-#: wp-includes/js/dist/block-editor.js:44262
-#: wp-includes/js/dist/block-editor.js:45060
-#: wp-includes/js/dist/block-editor.js:47653
+#: wp-includes/js/dist/block-editor.js:44274
+#: wp-includes/js/dist/block-editor.js:45072
+#: wp-includes/js/dist/block-editor.js:47665
 #: wp-includes/js/dist/block-library.js:7967
 #: wp-includes/js/dist/block-library.js:29881
 #: wp-includes/js/dist/block-library.js:29883
 #: wp-includes/js/dist/block-library.js:31345
-#: wp-includes/js/dist/block-library.js:46254
+#: wp-includes/js/dist/block-library.js:46274
 #: wp-includes/js/dist/edit-post.js:7738 wp-admin/comment.php:238
 #: wp-admin/edit-form-comment.php:139
 #: wp-admin/includes/class-walker-nav-menu-edit.php:185
@@ -18474,8 +18991,8 @@ msgstr "Коментар:"
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:61
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:175
 #: wp-includes/widgets/class-wp-widget-media-image.php:113
-#: wp-includes/js/dist/block-editor.js:43391
-#: wp-includes/js/dist/block-editor.js:45210
+#: wp-includes/js/dist/block-editor.js:43403
+#: wp-includes/js/dist/block-editor.js:45222
 #: wp-includes/js/dist/block-library.js:13646 wp-admin/comment.php:183
 #: wp-admin/edit-form-comment.php:59
 #: wp-admin/includes/class-walker-nav-menu-edit.php:196
@@ -18488,7 +19005,7 @@ msgstr "Адрес"
 
 #: wp-includes/class-wp-editor.php:1209 wp-includes/theme-compat/sidebar.php:29
 #: wp-includes/js/dist/block-library.js:30870
-#: wp-includes/js/dist/components.js:69709 wp-includes/js/dist/editor.js:6518
+#: wp-includes/js/dist/components.js:69922 wp-includes/js/dist/editor.js:6518
 #: wp-includes/js/dist/editor.js:6580 wp-admin/comment.php:172
 #: wp-admin/edit-form-comment.php:43
 #: wp-admin/includes/class-plugin-installer-skin.php:218
@@ -18558,7 +19075,7 @@ msgstr "Публична"
 
 #: wp-includes/class-wp-editor.php:1205 wp-includes/media-template.php:484
 #: wp-includes/media-template.php:713 wp-includes/revision.php:32
-#: wp-includes/js/dist/block-library.js:44908
+#: wp-includes/js/dist/block-library.js:44928
 #: wp-includes/js/dist/edit-post.js:5902 wp-includes/js/dist/edit-site.js:5905
 #: wp-includes/js/dist/editor.js:4797 wp-includes/js/dist/editor.js:5461
 #: wp-includes/js/dist/widgets.js:1519 wp-admin/includes/ajax-actions.php:2202
@@ -18573,7 +19090,7 @@ msgstr "Заглавие"
 msgid "No posts found."
 msgstr "Не са открити публикации."
 
-#: wp-activate.php:183 wp-includes/post-template.php:1728
+#: wp-activate.php:183 wp-includes/post-template.php:1729
 #: wp-admin/includes/meta-boxes.php:203
 msgid "Password:"
 msgstr "Парола:"

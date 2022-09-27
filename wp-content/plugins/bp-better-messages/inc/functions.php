@@ -188,24 +188,26 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 }
             }
 
-            $participants = BP_Better_Messages()->functions->get_participants( $thread_id );
+            if( $type === 'thread' ) {
+                $participants = BP_Better_Messages()->functions->get_participants( $thread_id );
 
-            if( $participants['count'] > 2 ){
-                global $wpdb;
+                if( $participants['count'] > 2 ){
+                    global $wpdb;
 
-                $admin_user = (int) $wpdb->get_var($wpdb->prepare("
-                    SELECT sender_id 
-                    FROM `" . bpbm_get_table('messages') . "` 
-                    WHERE `thread_id` = %d 
-                    AND   `sender_id` != '0'
-                    ORDER BY `" . bpbm_get_table('messages') . "`.`date_sent` ASC
-                    LIMIT 0,1
-                ", $thread_id));
+                    $admin_user = (int) $wpdb->get_var($wpdb->prepare("
+                        SELECT sender_id 
+                        FROM `" . bpbm_get_table('messages') . "` 
+                        WHERE `thread_id` = %d 
+                        AND   `sender_id` != '0'
+                        ORDER BY `" . bpbm_get_table('messages') . "`.`date_sent` ASC
+                        LIMIT 0,1
+                    ", $thread_id));
 
-                if( intval($user_id) === $admin_user){
-                    return true;
+                    if( intval($user_id) === $admin_user){
+                        return true;
+                    }
+
                 }
-
             }
 
             return false;
@@ -223,12 +225,12 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             $allow_invite = (BP_Better_Messages()->functions->get_thread_meta( $thread_id, 'allow_invite' ) === 'yes');
 
             $participants_count = (bool) $wpdb->get_var($wpdb->prepare("
-            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `thread_id` = %d AND `sender_only` = '0' AND `is_deleted` = '0'
+            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `thread_id` = %d AND `is_deleted` = '0'
             ", $thread_id ));
 
             if( ( $participants_count > 2 && $allow_invite ) || ( $participants_count <= 2 && BP_Better_Messages()->settings['privateThreadInvite'] === '1' ) ){
                 $userIsParticipant = (bool) $wpdb->get_var($wpdb->prepare("
-                SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0' AND `is_deleted` = '0'
+                SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `is_deleted` = '0'
                 ", get_current_user_id(), $thread_id ));
 
                 if( $userIsParticipant ){
@@ -243,7 +245,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             global $wpdb;
 
             $userIsParticipant = (bool) $wpdb->get_var($wpdb->prepare("
-            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0' AND `is_deleted` = '0'
+            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `is_deleted` = '0'
             ", $user_id, $thread_id));
 
             if( $userIsParticipant ){
@@ -254,6 +256,13 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
         }
 
         public function get_thread_subject($thread_id){
+            $thread_type = $this->get_thread_type( $thread_id );
+
+            if( $thread_type === 'chat-room' ){
+                $chat_id = $this->get_thread_meta( $thread_id, 'chat_id' );
+                return get_the_title( $chat_id );
+            }
+
             global $wpdb;
 
             $subject = $wpdb->get_var( $wpdb->prepare( "
@@ -762,8 +771,10 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 $user_id = $current_user_id;
             }
 
-            if ( ! isset( $user_id ) || $user_id == false ) {
-                $user_id = bp_displayed_user_id();
+            if( class_exists('BuddyPress') ) {
+                if ( ! isset($user_id) || $user_id == false ) {
+                    $user_id = bp_displayed_user_id();
+                }
             }
 
             if ( ! isset( $user_id ) || $user_id == false ) {
@@ -1239,7 +1250,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 'class'  => 'avatar',
                 'html'   => true,
                 'id'     => false,
-                'alt'    => sprintf( __( 'Profile picture of %s', 'buddypress' ), $fullname )
+                'alt'    => sprintf( __( 'Profile picture of %s', 'bp-better-messages' ), $fullname )
             );
 
             $r = wp_parse_args( $args, $defaults );
@@ -1279,7 +1290,8 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             RIGHT JOIN `{$wpdb->posts}` as `posts`
             ON `posts`.`ID` = `postmeta`.`post_id`
             WHERE `posts`.`post_type` = 'bpbm-bulk-report'
-            AND `postmeta`.`meta_key` = 'thread_ids'";
+            AND `postmeta`.`meta_key` = 'thread_ids'
+            AND `postmeta`.`meta_value` REGEXP '^[0-9]+$'";
 
             $threads_excluded = $wpdb->get_var($query_exclude);
 
@@ -1324,6 +1336,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             $threads_from = $wpdb->get_col($query_from);
             $threads_to = $wpdb->get_col($query_to);
 
+
             $threads_between_users = [];
             foreach ( $threads_from as $thread_id ){
                 if( in_array( $thread_id, $threads_to )){
@@ -1358,7 +1371,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
         {
             $current_user_id = get_current_user_id();
 
-            if ( $user_id == false ) {
+            if ( $user_id == false && class_exists('BuddyPress') ) {
                 $user_id = bp_displayed_user_id();
 
                 if( $current_user_id !== $user_id && ! current_user_can('manage_options') ){
@@ -1502,8 +1515,13 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 <div class="info">
                     <?php
                     if ( ! $chat_id && ! $group_id && $recipients_count <= 1 ) {
-                        $user_id  = array_values( $thread->recipients )[ 0 ];
-                        $userdata = get_userdata( $user_id );
+                        $userdata = false;
+
+                        $users_ids = array_values( $thread->recipients );
+                        if( isset( $users_ids[ 0 ] ) ) {
+                            $user_id = array_values($thread->recipients)[0];
+                            $userdata = get_userdata($user_id);
+                        }
 
                         if( $userdata ){
                             $name = apply_filters( 'bp_better_messages_thread_displayname', bp_core_get_user_displayname( $user_id ), $user_id, $thread->thread_id );
@@ -1599,7 +1617,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 $wpdb->insert(bpbm_get_table('recipients'), [
                     'user_id'     => $from_user->ID,
                     'thread_id'   => $new_thread_id,
-                    'sender_only' => 1
+                    'sender_only' => 0
                 ]);
 
                 $wpdb->insert(bpbm_get_table('recipients'), [
@@ -1675,7 +1693,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             global $wpdb;
 
             $userIsParticipant = (bool) $wpdb->get_var($wpdb->prepare("
-            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d AND `sender_only` = '0'
+            SELECT COUNT(*) FROM `" . bpbm_get_table('recipients') . "` WHERE `user_id` = %d AND `thread_id` = %d
             ", $user_id, $thread_id));
 
             if( ! $userIsParticipant ) {
@@ -3258,10 +3276,10 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 if ( 'wp_error' === $r['error_type'] ) {
                     if ( empty( $r['sender_id'] ) ) {
                         $error_code = 'messages_empty_sender';
-                        $feedback   = __( 'Your message was not sent. Please use a valid sender.', 'buddypress' );
+                        $feedback   = __( 'Your message was not sent. Please use a valid sender.', 'bp-better-messages' );
                     } else {
                         $error_code = 'messages_empty_content';
-                        $feedback   = __( 'Your message was not sent. Please enter some content.', 'buddypress' );
+                        $feedback   = __( 'Your message was not sent. Please enter some content.', 'bp-better-messages' );
                     }
 
                     return new WP_Error( $error_code, $feedback );
@@ -3296,17 +3314,16 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 }
 
                 // Set a default reply subject if none was sent.
-                if ( empty( $message->subject ) ) {
-                    $message->subject = sprintf( __( 'Re: %s', 'buddypress' ), $thread->messages[0]->subject );
+                if ( empty( $message->subject ) && isset( $thread->messages[0] ) ) {
+                    $message->subject = sprintf( __( 'Re: %s', 'bp-better-messages' ), $thread->messages[0]->subject );
                 }
-
                 // ...otherwise use the recipients passed
             } else {
 
                 // Bail if no recipients.
                 if ( empty( $r['recipients'] ) ) {
                     if ( 'wp_error' === $r['error_type'] ) {
-                        return new WP_Error( 'message_empty_recipients', __( 'Message could not be sent. Please enter a recipient.', 'buddypress' ) );
+                        return new WP_Error( 'message_empty_recipients', __( 'Message could not be sent. Please enter a recipient.', 'bp-better-messages' ) );
                     } else {
                         return false;
                     }
@@ -3314,7 +3331,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
 
                 // Set a default subject if none exists.
                 if ( empty( $message->subject ) ) {
-                    $message->subject = __( 'No Subject', 'buddypress' );
+                    $message->subject = __( 'No Subject', 'bp-better-messages' );
                 }
 
                 // Setup the recipients array.
@@ -3366,7 +3383,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                 $recipient_ids = array_unique( $recipient_ids );
                 if ( empty( $recipient_ids ) ) {
                     if ( 'wp_error' === $r['error_type'] ) {
-                        return new WP_Error( 'message_invalid_recipients', __( 'Message could not be sent because you have entered an invalid username. Please try again.', 'buddypress' ) );
+                        return new WP_Error( 'message_invalid_recipients', __( 'Message could not be sent because you have entered an invalid username. Please try again.', 'bp-better-messages' ) );
                     } else {
                         return false;
                     }
@@ -3388,7 +3405,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
                     if ( is_wp_error( $send ) ) {
                         return $send;
                     } else {
-                        return new WP_Error( 'message_generic_error', __( 'Message was not sent. Please try again.', 'buddypress' ) );
+                        return new WP_Error( 'message_generic_error', __( 'Message was not sent. Please try again.', 'bp-better-messages' ) );
                     }
                 }
 
@@ -3418,6 +3435,7 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             if( $args['return'] === 'message_id' ){
                 return $message->id;
             }
+
             // Return the thread ID.
             return $message->thread_id;
         }
@@ -3493,7 +3511,16 @@ if ( !class_exists( 'BP_Better_Messages_Functions' ) ):
             }
 
             return $has_role;
+        }
 
+        public function redirect_to_messages_link( $thread_id = false ){
+            $array = ['bm-redirect-to-messages' => ''];
+
+            if( $thread_id ){
+                $array['thread-id'] = $thread_id;
+            }
+
+            return add_query_arg($array, site_url('/'));
         }
     }
 

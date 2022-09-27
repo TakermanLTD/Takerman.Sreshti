@@ -104,11 +104,13 @@ $can_moderate = BP_Better_Messages()->functions->is_thread_super_moderator( get_
             }
 
             $_subject = $subject;
+
             if( $is_mini ) {
                 $_subject = mb_strimwidth($_subject,0, 20, '...');
             }
             echo '<strong title="' . $subject . '">' . $_subject . '</strong>';
         }
+
 
         if( ! $is_mini ){
             echo '<a href="#" class="mobileClose"><i class="fas fa-window-close"></i></a>';

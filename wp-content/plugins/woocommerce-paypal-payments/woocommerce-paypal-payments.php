@@ -3,13 +3,13 @@
  * Plugin Name: WooCommerce PayPal Payments
  * Plugin URI:  https://woocommerce.com/products/woocommerce-paypal-payments/
  * Description: PayPal's latest complete payments processing solution. Accept PayPal, Pay Later, credit/debit cards, alternative digital wallets local payment types and bank accounts. Turn on only PayPal options or process a full suite of payment methods. Enable global transaction with extensive currency and country coverage.
- * Version:     1.9.1
+ * Version:     1.9.3
  * Author:      WooCommerce
  * Author URI:  https://woocommerce.com/
  * License:     GPL-2.0
  * Requires PHP: 7.1
  * WC requires at least: 3.9
- * WC tested up to: 6.6
+ * WC tested up to: 6.8
  * Text Domain: woocommerce-paypal-payments
  *
  * @package WooCommerce\PayPalCommerce
@@ -24,6 +24,8 @@ define( 'PAYPAL_SANDBOX_API_URL', 'https://api.sandbox.paypal.com' );
 define( 'PAYPAL_INTEGRATION_DATE', '2022-04-13' );
 
 define( 'PPCP_FLAG_SUBSCRIPTION', true );
+define( 'PPCP_FLAG_OXXO', apply_filters( 'woocommerce_paypal_payments_enable_oxxo_feature', false ) );
+define( 'PPCP_FLAG_SEPARATE_APM_BUTTONS', apply_filters( 'woocommerce_paypal_payments_enable_separate_apm_buttons_feature', false ) );
 
 ! defined( 'CONNECT_WOO_CLIENT_ID' ) && define( 'CONNECT_WOO_CLIENT_ID', 'AcCAsWta_JTL__OfpjspNyH7c1GGHH332fLwonA5CwX4Y10mhybRZmHLA0GdRbwKwjQIhpDQy0pluX_P' );
 ! defined( 'CONNECT_WOO_SANDBOX_CLIENT_ID' ) && define( 'CONNECT_WOO_SANDBOX_CLIENT_ID', 'AYmOHbt1VHg-OZ_oihPdzKEVbU3qg0qXonBcAztuzniQRaKE0w1Hr762cSFwd4n8wxOl-TCWohEa0XM_' );
@@ -139,6 +141,44 @@ define( 'PPCP_FLAG_SUBSCRIPTION', true );
 
 			return $links;
 		}
+	);
+
+	// Add links below the description on the Plugins page.
+	add_filter(
+		'plugin_row_meta',
+		function( $links, $file ) {
+			if ( plugin_basename( __FILE__ ) !== $file ) {
+				return $links;
+			}
+
+			return array_merge(
+				$links,
+				array(
+					sprintf(
+						'<a target="_blank" href="%1$s">%2$s</a>',
+						'https://woocommerce.com/document/woocommerce-paypal-payments/',
+						__( 'Documentation', 'woocommerce-paypal-payments' )
+					),
+					sprintf(
+						'<a target="_blank" href="%1$s">%2$s</a>',
+						'https://woocommerce.com/document/woocommerce-paypal-payments/#get-help',
+						__( 'Get help', 'woocommerce-paypal-payments' )
+					),
+					sprintf(
+						'<a target="_blank" href="%1$s">%2$s</a>',
+						'https://woocommerce.com/feature-requests/woocommerce-paypal-payments/',
+						__( 'Request a feature', 'woocommerce-paypal-payments' )
+					),
+					sprintf(
+						'<a target="_blank" href="%1$s">%2$s</a>',
+						'https://github.com/woocommerce/woocommerce-paypal-payments/issues/new?assignees=&labels=type%3A+bug&template=bug_report.md',
+						__( 'Submit a bug', 'woocommerce-paypal-payments' )
+					),
+				)
+			);
+		},
+		10,
+		2
 	);
 
 	/**
