@@ -68,6 +68,9 @@ Go to Plugins > Add New and search for aThemes Starter Sites. Install and activa
 
 == Changelog ==
 
+= 1.0.24 =
+* New starter site added for Botiga Pro
+
 = 1.0.22 =
 * New starter site added for Botiga Pro
 

@@ -25,7 +25,7 @@ define('NONCE_SALT',       '#wQChK->Yv/d8bB+da+TD]}>Mc8HO;n35Z5fvA#A7X?iM<$9u6,/
 define('WP_CACHE_KEY_SALT', 'Ge4~%O1,L1y6liy[/J*5PfB)b4wY{5.nw]qOvqc~C}k!L6/TG}eUJ@EqgFCP{0+?');
 define("VIDEO_CONFERENCING_HOST_ASSIGN_PAGE", true);
 
-$table_prefix = 'lkd_';
+$table_prefix = 'wp_';
 
 // debug
 define('WP_DEBUG', 'true');

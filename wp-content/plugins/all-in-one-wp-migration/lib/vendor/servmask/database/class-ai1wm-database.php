@@ -1477,7 +1477,7 @@ abstract class Ai1wm_Database {
 		$search  = $this->get_old_table_prefixes();
 		$replace = $this->get_new_table_prefixes();
 
-		// Replace first occurance at a specified position
+		// Replace first occurrence at a specified position
 		if ( $position !== false ) {
 			for ( $i = 0; $i < count( $search ); $i++ ) {
 				$current = stripos( $input, $search[ $i ], $position );
@@ -1503,7 +1503,7 @@ abstract class Ai1wm_Database {
 		$search  = $this->get_old_column_prefixes();
 		$replace = $this->get_new_column_prefixes();
 
-		// Replace first occurance at a specified position
+		// Replace first occurrence at a specified position
 		if ( $position !== false ) {
 			for ( $i = 0; $i < count( $search ); $i++ ) {
 				$current = stripos( $input, $search[ $i ], $position );

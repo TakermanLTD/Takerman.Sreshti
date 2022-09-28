@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress - 6.0.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-04 15:28:04+0000\n"
+"PO-Revision-Date: 2022-09-26 19:14:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"X-Generator: GlotPress/4.0.0-alpha.3\n"
 "Language: bg\n"
 "Project-Id-Version: WordPress - 6.0.x - Development - Administration\n"
 
@@ -120,13 +120,74 @@ msgstr "С новите клавишни команци избирате няк�
 msgid "Better List View"
 msgstr "По-добър списъчен изглед"
 
+#. translators: %s Working with Patterns dev note link.
+#: wp-admin/about.php:196
+msgid "Patterns will now appear when you need them in even more places, like in the quick inserter or when creating a new header or footer. If you&#8217;re a block theme author, you can even <a href=\"%s\">register patterns from the Pattern Directory using <code>theme.json</code></a>, enabling you to prioritize specific patterns that are most helpful to your theme&#8217;s users."
+msgstr "Макетите вече ще се появяват на още повече места, като например в опцията за бързо вмъкване или когато създавате нови хедър и футър. Ако сте автор на блокови теми, можете дори да <a href=\"%s\">регистрирате макетите си в базата данни с макети като използвате <code>theme.json</code></a>. Това ще ви позволи да приоритизирате конкретни макети, които най-много се харесват и помагат на потребителите на темата ви."
+
 #: wp-admin/about.php:190
 msgid "Integrated Patterns"
 msgstr "Вградени макети"
 
+#: wp-admin/about.php:180
+msgid "The query block supports filtering on multiple authors, support for custom taxonomies, and support for customizing what is shown when there are no results."
+msgstr "Блокът за заявки поддържа филтриране по множество автори, собствени таксономии и персонализация на съобщението когато няма резултати."
+
+#: wp-admin/about.php:174
+msgid "While editing a template, at the root, or between blocks, the quick inserter shows you patterns and template parts to help you work faster and discover new layout options."
+msgstr "Докато редактирате шаблон, в основата му, или между блоковете, опцията за бързо вмъкване ви показва макети и части от шаблона, за да работите по-бързо и да имате нови опции за оформление."
+
+#: wp-admin/about.php:168
+msgid "New featured image sizing controls make it easier to get the results you want."
+msgstr "Нова функционалност за контрол на основното изображение към публикациите."
+
+#: wp-admin/about.php:167
+msgid "Featured images can be used in the cover block."
+msgstr "Основните изображения могат да се използват във фоновия блок."
+
+#: wp-admin/about.php:157
+msgid "WordPress 6.0 includes five new template options: author, date, categories, tag, and taxonomy. These additional templates provide greater flexibility for content creators. Tailor each with the tools you already know or with the following new options in this release."
+msgstr "WordPress 6.0 има пет нови шаблони: автор, дата, категории, етикети и таксономии. Тези допълнителни шаблони дават още повече възможности на създателите на съдържание. Те могат да се променят с инструментите, които вече познавате или със следните нови попълнения от тази версия."
+
+#: wp-admin/about.php:154
+msgid "More Template Choices"
+msgstr "Още повече шаблони"
+
+#: wp-admin/about.php:140
+msgid "Block themes now include the option to contain multiple style variations. This expands the new Style system even further and enables shortcuts to switch the look and feel of your site all within a single theme. You can change both the available settings, like the font weight, and the style options, like the default color palette. Change the look and feel of your site with just a few clicks."
+msgstr "Блоковите теми вече имат опция за множество вариации на стилове. Това разширява съществуващата система от стилове и дава достъп до бързи връзки за промяна на изгледа на сайта ви в рамките на една и съща тема. Можете да промените и съществуващите настройки като тип на шрифта, но и стиловите опции като цветовата схема. Променяте дизайна на сайта си само с няколко натискания."
+
 #: wp-admin/about.php:137
 msgid "Style Switching"
 msgstr "Превключване на стилове"
+
+#: wp-admin/about.php:129
+msgid "Make tag clouds and social icons even more appealing with updated settings and controls, and a new outline style for the tag cloud."
+msgstr "Облака етикети и иконите за социални мрежи могат да изглеждат много по-добре с подобрените настройки и контролери и нови стилове за тези елементи."
+
+#: wp-admin/about.php:128
+msgid "Create customized buttons and any new buttons you make will retain the style customizations automatically."
+msgstr "Създавате свои бутони и всички бутони, които изградите, са в стила, който вече сте избрали автоматично."
+
+#: wp-admin/about.php:127
+msgid "Keep existing styles when you transform some blocks from one kind to another—from a Paragraph block to a Code block, for instance."
+msgstr "Запазете стиловете си консистентни когато сменяте типа на някои блокове от един към друг - от блок за параграф към блок за код, например."
+
+#: wp-admin/about.php:126
+msgid "Type two open brackets <code>[[</code> to quickly access the link menu."
+msgstr "Напишете две отворени скоби <code>[[</code> за бърз достъп до менюто с връзки."
+
+#: wp-admin/about.php:125
+msgid "Select text across multiple blocks and edit it all at once."
+msgstr "Избирате и редактирате текст в няколко блока едновременно."
+
+#: wp-admin/about.php:122
+msgid "Writing improvements abound, whether you&#8217;re writing a brand new post or adding elements to an existing page. Explore more ways to streamline your content creation process, including:"
+msgstr "Идват много подобрения за писане независимо дали създавате нова публикация или добавяте елементи към съществуваща страница. Ето кои са новите начини да улесните създаването на съдържание:"
+
+#: wp-admin/about.php:119
+msgid "Enhanced Writing Experience"
+msgstr "Подобрени функции за писане"
 
 #: wp-admin/about.php:108
 msgid "WordPress 6.0 includes more than 500 enhancements and 400 bug fixes. This page highlights several key advancements aimed at making your WordPress content-creating and site-building experience more feature-rich and intuitive. You will also find resources for developers and anyone wanting a deeper understanding of WordPress."
@@ -178,18 +239,149 @@ msgstr "След като изберете страницата с полити�
 msgid "<strong>Error:</strong> Your %1$s file is not <a href=\"%2$s\">writable</a>, so updating it automatically was not possible. These are the mod_rewrite rules you should have in your %1$s file. Click in the field and press %3$s (or %4$s on Mac) to select all."
 msgstr "<strong>Грешка:</strong> Файлът %1$s не е <a href=\"%2$s\">се редактира</a>, така че автоматичното му обновяване не е възможно. Това са правилата за mod_rewrite, които трябва да има вашия файл %1$s. Натиснете върху полето и изберете %3$s (или %4$s на Mac), за да изберете всичко."
 
+#. translators: 1: web.config, 2: Documentation URL, 3: Ctrl + A, 4: ⌘ + A,
+#. 5: Element code.
+#: wp-admin/options-permalink.php:371
+msgid "<strong>Error:</strong> Your %1$s file is not <a href=\"%2$s\">writable</a>, so updating it automatically was not possible. This is the URL rewrite rule you should have in your %1$s file. Click in the field and press %3$s (or %4$s on Mac) to select all. Then insert this rule inside of the %5$s element in %1$s file."
+msgstr "<strong>Грешка:</strong> Файлът %1$s <a href=\"%2$s\">не се редактира</a>, така че автоматичното му обновяване не е възможно. Това е условието за пренаписване на адресите, което трябва да има вашия файл %1$s. Натиснете върху полето и изберете %3$s (или %4$s на Mac), за да изберете всичко. След това вмъкнете това условие в елемент %5$s на файл %1$s."
+
+#: wp-admin/options-discussion.php:221
+msgid "An avatar is an image that can be associated with a user across multiple websites. In this area, you can choose to display avatars of users who interact with the site."
+msgstr "Аватарът е изображение, което може да се асоциира с потребител в много сайтове. В тази зона можете да изберете да покажете аватарите на потребителите, които ползват сайта."
+
 #: wp-admin/includes/post.php:1510
 msgid "Change Permalink Structure"
 msgstr "Промяна на структурата на връзките"
+
+#. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
+#. those are placeholders.
+#: wp-admin/includes/misc.php:1428
+msgid ""
+"Howdy ###USERNAME###,\n"
+"\n"
+"Someone with administrator capabilities recently requested to have the\n"
+"administration email address changed on this site:\n"
+"###SITEURL###\n"
+"\n"
+"To confirm this change, please click on the following link:\n"
+"###ADMIN_URL###\n"
+"\n"
+"You can safely ignore and delete this email if you do not want to\n"
+"take this action.\n"
+"\n"
+"This email has been sent to ###EMAIL###\n"
+"\n"
+"Regards,\n"
+"All at ###SITENAME###\n"
+"###SITEURL###"
+msgstr ""
+"Привет ###USERNAME###,\n"
+"\n"
+"Някой с администраторски права е поискал смени администраторския имейл адрес за този сайт: \n"
+"###SITEURL###\n"
+"\n"
+"За да потвърдите промяната, натиснете на тази връзка:\n"
+"###ADMIN_URL###\n"
+"\n"
+"Можете да игнорирате и изтриете това писмо ако не искате да предприемете това действие.\n"
+"\n"
+"Този имейл е изпратен на ###EMAIL###\n"
+"\n"
+"Поздрави,\n"
+"Всички от ###SITENAME###\n"
+"###SITEURL###"
+
+#: wp-admin/includes/meta-boxes.php:709
+msgid "https://wordpress.org/support/article/excerpt/"
+msgstr "https://wordpress.org/support/article/excerpt/"
+
+#. translators: Default privacy policy heading.
+#: wp-admin/includes/class-wp-privacy-policy-content.php:594
+msgid "Where your data is sent"
+msgstr "Къде се изпращат данните ви"
+
+#. translators: %s: Attachment title.
+#: wp-admin/includes/class-wp-media-list-table.php:822
+msgid "Copy &#8220;%s&#8221; URL to clipboard"
+msgstr "Копиране на &#8220;%s&#8221; в междинната памет."
+
+#: wp-admin/includes/class-wp-automatic-updater.php:847
+msgid "Some data that describes the error your site encountered has been put together."
+msgstr "Ето малко данни, които обясняват грешката, с която сайтът ви се сблъска."
+
+#: wp-admin/includes/class-wp-automatic-updater.php:781
+msgid "An attempt was made, but your site could not be updated automatically."
+msgstr "Направихме опит, но не успяхме да обновим сайта ви автоматично."
 
 #: wp-admin/includes/class-theme-installer-skin.php:248
 msgctxt "theme"
 msgid "Active"
 msgstr "Активна"
 
+#: wp-admin/includes/class-core-upgrader.php:160
+#: wp-admin/includes/class-wp-upgrader.php:165
+#: wp-admin/includes/update-core.php:999
+msgid "The update cannot be installed because some files could not be copied. This is usually due to inconsistent file permissions."
+msgstr "Версията не може да бъде инсталирана защото някои файлове не могат да бъдат копирани. Това обикновено се дължи на несъответствие в разрешения достъп до файловете."
+
+#: wp-admin/export-personal-data.php:39
+msgid "<strong>Media</strong> &mdash; A list of URLs for media files the user uploads."
+msgstr "<strong>Медия</strong> &mdash; Списък с линкове за медийни файлове, които потребителите качват."
+
+#: wp-admin/export-personal-data.php:36
+msgid "<strong>Community Events Location</strong> &mdash; The IP Address of the user, which populates the Upcoming Community Events dashboard widget with relevant information."
+msgstr "<strong>Местоположение от джаджата за предстоящи събития</strong> &mdash; IP адресът на потребителя, който е използван за джаджата с предстоящи събития, показвана на таблото."
+
+#: wp-admin/export-personal-data.php:34
+msgid "WordPress collects (but <em>never</em> publishes) a limited amount of data from registered users who have logged in to the site. Generally, these users are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these users do not include occasional visitors who might have registered to comment on articles or buy products. The data WordPress retains can include:"
+msgstr "WordPress събира (но <em>никога</em> не прави публични) ограничен брой данни от регистрирани потребители, които са влизали в сайта. В повечето случаи това са потребителите, които създават съдържание - публикации, поддръжка на продукти и т.н. С малки изключения тези потребители не включват случайни посетители, регистрирани, за да коментират или купуват от сайта. Данните, които WordPress е възможно да събира могат да включват:"
+
+#: wp-admin/export-personal-data.php:25
+msgid "Note: Since this tool only gathers data from WordPress and participating plugins, you may need to do more to comply with export requests. For example, you should also send the requester some of the data collected from or stored with the 3rd party services your organization uses."
+msgstr "Важно: Тъй като този инструмент събира данни само от WordPress и активни разширения, може да се наложи да се занимавате със заявки за екпорт. Възможно е например да трябва да изпратите на заявяващите част от данните, които са събрани от външни услуги, които сайтът на организацията ви ползва."
+
+#: wp-admin/export-personal-data.php:23
+msgid "Privacy Laws around the world require businesses and online services to provide an export of some of the data they collect about an individual, and to deliver that export on request. The rights those laws enshrine are sometimes called the \"Right of Data Portability\". It allows individuals to obtain and reuse their personal data for their own purposes across different services. It allows them to move, copy or transfer personal data easily from one IT environment to another."
+msgstr "Законите за поверителност на данни задължавате бизнесите и онлайн услугите да предоставят извадка от част от данните, които събират за отделни потребители ако такава извадка бъде поискана. Правата, които тези закони подсигуряват се наричат права за преносимост на данните. Те подсигуряват на потребителите достъп и възможност за използване на собствените им данни за собствени цели за много услуги. Позволява им да местят, копират и прехвърлят личните си данни лесно от една IT среда в друга."
+
+#: wp-admin/erase-personal-data.php:38
+msgid "<strong>Comments</strong> &mdash; WordPress does not delete comments. The software does anonymize (but, again, <em>never</em> publishes) the associated Email Address, IP Address, and User Agent (Browser/OS)."
+msgstr "<strong>Коментари</strong> &mdash; WordPress не трие коментари. Софтуерът може да ги направи анонимни (но, отново, <em>никога</em> не публикува) свързаните имейл адрес, IP адрес или потребителски данни за браузър и операционна система."
+
+#: wp-admin/erase-personal-data.php:34
+msgid "WordPress collects (but <em>never</em> publishes) a limited amount of data from logged-in users but then deletes it or anonymizes it. That data can include: "
+msgstr "WordPress събира (но <em>никога</em> не публикува) ограничено количество данни от потребители, след което ги трие и анонимизира. Тези данни може да включват: "
+
+#: wp-admin/erase-personal-data.php:25
+msgid "Note: As this tool only gathers data from WordPress and participating plugins, you may need to do more to comply with erasure requests. For example, you are also responsible for ensuring that data collected by or stored with the 3rd party services your organization uses gets deleted."
+msgstr "Важно: Този инструмент събира данни само от WordPress и включени разширения. Затова може да се наложи да извършите още действия, за да може да изтриете направени заявки за триене на данни. Например: Вие сте отговорни за това да се уверите, че данните, които се събират и съхраняват от външни услуги, ще бъдат изтрити."
+
+#: wp-admin/erase-personal-data.php:23
+msgid "Privacy Laws around the world require businesses and online services to delete, anonymize, or forget the data they collect about an individual. The rights those laws enshrine are sometimes called the \"Right to be Forgotten\"."
+msgstr "Законите за поверителност по света изискват триене или анонимизиране на данните, които събирате. Правата, които тези закони осигуряват се наричат \"Право на изтриване\"."
+
+#: wp-admin/erase-personal-data.php:22
+msgid "This screen is where you manage requests to erase personal data."
+msgstr "На този екран се управляват заявките за триене на лични данни."
+
+#: wp-admin/edit-form-advanced.php:451
+msgid "This post is being backed up in your browser, just in case."
+msgstr "Тази публикация има запазено копие в браучъра ви за всеки случай."
+
+#. translators: 1: URL to my-sites.php, 2: Number of sites the user has.
+#: wp-admin/authorize-application.php:178
+msgid "This will grant access to <a href=\"%1$s\">the %2$s site on the network as you have Super Admin rights</a>."
+msgid_plural "This will grant access to <a href=\"%1$s\">all %2$s sites on the network as you have Super Admin rights</a>."
+msgstr[0] "Това дава достъп до <a href=\"%1$s\"> %2$s сайта в мрежата, тъй като имате права на супер администратор</a>."
+msgstr[1] "Това ще даде права до <a href=\"%1$s\">всички %2$s сайтове в мрежата, тъй като имате права на супер администратор</a>."
+
 #: wp-admin/includes/dashboard.php:2047
 msgid "Learn about block themes"
 msgstr "Научете за блоковите теми"
+
+#: wp-admin/includes/dashboard.php:2046
+msgid "There is a new kind of WordPress theme, called a block theme, that lets you build the site you&#8217;ve always wanted &#8212; with blocks and styles."
+msgstr "Вече има нов ти теми за WordPress, наречени блок теми, с които можете да създавате сайтовете, които винаги сте искали, с помощта на блокове и стилове."
 
 #: wp-admin/includes/dashboard.php:2045
 msgid "Discover a new way to build your site."
@@ -270,10 +462,22 @@ msgstr "https://wordpress.org/support/article/editing-wp-config-php/#wp_environm
 msgid "If this is a development website you can <a href=\"%s\" target=\"_blank\">set the environment type accordingly</a> to enable application passwords."
 msgstr "Ако този сайт е работен можете да <a href=\"%s\" target=\"_blank\">зададете вида платформа за разработка</a>, за да включите паролите на приложението. "
 
+#: wp-admin/user-edit.php:813
+msgid "The application password feature requires HTTPS, which is not enabled on this site."
+msgstr "Паролата за приложението изисква HTTPS, койот не е активиран на този сайт."
+
 #. translators: 1: Date, 2: Time.
 #: wp-admin/update-core.php:1057
 msgid "g:i a T"
 msgstr "G: i T"
+
+#: wp-admin/theme-editor.php:53
+msgid "<a href=\"https://wordpress.org/support/article/appearance-editor-screen/\">Documentation on Editing Themes</a>"
+msgstr "<a href=\"https://wordpress.org/support/article/appearance-editor-screen/\">Документация за редактиране на теми</a>"
+
+#: wp-admin/site-health.php:90
+msgid "<a href=\"https://wordpress.org/support/article/site-health-screen/\">Documentation on Site Health tool</a>"
+msgstr "<a href=\"https://wordpress.org/support/article/site-health-screen/\">Документация за Инструмента за проверка на статуса на сайта</a>"
 
 #: wp-admin/site-health.php:84
 msgid "In the Info tab, you will find all the details about the configuration of your WordPress site, server, and database. There is also an export feature that allows you to copy all of the information about your site to the clipboard, to help solve problems on your site when obtaining support."

@@ -5,7 +5,7 @@
     Plugin Name: Better Messages
     Plugin URI: https://www.wordplus.org
     Description: Enhanced Private Messages System for BuddyPress and WordPress
-    Version: 1.9.10.66
+    Version: 1.9.10.67
     Author: WordPlus
     Author URI: https://www.wordplus.org
     License: GPL2
@@ -17,7 +17,7 @@ if ( !class_exists( 'BP_Better_Messages' ) && !function_exists( 'bpbm_fs' ) ) {
     class BP_Better_Messages
     {
         public  $realtime ;
-        public  $version = '1.9.10.66' ;
+        public  $version = '1.9.10.67' ;
         public  $path ;
         public  $url ;
         public  $settings ;

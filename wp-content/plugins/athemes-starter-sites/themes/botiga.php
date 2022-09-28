@@ -127,6 +127,32 @@ function botiga_demos_list() {
 				'customizer' => 'https://athemes.com/themes-demo-content/botiga/jewelry/botiga-c-jewelry.dat'
 			),
 		),
+		'single-product'   => array(
+			'name'       => esc_html__( 'Single Product', 'athemes-starter-sites' ),
+			'type'       => 'pro',
+			'categories' => array( 'ecommerce' ),
+			'builders'   => array(
+				'gutenberg',
+			),
+			'preview'    => 'https://demo.athemes.com/botiga-single-product/',
+			'thumbnail'  => 'https://athemes.com/themes-demo-content/botiga/single-product/thumb.png',
+			'plugins'    => array_merge(
+				array(
+					array(
+						'name'     => 'WPForms',
+						'slug'     => 'wpforms-lite',
+						'path'     => 'wpforms-lite/wpforms.php',
+						'required' => false
+					)					
+				),
+				$plugins
+			),
+			'import'     => array(
+				'content'    => 'https://athemes.com/themes-demo-content/botiga/single-product/botiga-dc-single-product.xml',
+				'widgets'    => 'https://athemes.com/themes-demo-content/botiga/single-product/botiga-w-single-product.wie',
+				'customizer' => 'https://athemes.com/themes-demo-content/botiga/single-product/botiga-c-single-product.dat'
+			),
+		),
 	);
 
 	return $demos;
@@ -156,6 +182,11 @@ function botiga_setup_after_import() {
 	);
 
 	if( $demo_id == 'apparel' ) {
+
+		// The demo apparel uses the old header system, so we need to disable the HF Builder
+		$all_modules = get_option( 'botiga-modules' );
+		$all_modules = ( is_array( $all_modules ) ) ? $all_modules : (array) $all_modules;
+		update_option( 'botiga-modules', array_merge( $all_modules, array( 'hf-builder' => false ) ) );
 		
 		// Assign footer copyright menu
 		$copyright_menu = get_term_by( 'name', 'Footer Copyright', 'nav_menu' );
@@ -171,7 +202,6 @@ function botiga_setup_after_import() {
 	if ( 'jewelry' === $demo_id ) {
 		$all_modules = get_option( 'botiga-modules' );
 		$all_modules = ( is_array( $all_modules ) ) ? $all_modules : (array) $all_modules;
-
 		update_option( 'botiga-modules', array_merge( $all_modules, array( 'hf-builder' => true, 'mega-menu' => true ) ) );
 
 		// Update custom CSS file with mega menu css
@@ -229,7 +259,7 @@ function botiga_setup_after_import() {
 	}
 
 	// Create/assign WooCommerce pages
-	$shop_page 		= get_page_by_title( 'Shop' );
+	$shop_page 		= 'single-product' === $demo_id ? get_page_by_title( 'Listing' ) : get_page_by_title( 'Shop' );
 	$cart_page 		= get_page_by_title( 'Cart' );
 	$checkout_page  = get_page_by_title( 'Checkout' );
 	$myaccount_page = get_page_by_title( 'My Account' );
@@ -240,6 +270,10 @@ function botiga_setup_after_import() {
 	update_option( 'woocommerce_myaccount_page_id', $myaccount_page->ID );
 
 	atss_import_helper( 'botiga', $demo_id );
+
+	// Update custom CSS
+	$custom_css = Botiga_Custom_CSS::get_instance();
+	$custom_css->update_custom_css_file();
 
 	// Delete the transient for demo id
 	delete_transient( 'atss_importer_demo_id' );

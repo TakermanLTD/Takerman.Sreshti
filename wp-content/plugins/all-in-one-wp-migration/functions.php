@@ -314,7 +314,15 @@ function ai1wm_archive_name( $params ) {
  * @return string
  */
 function ai1wm_backup_url( $params ) {
-	return AI1WM_BACKUPS_URL . '/' . ai1wm_replace_directory_separator_with_forward_slash( $params['archive'] );
+	static $backups_base_url = '';
+	if ( empty( $backups_base_url ) ) {
+		$backups_base_url = str_replace( untrailingslashit( ABSPATH ), '', AI1WM_BACKUPS_PATH );
+		$backups_base_url = site_url(
+			ai1wm_replace_directory_separator_with_forward_slash( $backups_base_url )
+		);
+	}
+
+	return $backups_base_url . '/' . ai1wm_replace_directory_separator_with_forward_slash( $params['archive'] );
 }
 
 /**
