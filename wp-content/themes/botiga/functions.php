@@ -9,7 +9,7 @@
 
 if ( ! defined( 'BOTIGA_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'BOTIGA_VERSION', '1.1.8' );
+	define( 'BOTIGA_VERSION', '1.2.1' );
 }
 
 // aThemes White Label Compatibility
@@ -164,7 +164,6 @@ if ( ! function_exists( 'botiga_setup' ) ) :
 				);
 			}
 		}
-		
 
 		add_theme_support(
 			'editor-color-palette',
@@ -322,15 +321,36 @@ add_action( 'wp_enqueue_scripts', 'botiga_scripts', 10 );
  * Enqueue style css
  * Ensure compatibility with Botiga Pro, since pro scripts are enqueued with order "10"
  * We always need the custom.min.css as the last stylesheet enqueued
+ * 
+ * 'botiga-custom-style' is registered at 'inc/classes/class-botiga-custom-css.php'
  */
 function botiga_style_css() {
-	wp_enqueue_style( 'botiga-style', get_stylesheet_uri(), array(), BOTIGA_VERSION );
 	wp_enqueue_style( 'botiga-style-min', get_template_directory_uri() . '/assets/css/styles.min.css', array(), BOTIGA_VERSION );
+	wp_enqueue_style( 'botiga-custom-styles' );
+	wp_enqueue_style( 'botiga-style', get_stylesheet_uri(), array(), BOTIGA_VERSION );
 }
-add_action( 'wp_enqueue_scripts', 'botiga_style_css', 11 );
+add_action( 'wp_enqueue_scripts', 'botiga_style_css', 12 );
 
 /**
- * Page Templates
+ * Enqueue admin scripts and styles.
+ */
+function botiga_admin_scripts() {
+	wp_enqueue_script( 'botiga-admin-functions', get_template_directory_uri() . '/assets/js/admin-functions.min.js', array('jquery'), BOTIGA_VERSION, true );
+	wp_localize_script( 'botiga-admin-functions', 'botigaadm', array(
+		'hfUpdate' => array(
+			'confirmMessage' => __( 'Are you sure you want to upgrade your header?', 'botiga' ),
+			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'botiga' )
+		),
+		'hfUpdateDimiss' => array(
+			'confirmMessage' => __( 'Are you sure you want to dismiss this notice?', 'botiga' ),
+			'errorMessage' => __( 'It was not possible complete the request, please reload the page and try again.', 'botiga' )
+		),						
+	) );
+}
+add_action( 'admin_enqueue_scripts', 'botiga_admin_scripts' );
+
+/**
+ * Page Templates.
  */
 function botiga_remove_page_templates( $page_templates ) {
 	if( ! defined( 'BOTIGA_PRO_VERSION' ) ) {
@@ -342,7 +362,7 @@ function botiga_remove_page_templates( $page_templates ) {
 add_filter( 'theme_page_templates', 'botiga_remove_page_templates' );
 
 /**
- * Deactivate Elementor Wizard
+ * Deactivate Elementor Wizard.
  */
 function botiga_deactivate_ele_onboarding() {
 	update_option( 'elementor_onboarded', true );
@@ -350,7 +370,7 @@ function botiga_deactivate_ele_onboarding() {
 add_action( 'after_switch_theme', 'botiga_deactivate_ele_onboarding' );
 
 /**
- * Gutenberg editor
+ * Gutenberg editor.
  */
 require get_template_directory() . '/inc/editor.php';
 
@@ -417,14 +437,14 @@ if( defined( 'DOKAN_PLUGIN_VERSION' ) ) {
 }
 
 /**
- * Upsell
+ * Upsell.
  */
 if( ! defined( 'BOTIGA_PRO_VERSION' ) ) {
 	require get_template_directory() . '/inc/customizer/upsell/class-customize.php';
 }
 
 /**
- * Theme classes
+ * Theme classes.
  */
 require get_template_directory() . '/inc/classes/class-botiga-topbar.php';
 require get_template_directory() . '/inc/classes/class-botiga-header.php';
@@ -435,12 +455,12 @@ require get_template_directory() . '/inc/classes/class-botiga-metabox.php';
 require get_template_directory() . '/inc/classes/class-botiga-custom-css.php';
 
 /**
- * Theme ajax callbacks
+ * Theme ajax callbacks.
  */
 require get_template_directory() . '/inc/ajax-callbacks.php';
 
 /**
- * Autoload
+ * Autoload.
  */
 require_once get_parent_theme_file_path( 'vendor/autoload.php' );
 
@@ -455,12 +475,45 @@ require get_template_directory() . '/theme-dashboard/class-theme-dashboard.php';
 require get_template_directory() . '/inc/theme-dashboard-settings.php';
 
 /**
- * Review notice
+ * Modules.
+ */
+require get_template_directory() . '/inc/modules/class-botiga-modules.php';
+if( defined( 'BOTIGA_PRO_VERSION' ) ) {
+	if( version_compare( BOTIGA_PRO_VERSION, '1.1.0', '>=' ) ) {
+		require get_template_directory() . '/inc/modules/hf-builder/class-header-footer-builder.php';
+	} else {
+		$botiga_all_modules = get_option( 'botiga-modules' );
+		$botiga_all_modules = ( is_array( $botiga_all_modules ) ) ? $botiga_all_modules : (array) $botiga_all_modules;
+		update_option( 'botiga-modules', array_merge( $botiga_all_modules, array( 'hf-builder' => false ) ) );
+
+		add_action( 'admin_notices', function(){ ?>
+			<div class="notice notice-warning" style="position:relative;">
+				<p>
+					<?php
+					printf(
+						/* Translators: %1$s current user display name. */
+						esc_html__(
+							'It looks like your website is running Botiga Pro but not with its latest version. Please note that Botiga 1.1.9+ (free theme) requires Botiga Pro updated to a minimum version of 1.1.0. For it please go to %s and update Botiga Pro.', 'botiga'
+						),
+						'<a href="'. esc_url( admin_url( 'plugins.php' ) ) .'">' . esc_html__( 'Plugins', 'botiga' ) . '</a>'
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		}, 0 );
+	}
+} else {
+	require get_template_directory() . '/inc/modules/hf-builder/class-header-footer-builder.php';
+}
+
+/**
+ * Review notice.
  */
 require get_template_directory() . '/inc/notices/class-botiga-review.php';
 
 /**
- * Theme update migration functions
+ * Theme update migration functions.
  */
 require get_template_directory() . '/inc/theme-update.php';
 
