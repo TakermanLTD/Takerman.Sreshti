@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-Two package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-28 07:36:58+0000\n"
+"PO-Revision-Date: 2022-09-28 08:43:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -343,7 +343,7 @@ msgstr "Едвард<br>Смит"
 
 #: inc/patterns/page-about-solid-color.php:6
 msgid "About page on solid color background"
-msgstr "Връзки за нас на плътен фон"
+msgstr "Страница за представяне на плътен фон"
 
 #: inc/patterns/page-about-simple-dark.php:22
 msgid "Oh hello. My name’s Jesús, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
@@ -371,7 +371,7 @@ msgstr "Изображение на летяща птица"
 
 #: inc/patterns/page-about-media-right.php:6
 msgid "About page with media on the right"
-msgstr "Страница За нас с медия вдясно"
+msgstr "Страница за представяне с медия вдясно"
 
 #: inc/patterns/page-about-media-left.php:21
 msgid "Oh hello. My name’s Doug, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
@@ -392,7 +392,7 @@ msgstr "Изображение на птица на клон"
 
 #: inc/patterns/page-about-media-left.php:6
 msgid "About page with media on the left"
-msgstr "Страница За нас с медия вляво"
+msgstr "Страница за представяне с медия вляво"
 
 #: inc/patterns/page-about-links.php:21
 msgid "A podcast about birds"
@@ -404,7 +404,7 @@ msgstr "Пикиране"
 
 #: inc/patterns/page-about-links.php:6
 msgid "About page links"
-msgstr "Връзки за нас"
+msgstr "Връзки за страница за представяне"
 
 #: inc/patterns/page-about-links-dark.php:42
 #: inc/patterns/page-about-links.php:46
@@ -442,11 +442,11 @@ msgstr "Лого с летяща птица"
 
 #: inc/patterns/page-about-links-dark.php:6
 msgid "About page links (dark)"
-msgstr "Връзки за нас (тъмно)"
+msgstr "Връзки за страница за представяне (тъмно)"
 
 #: inc/patterns/page-about-large-image-and-buttons.php:6
 msgid "About page with large image and buttons"
-msgstr "Връзки за нас с голямо изображение и бутони"
+msgstr "Страница за представяне с голямо изображение и бутони"
 
 #: inc/patterns/page-about-large-image-and-buttons.php:59
 msgid "Join my mailing list"

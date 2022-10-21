@@ -1,7 +1,7 @@
 <?php
 // host
-define('WP_HOME', 'http://sreshti');
-define('WP_SITEURL', 'http://sreshti');
+// define('WP_HOME', 'http://sreshti');
+// define('WP_SITEURL', 'http://sreshti');
 
 // database
 define('DB_NAME', 'takerman_sreshti');
