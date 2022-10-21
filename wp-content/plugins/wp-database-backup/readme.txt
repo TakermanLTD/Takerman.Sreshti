@@ -5,8 +5,8 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Database backup, db backup, backup, database, WordPress Database Backup, WP db backup, wp database backup, wp backup, wordpress backup, mysql backup, automatically database backup, website backup, website database backup, restore database backup, Store database backup on dropbox, backup on google drive, backup on amazon s3,ftp,email notification.
 Requires at least: 3.1+
-Tested up to: 5.8.2
-Stable tag: trunk
+Tested up to: 6.0.1
+Stable tag: 5.9
 
 Create & Restore Database Backup easily on single click. Manual or automated backups (backup to Dropbox, Google drive, Amazon s3,FTP,Email).
 
@@ -130,7 +130,10 @@ WP Database Backup plugin helps you to Restore Database Backup easily on single 
 
 == Changelog ==
 
-= 5.8.3 =
+= 5.9 =
+* 09-08-2022
+* Sanitised multiple inputs and escape output to remove further risk of cross site script security.
+
 = 5.8.2 =
 * 06-01-2022
 * Filter hook for Dropbox file name
@@ -496,7 +499,7 @@ Also Please make sure that you have write permission to Backup folder and also c
 * https://www.wpseeds.com/documentation/
 
 == Upgrade Notice ==
-* Added Feature - Filter hook for Dropbox file name.
+* Sanitised multiple inputs and escape output to remove further risk of cross site script security.
 
 == Official Site ==
 * https://www.wpseeds.com/documentation/docs/wp-database-backup

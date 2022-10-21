@@ -159,15 +159,15 @@ class Google_Client {
   /**
    * Set the OAuth 2.0 access token using the string that resulted from calling authenticate()
    * or Google_Client#getAccessToken().
-   * @param string $accessToken JSON encoded string containing in the following format:
+   * @param string $access_token JSON encoded string containing in the following format:
    * {"access_token":"TOKEN", "refresh_token":"TOKEN", "token_type":"Bearer",
    *  "expires_in":3600, "id_token":"TOKEN", "created":1320790426}
    */
-  public function setAccessToken($accessToken) {
-    if ($accessToken == null || 'null' == $accessToken) {
-      $accessToken = null;
+  public function setAccessToken($access_token) {
+    if ($access_token == null || 'null' == $access_token) {
+      $access_token = null;
     }
-    self::$auth->setAccessToken($accessToken);
+    self::$auth->setAccessToken($access_token);
   }
 
   /**
@@ -189,7 +189,7 @@ class Google_Client {
 
   /**
    * Get the OAuth 2.0 access token.
-   * @return string $accessToken JSON encoded string in the following format:
+   * @return string $access_token JSON encoded string in the following format:
    * {"access_token":"TOKEN", "refresh_token":"TOKEN", "token_type":"Bearer",
    *  "expires_in":3600,"id_token":"TOKEN", "created":1320790426}
    */
@@ -253,36 +253,36 @@ class Google_Client {
 
   /**
    * Set the OAuth 2.0 Client ID.
-   * @param string $clientId
+   * @param string $client_id
    */
-  public function setClientId($clientId) {
+  public function setClientId($client_id) {
     global $apiConfig;
-    $apiConfig['oauth2_client_id'] = $clientId;
-    self::$auth->clientId = $clientId;
+    $apiConfig['oauth2_client_id'] = $client_id;
+    self::$auth->client_id = $client_id;
   }
 
   /**
    * Get the OAuth 2.0 Client ID.
    */
   public function getClientId() {
-    return self::$auth->clientId;
+    return self::$auth->client_id;
   }
 
   /**
    * Set the OAuth 2.0 Client Secret.
-   * @param string $clientSecret
+   * @param string $client_secret
    */
-  public function setClientSecret($clientSecret) {
+  public function setClientSecret($client_secret) {
     global $apiConfig;
-    $apiConfig['oauth2_client_secret'] = $clientSecret;
-    self::$auth->clientSecret = $clientSecret;
+    $apiConfig['oauth2_client_secret'] = $client_secret;
+    self::$auth->client_secret = $client_secret;
   }
 
   /**
    * Get the OAuth 2.0 Client Secret.
    */
   public function getClientSecret() {
-    return self::$auth->clientSecret;
+    return self::$auth->client_secret;
   }
 
   /**

@@ -226,7 +226,6 @@ class WPForms_Builder {
 				'imgareaselect',
 				'wp-mediaelement',
 				'mediaelement',
-				'media-views',
 				'buttons',
 				'admin-bar',
 			]
@@ -441,7 +440,7 @@ class WPForms_Builder {
 			'dom-purify',
 			WPFORMS_PLUGIN_URL . 'assets/lib/purify.min.js',
 			[],
-			'2.3.10'
+			'2.4.0'
 		);
 
 		if ( wp_is_mobile() ) {

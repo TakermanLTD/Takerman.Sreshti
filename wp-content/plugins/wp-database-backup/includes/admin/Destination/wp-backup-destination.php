@@ -1,10 +1,16 @@
 <?php
+/**
+ * Include destination files.
+ *
+ * @package wpdbbkp
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
-include plugin_dir_path(__FILE__) . '/FTP/FTP_form.php';
-include plugin_dir_path(__FILE__) . '/Local/Local_form.php';
-include plugin_dir_path(__FILE__) . '/Email/Email_form.php';
-include plugin_dir_path(__FILE__) . '/Google/Google_form.php';
-include plugin_dir_path(__FILE__) . '/S3/S3_form.php';
-include plugin_dir_path(__FILE__) . '/Dropbox/Dropbox_form.php';
+require plugin_dir_path( __FILE__ ) . '/FTP/ftp-form-dest.php';
+require plugin_dir_path( __FILE__ ) . '/Local/local-form.php';
+require plugin_dir_path( __FILE__ ) . '/Email/email-form.php';
+require plugin_dir_path( __FILE__ ) . '/Google/google-form.php';
+require plugin_dir_path( __FILE__ ) . '/S3/s3-form.php';
+require plugin_dir_path( __FILE__ ) . '/Dropbox/dropbox-form.php';

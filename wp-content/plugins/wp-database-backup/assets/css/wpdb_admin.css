@@ -16,6 +16,8 @@ body{
 .wpdb_log .arrow {
     margin-left: 0px !important;
 }
-.bootstrap-wrapper .popover{
-max-width:100% !important;
+.popover{
+    max-width: 500Px !important;
+    background: #f6f7f7 !important;
+    padding: 10px !important;
 }

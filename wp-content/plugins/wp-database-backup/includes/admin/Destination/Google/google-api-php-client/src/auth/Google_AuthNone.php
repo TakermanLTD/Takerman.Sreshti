@@ -32,7 +32,7 @@ class Google_AuthNone extends Google_Auth {
 
   public function setDeveloperKey($key) {$this->key = $key;}
   public function authenticate($service) {/*noop*/}
-  public function setAccessToken($accessToken) {/* noop*/}
+  public function setAccessToken($access_token) {/* noop*/}
   public function getAccessToken() {return null;}
   public function createAuthUrl($scope) {return null;}
   public function refreshToken($refreshToken) {/* noop*/}

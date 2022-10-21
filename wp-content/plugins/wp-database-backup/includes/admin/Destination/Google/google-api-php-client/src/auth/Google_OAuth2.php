@@ -27,8 +27,8 @@ require_once "service/Google_Utils.php";
  *
  */
 class Google_OAuth2 extends Google_Auth {
-  public $clientId;
-  public $clientSecret;
+  public $client_id;
+  public $client_secret;
   public $developerKey;
   public $token;
   public $redirectUri;
@@ -60,11 +60,11 @@ class Google_OAuth2 extends Google_Auth {
     }
 
     if (! empty($apiConfig['oauth2_client_id'])) {
-      $this->clientId = $apiConfig['oauth2_client_id'];
+      $this->client_id = $apiConfig['oauth2_client_id'];
     }
 
     if (! empty($apiConfig['oauth2_client_secret'])) {
-      $this->clientSecret = $apiConfig['oauth2_client_secret'];
+      $this->client_secret = $apiConfig['oauth2_client_secret'];
     }
 
     if (! empty($apiConfig['oauth2_redirect_uri'])) {
@@ -98,8 +98,8 @@ class Google_OAuth2 extends Google_Auth {
           'code' => $code,
           'grant_type' => 'authorization_code',
           'redirect_uri' => $this->redirectUri,
-          'client_id' => $this->clientId,
-          'client_secret' => $this->clientSecret
+          'client_id' => $this->client_id,
+          'client_secret' => $this->client_secret
       )));
 
       if ($request->getResponseHttpCode() == 200) {
@@ -116,8 +116,8 @@ class Google_OAuth2 extends Google_Auth {
       }
     }
 
-    $authUrl = $this->createAuthUrl($service['scope']);
-    header('Location: ' . $authUrl);
+    $auth_url = $this->createAuthUrl($service['scope']);
+    header('Location: ' . $auth_url);
     return true;
   }
 
@@ -132,7 +132,7 @@ class Google_OAuth2 extends Google_Auth {
     $params = array(
         'response_type=code',
         'redirect_uri=' . urlencode($this->redirectUri),
-        'client_id=' . urlencode($this->clientId),
+        'client_id=' . urlencode($this->client_id),
         'scope=' . urlencode($scope),
         'access_type=' . urlencode($this->accessType),
         'approval_prompt=' . urlencode($this->approvalPrompt),
@@ -192,7 +192,7 @@ class Google_OAuth2 extends Google_Auth {
   }
 
   /**
-   * Include an accessToken in a given apiHttpRequest.
+   * Include an access_token in a given apiHttpRequest.
    * @param Google_HttpRequest $request
    * @return Google_HttpRequest
    * @throws Google_AuthException
@@ -241,8 +241,8 @@ class Google_OAuth2 extends Google_Auth {
    */
   public function refreshToken($refreshToken) {
     $this->refreshTokenRequest(array(
-        'client_id' => $this->clientId,
-        'client_secret' => $this->clientSecret,
+        'client_id' => $this->client_id,
+        'client_secret' => $this->client_secret,
         'refresh_token' => $refreshToken,
         'grant_type' => 'refresh_token'
     ));
@@ -363,7 +363,7 @@ class Google_OAuth2 extends Google_Auth {
 
     $certs = $this->getFederatedSignonCerts();
     if (!$audience) {
-      $audience = $this->clientId;
+      $audience = $this->client_id;
     }
     return $this->verifySignedJwtWithCerts($id_token, $certs, $audience);
   }
