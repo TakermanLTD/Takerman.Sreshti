@@ -9,6 +9,11 @@ RUN apt update && \
     mariadb-client
 
 COPY php.ini /usr/local/etc/php
+COPY wp-content/plugins/ /var/www/html/wp-content/plugins
+COPY wp-content/themes/ /var/www/html/wp-content/themes
+COPY wp-content/uploads/ /var/www/html/wp-content/uploads
+
+VOLUME ["/wp-content/themes","/wp-content/plugins","/wp-content/uploads"]
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     php wp-cli.phar --info&& \
